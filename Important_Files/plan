@@ -1,0 +1,1792 @@
+# HealthExpress AI — End-to-End Mobile App UI Design Prompt
+
+Use the following as the **master UI/UX design instruction** for the existing functional Flutter app. The goal is to redesign the visual layer **without changing the existing functionality, navigation logic, APIs, database, or business logic**.
+
+---
+
+## 1. Overall Design Direction
+
+Redesign the existing **HealthExpress AI mobile application** into a:
+
+* Modern healthcare super-app
+* Clean, premium, trustworthy and professional
+* AI-first but human-friendly
+* Simple enough for first-time healthcare users
+* Fast and easy to navigate
+* Visually inspired by the usability of modern apps such as food delivery, quick-commerce and appointment-booking apps, **without copying their branding or UI**
+* Use a **3D illustrative/clay-style visual language** selectively
+* Use realistic-looking doctor and patient avatars
+* Strong visual hierarchy
+* Rounded cards
+* Soft shadows
+* Spacious layouts
+* Large touch targets
+* Minimal typing wherever possible
+
+### Primary visual identity
+
+Use a healthcare-focused **blue-based color system**.
+
+Suggested palette:
+
+* Primary: Medical blue
+* Secondary: Cyan/sky blue
+* Background: Very light blue/white
+* Cards: White
+* Success: Green
+* Warning: Amber
+* Emergency: Red
+* Text: Dark navy/charcoal
+* Secondary text: Cool gray
+
+Do not make every screen heavily blue. Use blue mainly for actions, navigation, highlights and AI-related elements.
+
+---
+
+# 2. Design Principles
+
+Every screen should follow these principles:
+
+1. **Functionality already exists — redesign only the UI.**
+2. Preserve existing routes and functional interactions.
+3. Do not remove working features.
+4. Do not introduce unnecessary fields.
+5. Do not overload users with medical terminology.
+6. Prioritize the most important action on each screen.
+7. Use progressive disclosure for detailed health information.
+8. Keep primary CTA buttons visually obvious.
+9. Maintain consistent spacing, typography, icons and cards.
+10. Design for one-handed mobile usage.
+11. Support both online and low-connectivity states visually.
+12. Make emergency actions immediately recognizable.
+13. AI recommendations should feel personalized rather than generic.
+14. Doctor/hospital affiliation must always be visually clear.
+
+---
+
+# 3. Global Mobile Layout
+
+Use a consistent structure across the app.
+
+### Standard screen
+
+```text
+Status Bar
+        ↓
+Top App Bar
+        ↓
+Page Header / Context
+        ↓
+Main Content
+        ↓
+Primary CTA where applicable
+        ↓
+Bottom Navigation
+```
+
+### Bottom navigation for Patient
+
+Use approximately:
+
+```text
+Home
+AI
+Appointments
+Orders
+Profile
+```
+
+Keep the navigation simple and icon + label based.
+
+### Doctor bottom navigation
+
+```text
+Home
+Appointments
+Patients
+Messages
+Profile
+```
+
+---
+
+# 4. Typography
+
+Use a modern rounded sans-serif font.
+
+Recommended hierarchy:
+
+* Large page title
+* Medium section heading
+* Strong card title
+* Normal body text
+* Small metadata
+* Tiny supporting information
+
+Avoid excessive uppercase text.
+
+Use bold typography only for:
+
+* Important health information
+* Doctor names
+* Appointment status
+* Prices
+* Primary CTAs
+* Emergency information
+
+---
+
+# 5. Global Components
+
+Create a reusable design system.
+
+### Components
+
+* Primary button
+* Secondary button
+* Outline button
+* Text button
+* Icon button
+* Search bar
+* AI card
+* Doctor card
+* Hospital card
+* Appointment card
+* Medicine card
+* Health metric card
+* Recommendation card
+* Test card
+* Emergency card
+* Status badge
+* Bottom sheet
+* Modal
+* Confirmation dialog
+* Empty state
+* Loading state
+* Error state
+* Offline state
+* Skeleton loader
+* Avatar
+* Rating component
+* Timeline
+* Stepper
+* Tabs
+* Chips
+* Filters
+* Date selector
+* Time-slot selector
+
+All components should have consistent:
+
+* Corner radius
+* Padding
+* Typography
+* Icon sizing
+* Shadow
+* Border treatment
+* Interaction states
+
+---
+
+# 6. PATIENT APP — END-TO-END UI
+
+## Screen 1 — Splash
+
+Minimal branded screen.
+
+Show:
+
+* HealthExpress AI logo
+* Small healthcare/AI visual
+* Short tagline
+
+Example:
+
+**HealthExpress AI**
+*Your intelligent healthcare companion*
+
+Do not overload the splash screen.
+
+---
+
+# 7. Welcome Screen
+
+Create a premium healthcare hero screen.
+
+Show:
+
+* 3D healthcare illustration
+* HealthExpress AI branding
+* Short explanation
+* `Get Started` CTA
+* `Login` secondary action
+
+Visual:
+
+```text
+       3D Healthcare AI Illustration
+
+          HealthExpress AI
+
+   Healthcare that understands you
+
+        [ Get Started ]
+
+             Login
+```
+
+---
+
+# 8. Role Selection
+
+Show two clear cards:
+
+### Patient
+
+“Find care, doctors, medicines and health guidance.”
+
+### Doctor
+
+“Manage appointments, patients and consultations.”
+
+Use illustrated avatars.
+
+---
+
+# 9. Authentication Method
+
+Clean choice screen:
+
+```text
+Continue with Google
+
+Continue with Mobile
+
+Continue with Email
+```
+
+Keep authentication visually simple.
+
+---
+
+# 10. Mobile Authentication
+
+Use:
+
+* Mobile number
+* OTP
+* Country code
+* Resend timer
+
+Avoid unnecessary registration information.
+
+---
+
+# 11. Email Authentication
+
+Provide:
+
+* Email
+* Password
+* Continue
+* Forgot password
+* Create account
+
+Use clear validation.
+
+---
+
+# 12. Basic Registration
+
+Initial registration should remain minimal.
+
+Fields:
+
+* Name
+* Mobile number
+
+Optional:
+
+* Profile photo
+
+Do **not** force users to complete their entire medical profile during onboarding.
+
+After registration:
+
+```text
+Welcome, [Name]
+
+Let's personalize your healthcare experience.
+
+[ Continue ]
+```
+
+---
+
+# 13. PATIENT HOME DASHBOARD
+
+This is the **most important screen in the app**.
+
+The dashboard should dynamically change based on the user's current health context.
+
+### Layout
+
+```text
+Good morning, Pavan
+How are you feeling today?
+
+[ 🔍 Search healthcare ]
+
+[ 🎙 Talk to HealthExpress AI ]
+
+Your Health
+--------------------------------
+Health Score      Next Appointment
+    82                 Tomorrow
+
+AI Insights
+--------------------------------
+You mentioned fever recently.
+Here are some things that may help.
+
+[ Doctor ]
+[ Medicine ]
+[ Test ]
+
+Recommended for You
+--------------------------------
+Doctor cards
+Medicine cards
+Test cards
+Care plans
+
+Quick Actions
+--------------------------------
+Find Doctor
+Hospitals
+Medicines
+Emergency
+
+Upcoming Appointment
+--------------------------------
+Doctor + Hospital
+Date + Time
+[ View Appointment ]
+```
+
+---
+
+# 14. Dynamic AI Dashboard
+
+This is a key differentiating feature.
+
+If the user says:
+
+> “I have fever, headache and cough.”
+
+The home screen should dynamically prioritize:
+
+```text
+AI Health Insight
+
+Based on what you told me:
+
+Fever
+Cough
+Headache
+
+Recommended:
+--------------------------------
+Find General Physician
+Possible tests
+Medicine information
+Home care
+Temperature tracking
+```
+
+The cards should be visually generated based on the user's current context.
+
+Do not make the dashboard static.
+
+---
+
+# 15. AI Health Assistant
+
+Design this as a premium conversational AI experience.
+
+### Header
+
+```text
+← HealthExpress AI
+     ● Online
+```
+
+### Conversation
+
+Use conversational cards rather than a traditional messaging interface for important medical information.
+
+Example:
+
+```text
+AI:
+What symptoms are you experiencing?
+
+User:
+I have fever and headache.
+
+AI:
+How long have you had the fever?
+
+[ Today ]
+[ 2–3 days ]
+[ More than 3 days ]
+```
+
+Allow:
+
+* Voice input
+* Text input
+* Suggested answers
+* Microphone button
+* Stop/end conversation
+* Conversation history where supported
+
+---
+
+# 16. AI Voice/Live Experience
+
+Create a dedicated immersive voice state.
+
+Visual:
+
+```text
+          HealthExpress AI
+
+             ◉
+       Listening...
+
+      "Tell me how you're feeling"
+
+      [ microphone animation ]
+
+       [ End Conversation ]
+```
+
+Use subtle animated waves/rings around the AI orb.
+
+States:
+
+* Connecting
+* Listening
+* Thinking
+* Speaking
+* Completed
+
+---
+
+# 17. AI Recommendation Screen
+
+After conversation, display:
+
+### Your AI Health Summary
+
+```text
+Symptoms
+Fever
+Headache
+Cough
+
+Duration
+2 days
+
+Severity
+Moderate
+```
+
+Then:
+
+### Recommended Next Steps
+
+Cards:
+
+* Doctor
+* Test
+* Medicine information
+* Home care
+* Health tracking
+
+Important:
+
+Clearly distinguish **AI guidance** from confirmed medical diagnosis.
+
+---
+
+# 18. Recommended Doctor Screen
+
+Create highly visual doctor cards.
+
+Each card:
+
+```text
+[Doctor Photo]
+
+Dr. Ananya Sharma
+General Physician
+
+★★★★★ 4.8
+
+8+ Years Experience
+
+KIMS Hospitals
+Hyderabad
+
+₹500 Consultation
+
+[ Book Appointment ]
+```
+
+Hospital affiliation should be clearly visible.
+
+For independent doctors:
+
+```text
+Independent Practice
+```
+
+instead of a hospital.
+
+---
+
+# 19. Doctor Search
+
+Top:
+
+```text
+Search doctors, specialty...
+```
+
+Filters:
+
+* Specialty
+* Location
+* Hospital
+* Consultation type
+* Price
+* Availability
+* Rating
+
+Use horizontal filter chips.
+
+---
+
+# 20. Doctor Profile
+
+Hero section:
+
+```text
+[Large Doctor Photo]
+
+Dr. Ananya Sharma
+General Physician
+
+★★★★★ 4.8
+
+KIMS Hospitals
+```
+
+Sections:
+
+* About
+* Qualifications
+* Experience
+* Specialties
+* Languages
+* Hospital affiliation
+* Consultation fee
+* Services
+* Availability
+* Reviews
+
+Sticky bottom CTA:
+
+```text
+[ Book Appointment ]
+```
+
+---
+
+# 21. Hospital Discovery
+
+Hospital cards should show:
+
+* Hospital logo
+* Hospital image
+* Name
+* Location
+* Departments
+* Emergency availability
+* Rating
+* Key facilities
+
+Example:
+
+```text
+[Hospital Image]
+
+KIMS Hospitals
+
+Hyderabad
+
+Emergency • ICU • Pharmacy • Lab
+
+12 Departments
+
+[ View Hospital ]
+```
+
+---
+
+# 22. Hospital Profile
+
+Make this feel like a complete healthcare facility profile.
+
+Header:
+
+```text
+Hospital image
+Logo
+Hospital name
+Location
+Verified badge
+```
+
+Tabs:
+
+```text
+Overview | Departments | Doctors | Services
+```
+
+Show:
+
+* About hospital
+* Departments
+* Doctors
+* Facilities
+* Services
+* Emergency
+* Pharmacy
+* Lab
+* Ambulance
+* Contact/location
+
+---
+
+# 23. Hospital Doctors
+
+Show doctors grouped by specialty.
+
+```text
+Cardiology
+
+Dr. Rahul
+Cardiology
+KIMS Hospitals
+
+[ Book ]
+
+Dr. Priya
+Cardiology
+KIMS Hospitals
+
+[ Book ]
+```
+
+---
+
+# 24. Appointment Booking
+
+Make booking a simple step-by-step experience.
+
+### Step 1
+
+Select consultation type:
+
+```text
+Clinic
+Video
+Audio
+Home Visit
+```
+
+### Step 2
+
+Select date.
+
+### Step 3
+
+Select available slot.
+
+### Step 4
+
+Review booking.
+
+### Step 5
+
+Payment.
+
+Use a progress indicator:
+
+```text
+Doctor → Date → Time → Confirm → Payment
+```
+
+---
+
+# 25. Appointment Confirmation
+
+Show a strong confirmation card.
+
+```text
+✓ Appointment Confirmed
+
+Dr. Ananya Sharma
+KIMS Hospitals
+
+12 September
+10:30 AM
+
+Video Consultation
+
+[ View Appointment ]
+
+[ Add Reminder ]
+```
+
+---
+
+# 26. Appointments
+
+Use tabs:
+
+```text
+Upcoming | Completed | Cancelled
+```
+
+Appointment cards show:
+
+* Doctor
+* Hospital
+* Date
+* Time
+* Type
+* Payment
+* Status
+* Join button when eligible
+
+---
+
+# 27. Appointment Detail
+
+Show:
+
+* Doctor
+* Hospital
+* Date
+* Time
+* Appointment type
+* Fee
+* Payment status
+* Booking status
+* Cancellation policy
+* Reschedule
+* Cancel
+* Chat
+* Call
+
+Only show call controls when permitted.
+
+---
+
+# 28. Reschedule
+
+Use calendar + slot selection.
+
+Show policy clearly:
+
+```text
+Rescheduling policy
+
+Free rescheduling before 24 hours.
+
+Late cancellation/rescheduling may
+result in a partial refund according to
+provider policy.
+```
+
+Do not hide the policy.
+
+---
+
+# 29. Doctor Acceptance State
+
+After booking:
+
+```text
+Appointment Request Sent
+
+Waiting for doctor confirmation.
+
+Status:
+● Pending
+
+You will be notified when the doctor accepts.
+```
+
+After acceptance:
+
+```text
+✓ Appointment Accepted
+
+Chat is now available.
+```
+
+---
+
+# 30. Doctor Chat
+
+Healthcare messaging UI.
+
+Header:
+
+```text
+Dr. Ananya Sharma
+KIMS Hospitals
+● Appointment confirmed
+```
+
+Include:
+
+* Text
+* Images/documents
+* Prescription/document sharing
+* Appointment context
+* Voice/video availability indicator
+
+Do not make it look like a generic social messaging app.
+
+---
+
+# 31. Audio/Video Consultation
+
+Full-screen consultation interface.
+
+Show:
+
+* Doctor video
+* Patient video
+* Mute
+* Camera
+* Speaker
+* End call
+* Connection status
+
+Before appointment:
+
+```text
+Call available during appointment time
+```
+
+After appointment:
+
+```text
+Consultation ended
+```
+
+---
+
+# 32. Medicine Section
+
+Create a quick-commerce-inspired healthcare medicine experience.
+
+Home:
+
+```text
+Medicines
+
+Search medicines...
+
+Upload Prescription
+
+Nearby Pharmacies
+
+Recommended / Recent Medicines
+
+Track Orders
+```
+
+Medicine cards should show:
+
+* Medicine name
+* Form
+* Pack size
+* Price
+* Availability
+* Prescription required badge
+
+---
+
+# 33. Medicine Order
+
+Flow:
+
+```text
+Medicine
+ ↓
+Pharmacy
+ ↓
+Cart
+ ↓
+Address
+ ↓
+Payment
+ ↓
+Order Tracking
+```
+
+Keep checkout minimal.
+
+---
+
+# 34. Medicine Tracking
+
+Use timeline:
+
+```text
+✓ Order placed
+✓ Pharmacy accepted
+✓ Preparing
+● Out for delivery
+○ Delivered
+```
+
+Map view can show courier location where supported.
+
+---
+
+# 35. Tests
+
+Create a test discovery interface.
+
+Categories:
+
+* Blood
+* Imaging
+* Health packages
+* Preventive tests
+* AI-suggested tests
+
+AI-suggested test cards should show:
+
+```text
+Suggested based on your conversation
+
+[ Test name ]
+
+Why it may be useful
+[ View Details ]
+```
+
+Avoid presenting AI suggestions as confirmed medical requirements.
+
+---
+
+# 36. Emergency Screen
+
+This must be visually distinct.
+
+Top:
+
+```text
+EMERGENCY
+```
+
+Large:
+
+```text
+[ CALL EMERGENCY ]
+```
+
+Then:
+
+```text
+Request Ambulance
+Nearby Hospitals
+Emergency Contacts
+Current Location
+```
+
+If ambulance tracking exists:
+
+```text
+Ambulance arriving
+
+2.4 km away
+ETA 7 min
+
+[ Live Map ]
+```
+
+---
+
+# 37. Mapbox Live Tracking
+
+Use a clean map interface.
+
+Show:
+
+* User location
+* Ambulance/driver location
+* Route
+* ETA
+* Distance
+* Tracking status
+
+Bottom sheet:
+
+```text
+Ambulance #AX123
+
+Driver
+Vehicle
+ETA
+
+[ Call ]
+```
+
+---
+
+# 38. Health Records
+
+Create a document-management style interface.
+
+Categories:
+
+```text
+Consultations
+Prescriptions
+Lab Reports
+Radiology
+Discharge Summaries
+Vaccinations
+Invoices
+Other Documents
+```
+
+Use timeline + category cards.
+
+---
+
+# 39. Health Profile
+
+Progressive health information.
+
+Sections:
+
+### Basic
+
+* Name
+* DOB
+* Gender
+* Blood group
+* Emergency contact
+
+### Medical
+
+* Allergies
+* Conditions
+* Current medications
+* Previous surgeries
+* Hospitalizations
+
+### Lifestyle
+
+* Smoking
+* Alcohol
+* Activity
+* Other relevant information
+
+Do not force completion.
+
+Show:
+
+```text
+Profile completion: 65%
+
+Complete when you're ready.
+```
+
+---
+
+# 40. QR Health ID
+
+Create a clean QR screen.
+
+```text
+Your HealthExpress ID
+
+[ QR CODE ]
+
+Scan to securely access
+authorized health information.
+
+[ Manage Access ]
+```
+
+Important UI:
+
+* Consent status
+* Access history
+* Expiry
+* Revoke access
+
+Never visually imply that scanning automatically exposes all medical records.
+
+---
+
+# 41. Notifications
+
+Group notifications:
+
+```text
+Today
+Appointment accepted
+Medicine dispatched
+
+Yesterday
+Prescription uploaded
+AI health update
+```
+
+Use icons and status indicators.
+
+---
+
+# 42. Patient Profile
+
+Profile header:
+
+```text
+[Avatar]
+
+Pavan
+HealthExpress ID
+```
+
+Menu:
+
+```text
+Personal Information
+Health Profile
+Health Records
+Appointments
+Payments
+Addresses
+Emergency Contacts
+Privacy & Consent
+Notifications
+Help & Support
+Settings
+Logout
+```
+
+---
+
+# 43. DOCTOR APP
+
+Use a professional clinical dashboard.
+
+The doctor app should feel different from the patient app while maintaining the same design system.
+
+---
+
+# 44. Doctor Onboarding
+
+Keep initial registration simple.
+
+First:
+
+```text
+Name
+Mobile
+```
+
+Then progressive professional setup:
+
+```text
+Specialty
+Qualification
+Experience
+Registration Number
+Consultation Fee
+Services
+Availability
+```
+
+---
+
+# 45. Hospital Selection During Doctor Registration
+
+Show all approved hospitals registered in the system.
+
+Search:
+
+```text
+Search hospital...
+```
+
+Hospital cards:
+
+```text
+KIMS Hospitals
+Hyderabad
+Verified
+
+[ Select ]
+```
+
+Allow:
+
+```text
+Independent Practice
+```
+
+or hospital affiliation.
+
+If supported, allow multiple hospital affiliations.
+
+---
+
+# 46. Doctor Verification
+
+Show verification status:
+
+```text
+Professional Verification
+
+Personal Identity       ✓
+Medical Registration    ✓
+Qualification           ✓
+Hospital Affiliation    Pending
+```
+
+Use clear statuses:
+
+* Pending
+* Verified
+* Rejected
+* Requires action
+
+---
+
+# 47. Doctor Dashboard
+
+Main dashboard:
+
+```text
+Good morning, Dr. Ananya
+
+Today's Appointments
+--------------------------------
+8 appointments
+
+Next Appointment
+--------------------------------
+10:30 AM
+Patient: Rahul
+Video consultation
+
+[ View Appointment ]
+
+Today's Overview
+--------------------------------
+Patients
+Appointments
+Revenue
+Pending requests
+
+Quick Actions
+--------------------------------
+Appointments
+Patients
+Schedule
+Messages
+```
+
+---
+
+# 48. Doctor Appointments
+
+Tabs:
+
+```text
+Today | Upcoming | Completed
+```
+
+Appointment cards:
+
+```text
+10:30 AM
+Rahul Kumar
+
+Video Consultation
+
+✓ Accepted
+
+[ Open ]
+```
+
+---
+
+# 49. Appointment Request
+
+Doctor can:
+
+```text
+Accept
+Reject
+Suggest new time
+```
+
+If rejecting:
+
+Require reason where appropriate.
+
+---
+
+# 50. Doctor Patient Profile
+
+Show:
+
+```text
+Patient
+Age
+Gender
+
+Current concern
+
+Previous consultations
+
+Prescriptions
+
+Lab reports
+
+Health records
+```
+
+Respect authorization and privacy rules.
+
+---
+
+# 51. Doctor Consultation Screen
+
+Create a clinical workspace.
+
+Sections:
+
+```text
+Patient Overview
+Symptoms
+History
+AI Summary
+Notes
+Diagnosis/Assessment
+Prescription
+Documents
+```
+
+AI information should be visually marked as AI-generated assistance, not clinician-confirmed information.
+
+---
+
+# 52. Prescription UI
+
+Clean prescription creation:
+
+```text
+Medicine
+Dosage
+Frequency
+Duration
+Instructions
+```
+
+Then:
+
+```text
+[ Preview Prescription ]
+[ Send to Patient ]
+```
+
+---
+
+# 53. Doctor Schedule
+
+Calendar-based UI.
+
+Show:
+
+* Working days
+* Time slots
+* Breaks
+* Holidays
+* Leave
+* Appointment duration
+* Consultation types
+
+Use visual availability blocks.
+
+---
+
+# 54. Doctor Messages
+
+Separate:
+
+```text
+Patients
+Support
+```
+
+Show appointment context in patient conversations.
+
+---
+
+# 55. Doctor Profile
+
+Show:
+
+* Photo
+* Name
+* Specialty
+* Qualifications
+* Experience
+* Hospital affiliations
+* Services
+* Consultation fees
+* Availability
+* Verification badge
+
+---
+
+# 56. Doctor Earnings
+
+Dashboard:
+
+```text
+Today's Earnings
+This Week
+This Month
+
+Completed consultations
+Pending payments
+Refunds
+```
+
+Use clean graphs and summary cards.
+
+---
+
+# 57. Doctor Settings
+
+Sections:
+
+```text
+Profile
+Hospital Affiliations
+Availability
+Consultation Fees
+Notifications
+Privacy
+Payment Settings
+Support
+Logout
+```
+
+---
+
+# 58. OFFLINE / LOW-CONNECTIVITY UI
+
+The application must clearly communicate connection status.
+
+### Offline banner
+
+```text
+You're offline
+
+Some information may be outdated.
+Changes will sync when you're connected.
+```
+
+Do not make the entire app unusable.
+
+Cached screens should remain accessible where possible.
+
+For actions requiring network:
+
+```text
+Internet connection required
+```
+
+Use graceful retry controls.
+
+---
+
+# 59. Loading States
+
+Do not use blank screens.
+
+Use skeleton cards for:
+
+* Doctors
+* Hospitals
+* Appointments
+* Medicines
+* Records
+* AI recommendations
+
+---
+
+# 60. Empty States
+
+Every list needs a meaningful empty state.
+
+Example:
+
+```text
+No upcoming appointments
+
+Find a doctor and book your next consultation.
+
+[ Find Doctor ]
+```
+
+Avoid generic “No Data Found.”
+
+---
+
+# 61. Error States
+
+Use friendly but informative errors.
+
+Example:
+
+```text
+Something went wrong
+
+We couldn't load your appointments.
+
+[ Try Again ]
+```
+
+Do not expose technical errors or API messages.
+
+---
+
+# 62. Interaction & Animation
+
+Use subtle animations only.
+
+Recommended:
+
+* Card entrance
+* AI listening animation
+* Button press
+* Page transition
+* Bottom sheet
+* Appointment confirmation
+* Status changes
+* Map marker movement
+* Skeleton shimmer
+
+Avoid excessive animation because this is a healthcare application.
+
+---
+
+# 63. AI Visual Language
+
+AI-related elements should have a recognizable visual identity throughout the app.
+
+Use:
+
+* AI orb
+* Soft blue gradient
+* Small AI badge
+* Spark/AI icon
+* Conversational cards
+* Animated listening indicator
+
+For example:
+
+```text
+✦ AI Insight
+
+Based on your recent symptoms...
+```
+
+The AI should feel integrated into the application rather than appearing as a separate chatbot.
+
+---
+
+# 64. Personalization Rules
+
+The UI should support dynamic content.
+
+Examples:
+
+### Fever
+
+Prioritize:
+
+```text
+General Physician
+Temperature tracking
+Suggested tests
+Medicine information
+Hydration/home care
+```
+
+### Chest discomfort
+
+Prioritize:
+
+```text
+Urgent care
+Nearby hospital
+Emergency
+Relevant specialty
+```
+
+### Existing appointment
+
+Prioritize:
+
+```text
+Upcoming appointment
+Join consultation
+Doctor chat
+Prescription
+```
+
+### Medicine order
+
+Prioritize:
+
+```text
+Order status
+Delivery tracking
+Prescription
+Reorder
+```
+
+The **functional recommendation engine already implemented in the application should determine the content; the UI should dynamically render it in the appropriate card hierarchy.**
+
+---
+
+# 65. Visual Consistency Rules
+
+Across the entire app:
+
+* Same card radius
+* Same button height
+* Same icon family
+* Same typography scale
+* Same spacing system
+* Same avatar treatment
+* Same status badges
+* Same bottom navigation
+* Same loading behavior
+* Same error behavior
+* Same modal style
+
+Doctor, hospital and patient information must always use recognizable visual patterns.
+
+---
+
+# 66. Accessibility
+
+Ensure:
+
+* Large enough touch targets
+* Readable font sizes
+* Strong contrast
+* Icons accompanied by labels when necessary
+* Voice-friendly interaction
+* Clear error messages
+* No information communicated only through color
+* Support dynamic font scaling
+
+---
+
+# 67. Final UI Quality Target
+
+The final application should visually feel like:
+
+**Healthcare + AI + modern booking platform + quick-commerce convenience**
+
+but with its own unique HealthExpress AI identity.
+
+The experience should follow this overall journey:
+
+```text
+WELCOME
+   ↓
+AUTHENTICATION
+   ↓
+MINIMAL REGISTRATION
+   ↓
+PERSONALIZED HOME
+   ↓
+AI HEALTH ASSISTANT
+   ↓
+AI UNDERSTANDS USER NEED
+   ↓
+DYNAMIC RECOMMENDATIONS
+   ↓
+DOCTOR / HOSPITAL / TEST / MEDICINE
+   ↓
+BOOK / ORDER / REQUEST
+   ↓
+PAYMENT
+   ↓
+CONFIRMATION
+   ↓
+CHAT / AUDIO / VIDEO / HOME VISIT
+   ↓
+PRESCRIPTION / RECORDS
+   ↓
+FOLLOW-UP
+   ↓
+PERSONALIZED DASHBOARD UPDATES
+```
+
+### Critical implementation instruction
+
+**Do not rewrite or alter the existing functional implementation.**
+
+The redesign should operate as a **UI/UX layer over the existing working functionality**:
+
+* Preserve existing routes
+* Preserve API integrations
+* Preserve authentication
+* Preserve Firebase functionality
+* Preserve Mapbox functionality
+* Preserve payment flow
+* Preserve appointment logic
+* Preserve AI logic
+* Preserve doctor/hospital relationships
+* Preserve data models
+* Preserve backend integration
+* Preserve existing working actions
+
+Only improve:
+
+**layout → visual hierarchy → components → typography → colors → spacing → cards → navigation → animations → responsive behavior → empty/loading/error states → overall usability.**

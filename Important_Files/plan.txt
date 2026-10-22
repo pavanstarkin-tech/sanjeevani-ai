@@ -1,0 +1,903 @@
+# HealthExpress AI — App Flow & Screen Count
+
+This version keeps onboarding **minimal**. We collect only essential information initially and allow additional health/professional information to be added later when required.
+
+## 1. Overall App Structure
+
+| Area                              | Screens |
+| --------------------------------- | ------: |
+| Common / Welcome / Authentication |   **7** |
+| User App                          |  **30** |
+| Doctor App                        |  **24** |
+| **Total Mobile App Screens**      |  **61** |
+
+> Some screens are shared components and can be reused between User and Doctor flows. The count above represents the planned functional screens, not every popup, bottom sheet, dialog, or confirmation modal.
+
+---
+
+# 2. Common Screens — 7
+
+### Screen 1 — Splash Screen
+
+* HealthExpress AI logo
+* App initialization
+* Authentication/session check
+* Connectivity check
+
+### Screen 2 — Welcome / Landing
+
+* HealthExpress AI introduction
+* AI healthcare assistant introduction
+* `Get Started`
+* `Login`
+* `Register`
+
+### Screen 3 — Choose Role
+
+Two options:
+
+* **I'm a User**
+* **I'm a Doctor**
+
+Admin is **not** a mobile-app role.
+
+### Screen 4 — Authentication Method
+
+Options:
+
+* Continue with Google
+* Continue with Email
+* Continue with Mobile
+* Login
+
+### Screen 5 — Email Authentication
+
+* Email
+* Password
+* Login
+* Forgot password
+* Create account
+
+### Screen 6 — Mobile Authentication
+
+* Mobile number
+* OTP
+* Resend OTP
+* Verify
+
+### Screen 7 — Basic Registration
+
+Only collect:
+
+* Name
+* Mobile number
+
+Optional:
+
+* Profile picture
+
+After registration, the user goes directly into the appropriate application.
+
+**Important:** Do not force users to fill a long health questionnaire during onboarding. Additional information can be collected progressively when a feature actually requires it.
+
+---
+
+# 3. USER APP — 30 Screens
+
+## A. User Core — 6
+
+### 1. User Home / Dynamic Dashboard
+
+This is the main AI-driven screen.
+
+It dynamically displays:
+
+* AI health summary
+* Current health concern
+* Recommended doctors
+* Nearby doctors
+* Nearby hospitals
+* Medicines
+* Tests
+* Upcoming appointment
+* Medication progress
+* Emergency shortcut
+* Health records
+* AI suggestions
+
+The layout changes according to the user's current context.
+
+### 2. AI Health Assistant
+
+* Voice conversation
+* Text conversation
+* Gemini Live interaction
+* AI asks questions
+* Symptom collection
+* Conversation history
+* AI-generated summary
+
+### 3. AI Recommendations
+
+Dynamic cards such as:
+
+* Recommended doctors
+* Nearby doctors
+* Hospitals
+* Tests
+* Medicines/information
+* Home visit
+* Video consultation
+* Emergency assistance
+
+### 4. Health Profile
+
+Initially:
+
+* Name
+* Mobile
+* Profile picture
+
+Additional health information can be added later.
+
+### 5. Health Records
+
+* Reports
+* Prescriptions
+* Previous consultations
+* Medical history
+* Uploaded documents
+* Health ID/QR
+
+### 6. Notifications
+
+* Appointment updates
+* Doctor messages
+* Payment updates
+* Medicine orders
+* Reminders
+* Emergency notifications
+
+---
+
+# 4. Doctor & Hospital Discovery — 5 Screens
+
+### 7. Doctor Search
+
+Filters:
+
+* Specialty
+* Disease/health concern
+* Location
+* Distance
+* Availability
+* Consultation type
+* Price
+* Hospital
+
+### 8. Doctor Profile
+
+Display:
+
+* Doctor photo
+* Name
+* Specialty
+* Experience
+* Rating
+* Consultation fee
+* Available slots
+* Home visit
+* Video consultation
+* Clinic visit
+
+Most importantly:
+
+**Hospital affiliation**
+
+Example:
+
+> Dr. Sandeep — Cardiologist
+> **KIMS Hospitals, Hyderabad**
+
+Or:
+
+> Dr. Ravi Kumar — General Physician
+> **Independent Practice**
+
+### 9. Hospital Search
+
+Display:
+
+* Nearby hospitals
+* Distance
+* Rating
+* Departments
+* Available doctors
+* Services
+
+### 10. Hospital Profile
+
+Display:
+
+* Hospital branding
+* Hospital photos
+* Address
+* Map
+* Departments
+* Specialties
+* Doctors
+* Available slots
+* Facilities
+* Book appointment
+
+Example:
+
+**KIMS Hospitals**
+
+→ Cardiology
+→ Neurology
+→ Orthopedics
+→ Pediatrics
+→ General Medicine
+
+### 11. Specialty / Disease Category
+
+Examples:
+
+* Fever
+* Cold
+* Cough
+* Headache
+* Migraine
+* General Medicine
+* Cardiology
+* Neurology
+* Orthopedics
+
+The AI can prioritize categories according to the conversation.
+
+---
+
+# 5. Appointment Flow — 6 Screens
+
+### 12. Select Doctor / Service
+
+Choose:
+
+* Clinic visit
+* Video consultation
+* Home visit
+
+### 13. Select Date & Time
+
+* Available dates
+* Available slots
+* Doctor availability
+* Hospital availability
+
+### 14. Booking Summary
+
+Show:
+
+* Doctor
+* Hospital
+* Date
+* Time
+* Appointment type
+* Consultation fee
+* Platform fee
+* Total
+
+### 15. Payment
+
+Razorpay:
+
+* UPI
+* Card
+* Net banking
+* Other supported methods
+
+### 16. Booking Confirmation
+
+Display:
+
+* Booking ID
+* Doctor
+* Hospital
+* Date/time
+* Appointment type
+* Payment status
+
+### 17. My Appointments
+
+Tabs:
+
+* Upcoming
+* Completed
+* Cancelled
+
+Each appointment provides:
+
+* View details
+* Chat
+* Reschedule
+* Cancel
+* Join consultation when available
+
+---
+
+# 6. Consultation & Communication — 4 Screens
+
+### 18. Appointment Detail
+
+Shows:
+
+* Doctor
+* Hospital
+* Appointment time
+* Patient information
+* Consultation type
+* Medical records shared
+* Chat
+* Call
+* Video call
+
+### 19. Doctor Chat
+
+Available after the booking has been accepted.
+
+Functions:
+
+* Text
+* Images/documents
+* Medical reports
+* Prescription-related communication
+* Read status
+* Notifications
+
+### 20. Audio Call
+
+Available only during the configured appointment window.
+
+Functions:
+
+* Mute
+* Speaker
+* End call
+* Connection status
+* Reconnect
+
+### 21. Video Consultation
+
+Functions:
+
+* Camera
+* Microphone
+* Speaker
+* End call
+* Connection quality
+* Reconnect
+
+---
+
+# 7. Medicines, Tests & Emergency — 5 Screens
+
+### 22. Medicines
+
+AI/service recommendations can show:
+
+* Medicine information
+* Prescription-required status
+* Price
+* Pharmacy availability
+* Add to cart
+
+### 23. Medicine Cart / Order
+
+* Medicines
+* Quantity
+* Address
+* Delivery fee
+* Payment
+* Order placement
+
+### 24. Medicine Tracking
+
+* Order confirmed
+* Preparing
+* Dispatched
+* Out for delivery
+* Delivered
+* Map tracking when available
+
+### 25. Tests / Diagnostics
+
+AI can recommend an appropriate **test discussion pathway** when governed rules support it.
+
+Display:
+
+* Test
+* Why it may be relevant
+* Nearby labs
+* Price
+* Availability
+* Booking
+
+### 26. Emergency
+
+Large, immediate actions:
+
+* Ambulance
+* Emergency call
+* Nearby hospitals
+* Share location
+* Emergency contacts
+* Live ambulance status where integrated
+
+---
+
+# 8. User Additional Screens — 4
+
+### 27. Medication / Health Progress
+
+* Current medicines
+* Medication schedule
+* Progress
+* Reminders
+* Adherence history
+
+### 28. Health ID / QR
+
+* Health ID
+* QR code
+* Record-sharing controls
+* Access history
+
+The QR should contain a secure reference/token rather than the complete medical record.
+
+### 29. Support / Raise Ticket
+
+* Category
+* Issue
+* Attachment
+* Submit ticket
+* Ticket status
+
+### 30. User Settings
+
+* Profile
+* Account
+* Notifications
+* Privacy
+* Permissions
+* Language
+* Security
+* Logout
+
+---
+
+# 9. DOCTOR APP — 24 Screens
+
+## Doctor Onboarding — 6 Screens
+
+### 1. Doctor Role Selection
+
+Doctor selects:
+
+**I'm a Doctor**
+
+### 2. Doctor Authentication
+
+Same authentication options:
+
+* Google
+* Email/password
+* Mobile/OTP
+
+### 3. Basic Doctor Registration
+
+Initially collect only:
+
+* Doctor name
+* Mobile number
+
+### 4. Professional Profile Setup
+
+Later collect:
+
+* Profile photo
+* Specialty
+* Qualification
+* Experience
+* Registration information
+* Languages
+* Consultation types
+
+### 5. Hospital Selection
+
+This is important for your requirement.
+
+During doctor registration, show:
+
+**Select Hospital**
+
+Search:
+
+> KIMS Hospitals
+> Apollo Hospitals
+> Yashoda Hospitals
+> CARE Hospitals
+> etc.
+
+Doctor can select:
+
+* **Independent Practice**
+* **Hospital**
+* Both, if your business rules allow it.
+
+### 6. Doctor Verification
+
+* Documents
+* Registration verification
+* Hospital affiliation verification
+* Verification status
+
+Doctor status:
+
+**Pending → Under Review → Verified → Active**
+
+---
+
+# 10. Doctor Dashboard — 18 Screens
+
+### 7. Doctor Home
+
+Display:
+
+* Today's appointments
+* Next appointment
+* Pending requests
+* Earnings
+* Patient count
+* Notifications
+* Quick actions
+
+### 8. Doctor Profile
+
+* Photo
+* Name
+* Specialty
+* Experience
+* Hospital
+* Independent practice
+* Fees
+* Services
+
+### 9. Edit Professional Profile
+
+Update:
+
+* Specialty
+* Experience
+* Qualifications
+* Bio
+* Languages
+* Services
+
+### 10. Hospital Affiliation
+
+* Current hospital
+* Affiliation status
+* Hospital details
+* Request/change affiliation
+
+### 11. Availability
+
+* Working days
+* Start/end time
+* Slot duration
+* Buffer
+* Holidays
+
+### 12. Schedule Calendar
+
+* Daily
+* Weekly
+* Monthly
+* Block time
+* Add availability
+
+### 13. Booking Requests
+
+* Pending
+* Accept
+* Reject
+* View patient summary
+
+### 14. Upcoming Bookings
+
+* Today's appointments
+* Tomorrow
+* Future appointments
+
+### 15. Appointment Detail
+
+* Patient
+* Appointment type
+* Time
+* Location
+* Shared records
+* Chat
+* Call
+* Video
+
+### 16. Patient Profile
+
+Only information the doctor is authorized to access:
+
+* Basic details
+* Relevant medical history
+* Reports
+* Prescriptions
+* Previous consultations
+
+### 17. Doctor Chat
+
+* Patient messages
+* Documents
+* Reports
+* Consultation communication
+
+### 18. Audio Call
+
+Appointment-authorized audio consultation.
+
+### 19. Video Call
+
+Appointment-authorized video consultation.
+
+### 20. Consultation / Medical Record
+
+Doctor can add:
+
+* Consultation notes
+* Assessment
+* Prescription where legally/professionally permitted
+* Test recommendations
+* Follow-up
+* Attachments
+
+### 21. Completed Consultations
+
+* Previous patients
+* Consultation history
+* Records
+
+### 22. Earnings
+
+* Today's earnings
+* Weekly earnings
+* Monthly earnings
+* Pending amount
+* Paid amount
+
+### 23. Earnings Details
+
+* Booking amount
+* Platform fee
+* Refunds
+* Net earnings
+* Payout status
+
+### 24. Doctor Analytics
+
+Charts:
+
+* Bookings
+* Completed consultations
+* Cancellations
+* Revenue
+* Ratings
+* Patient trends
+
+---
+
+# 11. ADMIN PANEL
+
+The Admin Panel is **not part of the User/Doctor mobile role selection**.
+
+It is a separate web application.
+
+### Admin main modules
+
+| Admin Module  | Main Functions                              |
+| ------------- | ------------------------------------------- |
+| Dashboard     | Overall platform statistics                 |
+| Hospitals     | Hospital onboarding + management            |
+| Doctors       | Doctor onboarding + verification            |
+| Users         | User management                             |
+| Bookings      | Appointment management                      |
+| Payments      | Razorpay transactions/refunds               |
+| Tickets       | Support/complaints                          |
+| AI            | AI categories/recommendations/configuration |
+| Reports       | Business/operational reports                |
+| Notifications | FCM/in-app notifications                    |
+| Analytics     | Platform analytics                          |
+| Settings      | System configuration                        |
+| Audit Logs    | Administrative activity                     |
+
+## Hospital Onboarding — Admin
+
+This is specifically added to your requirement.
+
+**Admin → Hospitals → Add Hospital**
+
+Collect:
+
+* Hospital name
+* Logo
+* Address
+* Map location
+* Contact details
+* Departments
+* Specialties
+* Facilities
+* Operating hours
+* Hospital verification
+* Service availability
+
+Then admin can add/manage:
+
+**Hospital → Departments → Doctors**
+
+Example:
+
+```text
+KIMS Hospitals
+│
+├── Cardiology
+│   ├── Dr. A
+│   └── Dr. B
+│
+├── Neurology
+│   ├── Dr. C
+│   └── Dr. D
+│
+├── Orthopedics
+│   ├── Dr. E
+│   └── Dr. F
+│
+└── General Medicine
+    ├── Dr. G
+    └── Dr. H
+```
+
+Doctors registering later can select these **admin-approved hospitals** from the hospital list.
+
+---
+
+# 12. Final App Flow
+
+### USER
+
+```text
+Splash
+   ↓
+Welcome
+   ↓
+Choose User
+   ↓
+Google / Email / Mobile
+   ↓
+Name + Mobile
+   ↓
+User Dashboard
+   ↓
+AI Health Assistant
+   ↓
+Health Context
+   ↓
+Dynamic Recommendations
+   ↓
+Doctor / Hospital / Medicine / Test / Emergency
+   ↓
+Booking
+   ↓
+Payment
+   ↓
+Doctor Accepts
+   ↓
+Chat
+   ↓
+Appointment
+   ↓
+Audio / Video / Clinic Visit / Home Visit
+   ↓
+Consultation
+   ↓
+Medical Record
+   ↓
+Follow-up / Medication / Future Appointment
+```
+
+### DOCTOR
+
+```text
+Splash
+   ↓
+Welcome
+   ↓
+Choose Doctor
+   ↓
+Google / Email / Mobile
+   ↓
+Name + Mobile
+   ↓
+Professional Details
+   ↓
+Select Hospital / Independent
+   ↓
+Verification
+   ↓
+Doctor Dashboard
+   ↓
+Profile + Schedule
+   ↓
+Booking Request
+   ↓
+Accept
+   ↓
+Chat
+   ↓
+Appointment
+   ↓
+Audio / Video / In-Person
+   ↓
+Consultation
+   ↓
+Medical Record
+   ↓
+Earnings + Analytics
+```
+
+### ADMIN
+
+```text
+Admin Login
+     ↓
+Admin Dashboard
+     ↓
+Hospital Onboarding
+     ↓
+Hospital Management
+     ↓
+Doctor Verification
+     ↓
+Doctor ↔ Hospital Mapping
+     ↓
+User Management
+     ↓
+Booking Management
+     ↓
+Payments / Refunds
+     ↓
+Tickets
+     ↓
+AI Configuration
+     ↓
+Analytics / Reports
+     ↓
+Audit / Settings
+```
+
+### Recommended final count
+
+**Mobile application: 61 functional screens**
+
+* **7 common**
+* **30 User**
+* **24 Doctor**
+
+**Admin:** separate web application with approximately **13 major modules**, each containing multiple list/detail/create/edit screens.
+
+The most important design decision is to **keep registration short**: name + mobile initially. Health information and doctor-professional information should be collected **progressively when needed**, rather than making onboarding a long form.

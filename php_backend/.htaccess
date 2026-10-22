@@ -1,0 +1,22 @@
+# HealthExpress AI - Apache URL Rewrite for PHP REST API on Hostinger
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Handle Authorization Header in PHP
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect all non-file/dir requests to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# Security: Disable Directory Browsing
+Options -Indexes
+
+# Security: Deny access to sensitive files
+<FilesMatch "\.(env|sql|log|ini|git)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

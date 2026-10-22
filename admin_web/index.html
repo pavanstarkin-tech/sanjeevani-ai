@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthExpress AI — Super Admin Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-hospital"></i>
+        </div>
+        <div class="brand-text">
+          <h2>HealthExpress AI</h2>
+          <span>Super Admin</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-view="dashboard">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-view="hospitals">
+          <i class="fa-solid fa-hospital-user"></i>
+          <span>Hospitals</span>
+          <span class="badge">128</span>
+        </button>
+        <button class="nav-item" data-view="doctors">
+          <i class="fa-solid fa-user-doctor"></i>
+          <span>Doctors</span>
+          <span class="badge">1,256</span>
+        </button>
+        <button class="nav-item" data-view="users">
+          <i class="fa-solid fa-users"></i>
+          <span>Users</span>
+        </button>
+        <button class="nav-item" data-view="bookings">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>Bookings</span>
+          <span class="badge primary">3.2k</span>
+        </button>
+        <button class="nav-item" data-view="payments">
+          <i class="fa-solid fa-wallet"></i>
+          <span>Payments</span>
+        </button>
+        <button class="nav-item" data-view="tickets">
+          <i class="fa-solid fa-headset"></i>
+          <span>Tickets</span>
+          <span class="badge alert">256</span>
+        </button>
+        <button class="nav-item" data-view="reports">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Reports & Analytics</span>
+        </button>
+        <button class="nav-item" data-view="settings">
+          <i class="fa-solid fa-gear"></i>
+          <span>Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="admin-mini-card">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Admin">
+          <div class="mini-info">
+            <strong>Admin User</strong>
+            <span>Super Admin</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Header Bar -->
+      <header class="topbar">
+        <div class="page-title-area">
+          <h1 id="pageTitle">Dashboard Overview</h1>
+          <p id="pageSubtitle">Real-time healthcare platform statistics and operational telemetry</p>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="globalSearch" placeholder="Search hospitals, doctors, booking IDs...">
+          </div>
+
+          <div class="topbar-icons">
+            <button class="icon-btn" title="System Notifications">
+              <i class="fa-regular fa-bell"></i>
+              <span class="dot"></span>
+            </button>
+            <button class="icon-btn" title="Quick Support">
+              <i class="fa-regular fa-circle-question"></i>
+            </button>
+          </div>
+
+          <div class="admin-dropdown">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Admin" class="avatar">
+            <span class="admin-name">Admin</span>
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- View Containers -->
+      <div class="content-body">
+        
+        <!-- 1. DASHBOARD VIEW -->
+        <section id="view-dashboard" class="view-section active">
+          <!-- Stats 4-Grid -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon blue"><i class="fa-solid fa-hospital"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Total Hospitals</span>
+                <h3 class="stat-number">128</h3>
+                <span class="stat-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +12% vs last week</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon teal"><i class="fa-solid fa-user-doctor"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Total Doctors</span>
+                <h3 class="stat-number">1,256</h3>
+                <span class="stat-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +18% vs last week</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon green"><i class="fa-solid fa-users"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Total Users</span>
+                <h3 class="stat-number">45,231</h3>
+                <span class="stat-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +22% vs last week</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon purple"><i class="fa-solid fa-calendar-check"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Total Bookings</span>
+                <h3 class="stat-number">3,248</h3>
+                <span class="stat-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +15% vs last week</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div class="charts-row">
+            <div class="chart-card">
+              <div class="chart-header">
+                <div>
+                  <h3>Revenue Overview</h3>
+                  <div class="big-rev">₹28,45,300 <span class="trend positive">+16.5% vs last week</span></div>
+                </div>
+                <div class="chart-filters">
+                  <button class="pill-btn active">Last 7 days</button>
+                  <button class="pill-btn">Last 30 days</button>
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper">
+                <canvas id="revenueChart" height="220"></canvas>
+              </div>
+            </div>
+
+            <div class="chart-card donut-card">
+              <div class="chart-header">
+                <h3>Booking Overview</h3>
+                <span class="badge primary">Total: 3,248</span>
+              </div>
+              <div class="donut-wrapper">
+                <canvas id="bookingsDonut" height="180"></canvas>
+                <div class="donut-legend">
+                  <div class="legend-item"><span class="color-dot blue"></span> Completed <strong>1,856</strong></div>
+                  <div class="legend-item"><span class="color-dot teal"></span> Upcoming <strong>1,102</strong></div>
+                  <div class="legend-item"><span class="color-dot red"></span> Cancelled <strong>290</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions Grid -->
+          <div class="quick-actions-card">
+            <h3>Quick Actions</h3>
+            <div class="quick-btns">
+              <button class="action-btn" onclick="openAddHospitalModal()"><i class="fa-solid fa-plus"></i> Add Hospital</button>
+              <button class="action-btn" onclick="openAddDoctorModal()"><i class="fa-solid fa-user-plus"></i> Add Doctor</button>
+              <button class="action-btn" onclick="switchView('users')"><i class="fa-solid fa-users-gear"></i> Manage Users</button>
+              <button class="action-btn" onclick="switchView('bookings')"><i class="fa-solid fa-calendar-days"></i> Booking Dispatch</button>
+              <button class="action-btn" onclick="switchView('reports')"><i class="fa-solid fa-file-invoice-dollar"></i> View Financials</button>
+              <button class="action-btn" onclick="switchView('settings')"><i class="fa-solid fa-sliders"></i> System Settings</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. HOSPITALS MANAGEMENT VIEW -->
+        <section id="view-hospitals" class="view-section">
+          <div class="table-card">
+            <div class="table-header">
+              <div>
+                <h2>Hospitals Management</h2>
+                <p>Total Registered Partner Hospitals: 128</p>
+              </div>
+              <div class="table-actions">
+                <div class="search-input">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="text" id="hospitalSearchInput" placeholder="Search hospitals...">
+                </div>
+                <button class="primary-btn" onclick="openAddHospitalModal()"><i class="fa-solid fa-plus"></i> Add Hospital</button>
+              </div>
+            </div>
+
+            <div class="table-container">
+              <table id="hospitalsTable">
+                <thead>
+                  <tr>
+                    <th>Hospital Name</th>
+                    <th>Location</th>
+                    <th>Doctors</th>
+                    <th>Patients Served</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. DOCTORS MANAGEMENT VIEW -->
+        <section id="view-doctors" class="view-section">
+          <div class="table-card">
+            <div class="table-header">
+              <div>
+                <h2>Doctors Management</h2>
+                <p>Total Active Clinical Specialists: 1,256</p>
+              </div>
+              <div class="table-actions">
+                <select id="doctorSpecialtyFilter" class="select-filter">
+                  <option value="All">All Specialties</option>
+                  <option value="Cardiologist">Cardiologist</option>
+                  <option value="Neurologist">Neurologist</option>
+                  <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+                  <option value="General Physician">General Physician</option>
+                  <option value="Gynecologist">Gynecologist</option>
+                  <option value="Pediatrician">Pediatrician</option>
+                </select>
+                <button class="primary-btn" onclick="openAddDoctorModal()"><i class="fa-solid fa-plus"></i> Add Doctor</button>
+              </div>
+            </div>
+
+            <div class="table-container">
+              <table id="doctorsTable">
+                <thead>
+                  <tr>
+                    <th>Doctor</th>
+                    <th>Hospital Affiliation</th>
+                    <th>Specialty</th>
+                    <th>Experience</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. USERS MANAGEMENT VIEW -->
+        <section id="view-users" class="view-section">
+          <div class="table-card">
+            <div class="table-header">
+              <div>
+                <h2>Users Management</h2>
+                <p>Total Registered Patients: 45,231</p>
+              </div>
+              <div class="table-actions">
+                <button class="secondary-btn"><i class="fa-solid fa-file-export"></i> Export CSV</button>
+              </div>
+            </div>
+
+            <div class="table-container">
+              <table id="usersTable">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Aarogyasri ID</th>
+                    <th>Joined On</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. BOOKINGS MANAGEMENT VIEW -->
+        <section id="view-bookings" class="view-section">
+          <div class="table-card">
+            <div class="table-header">
+              <div>
+                <h2>Bookings Management</h2>
+                <p>Total Platform Bookings: 3,248</p>
+              </div>
+              <div class="table-actions">
+                <select id="bookingStatusFilter" class="select-filter">
+                  <option value="All">All Status</option>
+                  <option value="Confirmed">Confirmed</option>
+                  <option value="Upcoming">Upcoming</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Cancelled">Cancelled</option>
+                </select>
+                <button class="secondary-btn"><i class="fa-solid fa-file-export"></i> Export</button>
+              </div>
+            </div>
+
+            <div class="table-container">
+              <table id="bookingsTable">
+                <thead>
+                  <tr>
+                    <th>Booking ID</th>
+                    <th>Patient</th>
+                    <th>Doctor</th>
+                    <th>Hospital</th>
+                    <th>Date & Time</th>
+                    <th>Status</th>
+                    <th>Payment</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. PAYMENTS & REVENUE VIEW -->
+        <section id="view-payments" class="view-section">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon blue"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Total Revenue</span>
+                <h3 class="stat-number">₹28,45,300</h3>
+                <span class="stat-trend positive">+16.5% vs last week</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon teal"><i class="fa-solid fa-building-columns"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Platform Earnings</span>
+                <h3 class="stat-number">₹5,68,900</h3>
+                <span class="stat-trend positive">+12.3% vs last week</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon green"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Doctor Payouts</span>
+                <h3 class="stat-number">₹21,76,400</h3>
+                <span class="stat-trend positive">+15.6% vs last week</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon red"><i class="fa-solid fa-rotate-left"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Refunds Processed</span>
+                <h3 class="stat-number">₹52,800</h3>
+                <span class="stat-trend negative">4.2% of GMV</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="charts-row">
+            <div class="chart-card">
+              <div class="chart-header">
+                <h3>Revenue Overview & Projections</h3>
+                <span class="badge success">Razorpay Verified</span>
+              </div>
+              <div class="chart-canvas-wrapper">
+                <canvas id="paymentLineChart" height="220"></canvas>
+              </div>
+            </div>
+            <div class="chart-card donut-card">
+              <div class="chart-header">
+                <h3>Payment Methods</h3>
+                <span>₹28,45,300</span>
+              </div>
+              <div class="donut-wrapper">
+                <canvas id="paymentMethodsDonut" height="180"></canvas>
+                <div class="donut-legend">
+                  <div class="legend-item"><span class="color-dot blue"></span> UPI <strong>45% (₹12,80,385)</strong></div>
+                  <div class="legend-item"><span class="color-dot teal"></span> Cards <strong>30% (₹8,53,590)</strong></div>
+                  <div class="legend-item"><span class="color-dot green"></span> Wallet <strong>15% (₹4,26,795)</strong></div>
+                  <div class="legend-item"><span class="color-dot red"></span> Aarogyasri Pass <strong>10% (₹2,84,530)</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. TICKETS & SUPPORT VIEW -->
+        <section id="view-tickets" class="view-section">
+          <div class="table-card">
+            <div class="table-header">
+              <div>
+                <h2>Tickets & Support Requests</h2>
+                <p>Total Active Tickets: 256</p>
+              </div>
+              <div class="table-actions">
+                <button class="primary-btn" onclick="openNewTicketModal()"><i class="fa-solid fa-plus"></i> New Ticket</button>
+              </div>
+            </div>
+
+            <div class="table-container">
+              <table id="ticketsTable">
+                <thead>
+                  <tr>
+                    <th>Ticket ID</th>
+                    <th>User</th>
+                    <th>Category</th>
+                    <th>Subject</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8. REPORTS & ANALYTICS VIEW -->
+        <section id="view-reports" class="view-section">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon blue"><i class="fa-solid fa-calendar-day"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Today's Bookings</span>
+                <h3 class="stat-number">245</h3>
+                <span class="stat-trend positive">+12%</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon green"><i class="fa-solid fa-sack-dollar"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Today's Revenue</span>
+                <h3 class="stat-number">₹2,45,300</h3>
+                <span class="stat-trend positive">+15%</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon teal"><i class="fa-solid fa-user-plus"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">New Users Today</span>
+                <h3 class="stat-number">112</h3>
+                <span class="stat-trend positive">+10%</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon purple"><i class="fa-solid fa-stethoscope"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Active Doctors Online</span>
+                <h3 class="stat-number">876</h3>
+                <span class="stat-trend positive">+8%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="charts-row">
+            <div class="chart-card">
+              <div class="chart-header">
+                <h3>Top Hospitals by Bookings Volume</h3>
+              </div>
+              <div class="bar-chart-list">
+                <div class="bar-row">
+                  <span>KIMS Hospitals</span>
+                  <div class="bar-track"><div class="bar-fill" style="width: 85%;"></div></div>
+                  <strong>1,245</strong>
+                </div>
+                <div class="bar-row">
+                  <span>Apollo Hospitals</span>
+                  <div class="bar-track"><div class="bar-fill" style="width: 70%;"></div></div>
+                  <strong>987</strong>
+                </div>
+                <div class="bar-row">
+                  <span>Yashoda Hospitals</span>
+                  <div class="bar-track"><div class="bar-fill" style="width: 50%;"></div></div>
+                  <strong>654</strong>
+                </div>
+                <div class="bar-row">
+                  <span>CARE Hospitals</span>
+                  <div class="bar-track"><div class="bar-fill" style="width: 32%;"></div></div>
+                  <strong>342</strong>
+                </div>
+                <div class="bar-row">
+                  <span>Continental Hospitals</span>
+                  <div class="bar-track"><div class="bar-fill" style="width: 22%;"></div></div>
+                  <strong>210</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-header">
+                <h3>Bookings & Revenue Growth Trend</h3>
+              </div>
+              <canvas id="trendLineChart" height="220"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- 9. SETTINGS & PROFILE VIEW -->
+        <section id="view-settings" class="view-section">
+          <div class="settings-layout">
+            <div class="settings-card profile-card">
+              <div class="profile-header">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Admin" class="profile-img">
+                <div>
+                  <h2>Admin User</h2>
+                  <p>admin@healthexpress.ai</p>
+                  <span class="badge primary">Super Admin</span>
+                  <span class="join-date">Joined on 01 Jan 2024</span>
+                </div>
+              </div>
+              <div class="change-pw-section">
+                <h3>Change Admin Password</h3>
+                <div class="form-group">
+                  <label>Current Password</label>
+                  <input type="password" value="••••••••••••">
+                </div>
+                <div class="form-group">
+                  <label>New Password</label>
+                  <input type="password" placeholder="Enter new password">
+                </div>
+                <button class="primary-btn">Update Password</button>
+              </div>
+            </div>
+
+            <div class="settings-card options-card">
+              <h2>System Settings</h2>
+              <div class="settings-menu">
+                <div class="setting-item">
+                  <i class="fa-solid fa-sliders"></i>
+                  <div>
+                    <strong>General System Settings</strong>
+                    <span>Platform commission, default currency (₹), operational zones</span>
+                  </div>
+                </div>
+                <div class="setting-item">
+                  <i class="fa-solid fa-bell"></i>
+                  <div>
+                    <strong>Notification & FCM Settings</strong>
+                    <span>Push alerts, SMS gateway & Firebase cloud messaging</span>
+                  </div>
+                </div>
+                <div class="setting-item">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <div>
+                    <strong>Roles & Permissions</strong>
+                    <span>Admin roles, hospital coordinators & access controls</span>
+                  </div>
+                </div>
+                <div class="setting-item">
+                  <i class="fa-solid fa-key"></i>
+                  <div>
+                    <strong>Security & KYC Verification</strong>
+                    <span>Doctor MCI license audit and Aarogyasri API tokens</span>
+                  </div>
+                </div>
+                <div class="setting-item">
+                  <i class="fa-solid fa-database"></i>
+                  <div>
+                    <strong>System & Audit Logs</strong>
+                    <span>Recent platform telemetry and admin action logs</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="recent-logs">
+                <h3>Recent Activity Logs</h3>
+                <ul>
+                  <li><i class="fa-solid fa-plus"></i> Added new hospital "Sunshine Hospitals" • 18 May 2024, 10:30 AM</li>
+                  <li><i class="fa-solid fa-check"></i> Approved doctor KYC "Dr. Kavya S" • 18 May 2024, 09:15 AM</li>
+                  <li><i class="fa-solid fa-gear"></i> Updated system payout commission • 17 May 2024, 06:45 PM</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Hospital Modal -->
+  <div id="addHospitalModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add New Partner Hospital</h3>
+        <button class="close-btn" onclick="closeModal('addHospitalModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Hospital Name *</label>
+          <input type="text" id="newHospName" placeholder="e.g. Yashoda Hospitals">
+        </div>
+        <div class="form-group">
+          <label>Location / City *</label>
+          <input type="text" id="newHospLocation" placeholder="e.g. Secunderabad, TS">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Doctors Count</label>
+            <input type="number" id="newHospDoctors" value="85">
+          </div>
+          <div class="form-group">
+            <label>Bed Capacity</label>
+            <input type="number" id="newHospBeds" value="450">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Departments (comma-separated)</label>
+          <input type="text" id="newHospDepts" value="Cardiology, Neurology, Orthopedics, General Medicine">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="secondary-btn" onclick="closeModal('addHospitalModal')">Cancel</button>
+        <button class="primary-btn" onclick="saveNewHospital()">Save Hospital</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Doctor Modal -->
+  <div id="addDoctorModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add & Verify Doctor</h3>
+        <button class="close-btn" onclick="closeModal('addDoctorModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Doctor Name *</label>
+          <input type="text" id="newDocName" placeholder="e.g. Dr. Ramesh Patel">
+        </div>
+        <div class="form-group">
+          <label>Hospital Affiliation *</label>
+          <select id="newDocHospital">
+            <option value="KIMS Hospitals">KIMS Hospitals, Hyderabad</option>
+            <option value="Apollo Hospitals">Apollo Hospitals, Hyderabad</option>
+            <option value="Yashoda Hospitals">Yashoda Hospitals, Hyderabad</option>
+            <option value="CARE Hospitals">CARE Hospitals, Hyderabad</option>
+            <option value="Independent Practice">Independent Practice</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Specialty</label>
+            <input type="text" id="newDocSpecialty" value="General Physician">
+          </div>
+          <div class="form-group">
+            <label>Experience</label>
+            <input type="text" id="newDocExp" value="8+ Years">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="secondary-btn" onclick="closeModal('addDoctorModal')">Cancel</button>
+        <button class="primary-btn" onclick="saveNewDoctor()">Approve & Register Doctor</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

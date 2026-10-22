@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "575738669292",
+    "project_id": "healthexpress-1",
+    "storage_bucket": "healthexpress-1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575738669292:android:0d978f0ed8f1325dc3ddc9",
+        "android_client_info": {
+          "package_name": "com.example.healthexpress"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575738669292-qb99upmcv4ld9tl2mrcupto2l1aj5i8l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCygp-xGRzTuuzHF6Qj7NO4ueYTb8MR31o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575738669292-qb99upmcv4ld9tl2mrcupto2l1aj5i8l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

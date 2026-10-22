@@ -1,0 +1,1445 @@
+# HealthExpress AI — Admin Panel UI/UX Design Prompt
+
+Redesign the **existing HealthExpress AI Admin Panel** visually while keeping the existing functional implementation, APIs, routes, database operations, authentication, and business logic unchanged.
+
+The admin panel should feel like a **modern healthcare operations/control center**: professional, data-rich, clean, fast, and easy for administrators to operate daily.
+
+---
+
+# 1. Overall Design Direction
+
+Design a desktop-first responsive admin dashboard with:
+
+* Professional healthcare SaaS appearance
+* Blue/white primary visual identity
+* Clean white cards
+* Soft gray page backgrounds
+* Rounded corners
+* Subtle shadows
+* Clear data hierarchy
+* Compact but readable tables
+* Modern charts
+* Status badges
+* Consistent spacing
+* Strong search/filter functionality
+* Minimal unnecessary decoration
+
+The design should feel more like a **premium healthcare management platform** than a generic CRM.
+
+Do not copy existing products or branding.
+
+---
+
+# 2. Admin Layout
+
+Use a persistent left sidebar.
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│ HealthExpress AI                              Admin Profile │
+├───────────────┬─────────────────────────────────────────────┤
+│               │                                             │
+│ Dashboard     │                                             │
+│ Hospitals     │              Main Content                   │
+│ Doctors       │                                             │
+│ Users         │                                             │
+│ Appointments  │                                             │
+│ Payments      │                                             │
+│ Tickets       │                                             │
+│ AI            │                                             │
+│ Content       │                                             │
+│ Notifications │                                             │
+│ Analytics     │                                             │
+│ Audit Logs    │                                             │
+│ Settings      │                                             │
+│               │                                             │
+└───────────────┴─────────────────────────────────────────────┘
+```
+
+Sidebar:
+
+* Logo
+* Navigation icons
+* Active state
+* Notification indicators
+* Expand/collapse option
+* Admin profile at bottom
+
+---
+
+# 3. Global Admin Header
+
+Every major page should have:
+
+```text
+Page Title
+Short description
+
+[Search]    [Notifications]    [Admin Avatar]
+```
+
+For example:
+
+```text
+Hospitals
+
+Manage registered healthcare facilities,
+departments and hospital administrators.
+
+                         🔔   Admin
+```
+
+---
+
+# 4. Admin Dashboard
+
+This is the primary overview screen.
+
+### Top KPI cards
+
+```text
+Total Users
+24,582
+↑ 12.4%
+
+Doctors
+1,284
+↑ 8.2%
+
+Hospitals
+184
+↑ 5.7%
+
+Appointments
+8,421
+↑ 14.3%
+```
+
+Second row:
+
+```text
+Revenue
+₹24.8L
+
+Pending Doctor Verification
+32
+
+Pending Hospital Verification
+8
+
+Open Support Tickets
+17
+```
+
+---
+
+# 5. Dashboard Analytics
+
+Add clean charts for:
+
+### Appointment Trends
+
+Line chart:
+
+```text
+Appointments
+│
+│       ╭──╮
+│   ╭───╯  ╰───╮
+│───╯          ╰──
+└──────────────────
+ Jan Feb Mar Apr May
+```
+
+### Revenue
+
+Bar/area chart.
+
+### User Growth
+
+Line chart.
+
+### Consultation Distribution
+
+Donut chart:
+
+* Clinic
+* Video
+* Audio
+* Home Visit
+
+---
+
+# 6. Dashboard Activity
+
+Add a recent activity feed.
+
+```text
+Recent Activity
+
+✓ New hospital approved
+  KIMS Hospitals
+  5 min ago
+
+✓ Doctor verification completed
+  Dr. Ananya Sharma
+  12 min ago
+
+✓ New appointment
+  Patient → Dr. Rahul
+  18 min ago
+
+⚠ Payment issue reported
+  Order #HE10293
+  24 min ago
+```
+
+---
+
+# 7. Quick Actions
+
+Provide prominent actions:
+
+```text
++ Add Hospital
++ Verify Doctor
++ Add Admin
+View Pending Bookings
+View Support Tickets
+```
+
+---
+
+# 8. Hospitals Management
+
+This is one of the most important admin modules.
+
+Header:
+
+```text
+Hospitals
+
+184 Registered
+8 Pending Verification
+
+[ Search hospitals... ]
+
+[ Status ] [ City ] [ Type ] [ Verification ]
+
+[ + Add Hospital ]
+```
+
+---
+
+# 9. Hospital Table
+
+Use a professional data table.
+
+Columns:
+
+| Hospital       | Location  | Departments | Doctors | Status | Verification | Actions |
+| -------------- | --------- | ----------: | ------: | ------ | ------------ | ------- |
+| KIMS Hospitals | Hyderabad |          18 |     124 | Active | Verified     | View    |
+| Apollo         | Hyderabad |          22 |     186 | Active | Verified     | View    |
+
+Actions:
+
+* View
+* Edit
+* Verify
+* Suspend
+* Manage
+* More
+
+Use three-dot menus for secondary actions.
+
+---
+
+# 10. Add Hospital
+
+Create a multi-step hospital onboarding form.
+
+### Step 1 — Basic Information
+
+* Hospital name
+* Hospital logo
+* Cover image
+* Hospital type
+* Registration/license number
+* Description
+* Established year
+
+### Step 2 — Contact
+
+* Phone
+* Emergency phone
+* Email
+* Website
+* Reception contact
+
+### Step 3 — Location
+
+* Address
+* City
+* State
+* PIN code
+* Map location
+* Latitude/longitude
+
+Use a Mapbox location selector.
+
+### Step 4 — Services
+
+Selectable cards:
+
+```text
+Emergency
+ICU
+Pharmacy
+Laboratory
+Radiology
+Ambulance
+Blood Bank
+Surgery
+Teleconsultation
+Home Care
+```
+
+### Step 5 — Departments
+
+Add departments:
+
+```text
+Cardiology
+Neurology
+Orthopedics
+General Medicine
+Pediatrics
+Gynecology
+Dermatology
+ENT
+Surgery
+```
+
+### Step 6 — Facilities
+
+* Beds
+* ICU beds
+* Emergency beds
+* Operating theatres
+* Pharmacy
+* Lab
+* Imaging
+* Ambulance
+* Parking
+* Accessibility
+
+### Step 7 — Hospital Admin
+
+* Admin name
+* Mobile
+* Email
+* Login/authentication details
+* Permissions
+
+### Step 8 — Review & Submit
+
+Show complete summary before activation.
+
+---
+
+# 11. Hospital Detail Page
+
+Create a complete hospital command page.
+
+Header:
+
+```text
+[Hospital Logo]
+
+KIMS Hospitals
+Hyderabad
+
+✓ Verified
+● Active
+
+[ Edit ] [ Suspend ]
+```
+
+Tabs:
+
+```text
+Overview
+Departments
+Doctors
+Appointments
+Schedules
+Services
+Facilities
+Staff
+Payments
+Documents
+Settings
+```
+
+---
+
+# 12. Hospital Overview
+
+Show:
+
+```text
+Total Doctors
+124
+
+Departments
+18
+
+Today's Appointments
+82
+
+Upcoming
+426
+```
+
+Then:
+
+* Hospital information
+* Contact
+* Location
+* Operating hours
+* Emergency services
+* Facilities
+
+---
+
+# 13. Hospital Departments
+
+Department management screen.
+
+```text
+Departments
+
+Cardiology                 18 Doctors
+Neurology                  12 Doctors
+Orthopedics                15 Doctors
+General Medicine           24 Doctors
+
+[ + Add Department ]
+```
+
+Each department should allow:
+
+* Edit
+* Assign doctors
+* View appointments
+* Configure schedules
+* Activate/deactivate
+
+---
+
+# 14. Hospital Doctors
+
+Display all affiliated doctors.
+
+```text
+Doctors at KIMS Hospitals
+
+[ Search ]
+
+Dr. Ananya Sharma
+General Medicine
+8 Years
+₹500
+● Active
+
+Dr. Rahul Kumar
+Cardiology
+12 Years
+₹800
+● Active
+```
+
+Allow admin to:
+
+* Add doctor
+* Assign doctor
+* Remove affiliation
+* View profile
+* Verify
+* Suspend
+
+---
+
+# 15. Doctors Management
+
+Main doctor administration screen.
+
+Top cards:
+
+```text
+Total Doctors
+Pending Verification
+Verified
+Suspended
+```
+
+Table:
+
+| Doctor | Specialty | Hospital | Experience | Status | Verification | Actions |
+| ------ | --------- | -------- | ---------: | ------ | ------------ | ------- |
+
+Hospital column must clearly display:
+
+```text
+Dr. Ananya Sharma
+General Medicine
+KIMS Hospitals
+```
+
+For independent doctors:
+
+```text
+Independent Practice
+```
+
+---
+
+# 16. Doctor Verification
+
+Create a dedicated verification workspace.
+
+```text
+Doctor Verification
+
+Dr. Ananya Sharma
+
+Identity
+✓ Verified
+
+Medical Registration
+✓ Verified
+
+Qualification
+✓ Verified
+
+Hospital Affiliation
+Pending
+
+Documents
+[ View ]
+
+Admin Decision
+
+[ Approve ]
+[ Reject ]
+[ Request Changes ]
+```
+
+Make document verification easy to operate.
+
+---
+
+# 17. Doctor Profile Admin View
+
+Show:
+
+* Personal information
+* Professional details
+* Qualifications
+* Medical registration
+* Specialties
+* Hospital affiliations
+* Consultation fee
+* Services
+* Availability
+* Documents
+* Verification history
+* Account status
+
+---
+
+# 18. Users Management
+
+Patient/user administration.
+
+Top:
+
+```text
+Total Users
+Active
+New This Month
+Suspended
+```
+
+Table:
+
+| User | Mobile | Email | Appointments | Orders | Status | Actions |
+| ---- | ------ | ----- | -----------: | -----: | ------ | ------- |
+
+Search and filters:
+
+* Name
+* Mobile
+* Email
+* Status
+* Registration date
+
+---
+
+# 19. User Detail Page
+
+Show a comprehensive but privacy-conscious profile.
+
+```text
+Pavan Kumar
+
+User ID: HE10293
+● Active
+
+Personal Information
+Health Profile
+Appointments
+Health Records
+Orders
+Payments
+AI Sessions
+Support Tickets
+Consent & Access
+Activity
+```
+
+Health information should have clear authorization/access controls.
+
+---
+
+# 20. Appointments Management
+
+Create a central appointment operations page.
+
+Top:
+
+```text
+Today's Appointments
+8,421 Total
+Pending
+Accepted
+Completed
+Cancelled
+```
+
+Filters:
+
+* Date
+* Doctor
+* Hospital
+* Patient
+* Appointment type
+* Status
+* Payment status
+
+---
+
+# 21. Appointment Table
+
+| Patient | Doctor | Hospital | Date | Type | Status | Payment | Actions |
+| ------- | ------ | -------- | ---- | ---- | ------ | ------- | ------- |
+
+Appointment types:
+
+* Clinic
+* Video
+* Audio
+* Home Visit
+
+Status badges:
+
+* Pending
+* Accepted
+* Rejected
+* Completed
+* Cancelled
+* Rescheduled
+* No Show
+
+---
+
+# 22. Appointment Detail
+
+Show complete lifecycle:
+
+```text
+Booking Created
+      ↓
+Payment Completed
+      ↓
+Doctor Accepted
+      ↓
+Appointment Scheduled
+      ↓
+Consultation Started
+      ↓
+Consultation Completed
+      ↓
+Prescription
+      ↓
+Record Updated
+```
+
+Show timestamps for important events.
+
+---
+
+# 23. Recurring Appointments
+
+Provide an admin view for recurring appointments.
+
+Show:
+
+* Patient
+* Doctor
+* Hospital
+* Recurrence pattern
+* Next appointment
+* Series status
+* Payment status
+
+Allow:
+
+* Pause
+* Resume
+* Cancel series
+* View individual appointments
+
+---
+
+# 24. Payments Management
+
+Create financial dashboard.
+
+Top KPIs:
+
+```text
+Today's Revenue
+₹4.82L
+
+This Month
+₹24.8L
+
+Pending
+₹1.2L
+
+Refunds
+₹42K
+```
+
+Charts:
+
+* Revenue trend
+* Payment methods
+* Doctor payouts
+* Refunds
+
+---
+
+# 25. Payment Transactions
+
+Table:
+
+| Transaction | User | Doctor/Hospital | Amount | Method | Status | Date |
+| ----------- | ---- | --------------- | -----: | ------ | ------ | ---- |
+
+Statuses:
+
+* Paid
+* Pending
+* Failed
+* Refunded
+* Partially Refunded
+
+Include Razorpay transaction/reference information where available.
+
+---
+
+# 26. Refund Management
+
+Dedicated interface:
+
+```text
+Refund Requests
+
+Appointment
+Patient
+Doctor
+Original Amount
+Refund Amount
+Reason
+Status
+
+[ Review ]
+```
+
+Show the applicable cancellation/rescheduling policy.
+
+---
+
+# 27. Support Tickets
+
+Create helpdesk-style UI.
+
+Tabs:
+
+```text
+Open
+Pending
+Resolved
+Escalated
+```
+
+Ticket card:
+
+```text
+#HE9821
+
+Payment issue
+
+Patient: Rahul Kumar
+Appointment: #APT8821
+
+Priority: High
+
+[ Open Ticket ]
+```
+
+---
+
+# 28. Ticket Detail
+
+Use a two-column layout:
+
+```text
+Conversation             Ticket Information
+
+Messages                 User
+Attachments              Appointment
+Internal Notes           Payment
+                         Priority
+                         Status
+                         Assigned Admin
+```
+
+Actions:
+
+* Reply
+* Assign
+* Escalate
+* Resolve
+* Reopen
+
+---
+
+# 29. AI Management
+
+Create an **AI Configuration Center**.
+
+Sections:
+
+```text
+AI Overview
+AI Prompts
+Recommendation Rules
+Health Categories
+Safety Rules
+AI Analytics
+AI Logs
+```
+
+---
+
+# 30. AI Configuration
+
+Allow authorized administrators to configure:
+
+* AI assistant settings
+* Recommendation categories
+* Dynamic dashboard rules
+* Suggested specialties
+* Suggested tests
+* Suggested care content
+* Emergency escalation rules
+* AI disclaimers
+
+Use strong warning/confirmation UI for changes affecting AI behavior.
+
+---
+
+# 31. AI Recommendation Rules
+
+Create a visual rule builder.
+
+Example:
+
+```text
+IF
+
+Symptoms contain:
+Fever + Cough
+
+THEN
+
+Prioritize:
+General Physician
+Fever-related content
+Relevant tests
+Medicine information
+Temperature tracking
+```
+
+Another:
+
+```text
+IF
+
+Emergency indicators detected
+
+THEN
+
+Prioritize:
+Emergency Help
+Nearby Hospital
+Ambulance
+Emergency Contact
+```
+
+---
+
+# 32. AI Analytics
+
+Show:
+
+* Number of AI sessions
+* Voice sessions
+* Text sessions
+* Most common symptoms
+* Recommendation clicks
+* Doctor bookings from AI
+* Test interactions
+* Medicine interactions
+* Emergency escalations
+
+Do not expose unnecessary patient-identifiable information in aggregate analytics.
+
+---
+
+# 33. Content Management
+
+Admin should manage application content.
+
+Sections:
+
+```text
+Health Articles
+AI Education Content
+Banners
+FAQs
+Specialties
+Symptoms
+Care Categories
+Emergency Information
+```
+
+Use a CMS-style interface.
+
+---
+
+# 34. Notifications Management
+
+Create:
+
+```text
+Notification Center
+
+Send Notification
+Templates
+Scheduled
+History
+```
+
+Admin can create notifications for:
+
+* Appointment reminders
+* System announcements
+* Medicine updates
+* Doctor verification
+* Hospital updates
+* Emergency/system alerts
+
+---
+
+# 35. Notification Composer
+
+Example:
+
+```text
+Title
+Appointment Reminder
+
+Message
+Your consultation with Dr. Ananya
+starts in 30 minutes.
+
+Audience
+[ Patients ]
+
+Channel
+☑ Push
+☑ In-App
+
+Schedule
+Now
+
+[ Send Notification ]
+```
+
+---
+
+# 36. Analytics
+
+Create a dedicated analytics workspace.
+
+Tabs:
+
+```text
+Platform
+Users
+Doctors
+Hospitals
+Appointments
+Revenue
+Medicines
+AI
+```
+
+Provide date filters:
+
+```text
+Today
+7 Days
+30 Days
+90 Days
+Custom
+```
+
+---
+
+# 37. Platform Analytics
+
+Show:
+
+* Active users
+* New registrations
+* Retention
+* Appointments
+* Completed consultations
+* Cancellation rate
+* Doctor utilization
+* Hospital utilization
+* Medicine orders
+* Emergency requests
+
+---
+
+# 38. Audit Logs
+
+Every important administrative action should be visually traceable.
+
+Example:
+
+```text
+Admin Activity
+
+Admin: Super Admin
+Action: Approved Doctor
+
+Dr. Ananya Sharma
+09 Sep 2026 • 10:42 AM
+```
+
+Filters:
+
+* Admin
+* Action
+* Module
+* Date
+* Entity
+
+---
+
+# 39. Admin Profile
+
+Show:
+
+```text
+[Admin Avatar]
+
+Super Admin
+admin@healthexpress.ai
+
+Role
+Super Administrator
+```
+
+Sections:
+
+* Personal information
+* Security
+* Login history
+* Notification preferences
+
+---
+
+# 40. Admin Settings
+
+Organize settings into categories:
+
+### Platform
+
+* General settings
+* App configuration
+* Feature flags
+
+### Users
+
+* Registration
+* Authentication
+* User policies
+
+### Doctors
+
+* Verification
+* Fees
+* Appointment rules
+
+### Hospitals
+
+* Verification
+* Hospital onboarding
+* Departments
+
+### Payments
+
+* Razorpay
+* Refund rules
+* Commission
+
+### Notifications
+
+* FCM
+* Templates
+* Notification rules
+
+### AI
+
+* AI configuration
+* Recommendation rules
+* Safety configuration
+
+---
+
+# 41. Hospital Onboarding Workflow
+
+The admin UI should make this workflow extremely clear:
+
+```text
+Hospital Application
+        ↓
+Basic Verification
+        ↓
+Documents
+        ↓
+Location
+        ↓
+Departments
+        ↓
+Services
+        ↓
+Hospital Admin
+        ↓
+Review
+        ↓
+Approve
+        ↓
+Hospital Active
+```
+
+---
+
+# 42. Doctor Onboarding Workflow
+
+```text
+Doctor Registers
+        ↓
+Basic Account
+        ↓
+Professional Profile
+        ↓
+Select Registered Hospital(s)
+        ↓
+Upload Documents
+        ↓
+Admin Verification
+        ↓
+Approved
+        ↓
+Doctor Active
+```
+
+Allow:
+
+```text
+Independent Practice
+```
+
+without hospital affiliation.
+
+---
+
+# 43. Global Search
+
+Add powerful global search in the admin header.
+
+Search across:
+
+* Users
+* Doctors
+* Hospitals
+* Appointments
+* Payments
+* Tickets
+
+Example:
+
+```text
+Search "Dr. Ananya"
+
+Doctors
+Dr. Ananya Sharma
+
+Hospitals
+KIMS Hospitals
+
+Appointments
+APT-82921
+```
+
+---
+
+# 44. Global Status System
+
+Use consistent status colors and badges.
+
+```text
+● Active
+● Pending
+● Verified
+● Completed
+● Cancelled
+● Suspended
+● Failed
+● Requires Action
+```
+
+Never use color alone to communicate status; include text/icons.
+
+---
+
+# 45. Responsive Design
+
+Desktop:
+
+* Sidebar
+* Multi-column dashboards
+* Large tables
+* Charts
+
+Tablet:
+
+* Collapsible sidebar
+* Responsive cards
+* Horizontal scrolling tables where necessary
+
+Mobile admin:
+
+* Collapsed navigation
+* Stacked cards
+* Simplified tables
+* Bottom/slide navigation if needed
+
+---
+
+# 46. Loading / Empty / Error States
+
+Every module needs:
+
+### Loading
+
+Skeleton cards/table rows.
+
+### Empty
+
+Example:
+
+```text
+No pending doctor verifications
+
+All registered doctors are currently
+verified.
+```
+
+### Error
+
+```text
+Unable to load hospitals
+
+[ Try Again ]
+```
+
+### Offline
+
+```text
+Connection unavailable
+Some information may be outdated.
+```
+
+---
+
+# 47. Admin UI Interaction Rules
+
+Use:
+
+* Hover states
+* Click states
+* Tooltips
+* Confirmation dialogs
+* Bulk selection
+* Bulk actions
+* Pagination
+* Sorting
+* Filtering
+* Search
+* Export where already supported
+* Toast notifications
+
+For destructive actions:
+
+```text
+Suspend Hospital?
+
+This will prevent new appointments
+from being created for this hospital.
+
+[ Cancel ] [ Suspend Hospital ]
+```
+
+---
+
+# 48. Data Tables
+
+All major tables should support, where the existing functionality permits:
+
+* Search
+* Sort
+* Filter
+* Pagination
+* Column alignment
+* Row actions
+* Bulk selection
+* Status filtering
+* Date filtering
+
+Keep tables dense enough for administration but not visually cramped.
+
+---
+
+# 49. Admin Visual Hierarchy
+
+Prioritize:
+
+**Critical operational information → actions → data → secondary information**
+
+For example:
+
+```text
+Pending Verifications
+        ↓
+Today's Appointments
+        ↓
+Payment Issues
+        ↓
+Support Tickets
+        ↓
+Analytics
+```
+
+The dashboard should help an admin understand **what needs attention first**.
+
+---
+
+# 50. Final Admin Panel Experience
+
+The final admin panel should function visually as the **central control center for HealthExpress AI**.
+
+Overall architecture:
+
+```text
+                    ADMIN PANEL
+                         │
+       ┌─────────────────┼─────────────────┐
+       │                 │                 │
+   OPERATIONS          USERS             AI
+       │                 │                 │
+ Hospitals          Patients         AI Config
+ Doctors            Doctors          AI Rules
+ Appointments       Profiles         AI Analytics
+ Payments            Records
+ Tickets
+       │
+       └───────────────────────────────────
+                         │
+                    ANALYTICS
+                         │
+              Platform Performance
+              Revenue
+              Appointments
+              Users
+              Hospitals
+              Doctors
+```
+
+### Critical implementation instruction
+
+**Do not modify the existing functional implementation.**
+
+The redesign must be applied to the existing admin panel as a **visual/UX redesign layer**.
+
+Preserve:
+
+* Existing routes
+* APIs
+* Authentication
+* Database operations
+* Hospital onboarding logic
+* Doctor registration/verification
+* Hospital-doctor relationships
+* User management
+* Appointment logic
+* Payment integration
+* Ticket system
+* AI configuration
+* Notifications
+* Analytics
+* Existing permissions and roles
+
+Redesign only:
+
+**layout → navigation → typography → colors → cards → tables → charts → forms → filters → spacing → visual hierarchy → responsive behavior → loading states → empty states → error states → interaction states.**

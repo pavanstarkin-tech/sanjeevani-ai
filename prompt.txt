@@ -1,0 +1,114 @@
+Sanjeevani AI — Master Project Prompt
+======================================
+
+Project Name : Sanjeevani AI (formerly HealthExpress AI)
+Repository   : https://github.com/pavanstarkin-tech/sanjeevani.ai.git
+
+Overview
+--------
+Sanjeevani AI is a full-stack AI-powered healthcare platform built for Indian
+users. It connects patients with doctors, hospitals, pharmacies, and emergency
+services — all powered by on-device and cloud AI.
+
+Platform Components
+-------------------
+  1. Flutter Mobile App  (healthexpress/)
+     - Two roles: User and Doctor (selected in-app)
+     - 61 functional screens (7 common, 30 User, 24 Doctor)
+     - AI Health Assistant (Sarvam AI / Groq / NVIDIA / Gemini Live)
+     - Offline AI Doctor (on-device SLM)
+     - AI Lens Scanner (medicine / prescription OCR)
+     - Voice AI calls (Agora RTC + Sarvam live STT)
+     - Emergency SOS + live ambulance tracking
+     - Nearby hospitals map (Mapbox)
+     - Pharmacy / medicine ordering + tracking
+     - Aarogyasri QR health card integration
+     - Razorpay payments
+
+  2. Admin Panel  (admin_panel/)
+     - React + Vite web application
+     - Hospital onboarding & management
+     - Doctor verification & hospital mapping
+     - User management, bookings, payments, tickets
+     - AI configuration, analytics, audit logs
+
+  3. Backend  (backend/)
+     - Node.js + Express API server
+     - MySQL database
+     - PHP backend helpers (php_backend/)
+
+  4. Admin Web  (admin_web/)
+     - Express-based web panel
+
+  5. LiveKit Voice Agent  (livekit_voice_agent/)
+     - Real-time voice AI pipeline
+
+Tech Stack
+----------
+  Frontend (Mobile) : Flutter (Dart)
+  Admin Panel       : React + Vite
+  Backend           : Node.js + Express, PHP
+  Database          : MySQL
+  AI / ML           : Sarvam AI, Groq, NVIDIA NIM, Gemini Live, on-device SLM
+  Voice             : Agora RTC, Sarvam Live STT, LiveKit
+  Maps              : Mapbox
+  Auth              : Firebase (Google, Email, Mobile OTP)
+  Notifications     : Firebase FCM
+  Payments          : Razorpay
+  File Storage      : Hostinger SSH
+  Push/Deploy       : GitHub Actions / manual deploy scripts
+
+Key AI Features
+---------------
+  - AI Health Assistant: voice + text symptom collection, dynamic UI adaptation
+  - Offline AI Doctor: on-device SLM works without internet
+  - AI Lens Scanner: scan prescriptions, medicine strips, reports
+  - AI Voice Call: real-time medical conversation with live transcription
+  - Dynamic Dashboard: adapts content to user's current health context
+  - Disease-based doctor & medicine recommendations
+  - Aarogyasri card QR scan for instant patient history retrieval
+
+User Roles
+----------
+  User   : patient / general user
+  Doctor : clinic / hospital / independent practice
+  Admin  : web-only panel (not a mobile role)
+
+Onboarding Philosophy
+---------------------
+  Minimal registration: collect only Name + Mobile initially.
+  Additional health / professional information is gathered progressively
+  when a specific feature requires it.
+
+Doctor Registration Flow
+------------------------
+  Choose Doctor role → Auth (Google / Email / OTP) → Name + Mobile →
+  Professional details (specialty, qualification, experience) →
+  Select Hospital (from admin-approved list) or Independent Practice →
+  Submit for Verification (Pending → Under Review → Verified → Active)
+
+Hospital Management (Admin)
+----------------------------
+  Admin onboards hospitals with departments and specialties.
+  Doctors link to admin-approved hospitals during registration.
+  Users can browse hospital profiles and book appointments per department.
+
+Appointment & Booking Rules
+----------------------------
+  - Reschedule allowed up to 24 hours before appointment
+  - After 24 hours: non-cancellable; 30–50 % refund only
+  - Clinic visit, video consultation, home visit supported
+  - RMP doctor home visit with auto-booking
+
+Emergency Services
+------------------
+  - One-tap ambulance booking
+  - Live location sharing
+  - Nearest hospital routing
+  - Emergency contact alerts
+
+Important Files Location
+------------------------
+  All key planning documents, SRS, presentations, deployment scripts,
+  and brand assets are stored in the Important_Files/ folder at the
+  repository root.

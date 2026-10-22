@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-10-20T12:06:00+05:30",
+  "active_key_id": "KEY-1",
+  "keys": [
+    {
+      "id": "KEY-1",
+      "key": "sk_5ijbsyhu_co3XmcxZMgr0Rf0HAjfWvV4x",
+      "masked_key": "sk_5ijb...WvV4x",
+      "label": "Primary Active Key (AppConfig / LiveKit)",
+      "status": "active",
+      "added_at": "2026-10-20 12:00:00",
+      "last_used_at": "2026-10-20 12:05:00",
+      "last_checked_at": "2026-10-20 12:05:20",
+      "failure_reason": null,
+      "calls_count": 1
+    },
+    {
+      "id": "KEY-2",
+      "key": "sk_d3mrjqmd_WCMwFkKIf6GQKxpaUIu9Ucwu",
+      "masked_key": "sk_d3mr...9Ucwu",
+      "label": "Secondary Backup Key (AppConfig Fallback)",
+      "status": "active",
+      "added_at": "2026-10-20 12:00:00",
+      "last_used_at": null,
+      "last_checked_at": "2026-10-20 12:05:20",
+      "failure_reason": null,
+      "calls_count": 0
+    },
+    {
+      "id": "KEY-3",
+      "key": "sk_hr3tv6ew_UBzXjEc9RqZLGuMpzyctBUQC",
+      "masked_key": "sk_hr3t...tBUQC",
+      "label": "Tertiary Backup Key (Benchmark Account)",
+      "status": "active",
+      "added_at": "2026-10-20 12:00:00",
+      "last_used_at": null,
+      "last_checked_at": "2026-10-20 12:05:20",
+      "failure_reason": null,
+      "calls_count": 0
+    },
+    {
+      "id": "KEY-4",
+      "key": "sk_n4tzuy3c_JIUK6l5ExNHHGoiiAGwvroYh",
+      "masked_key": "sk_n4tz...vroYh",
+      "label": "Original Legacy Key (apis.txt)",
+      "status": "exhausted",
+      "added_at": "2026-10-20 12:00:00",
+      "last_used_at": "2026-10-20 12:05:20",
+      "last_checked_at": "2026-10-20 12:05:20",
+      "failure_reason": "HTTP 402: No credits available (insufficient_quota_error)",
+      "calls_count": 0
+    }
+  ]
+}

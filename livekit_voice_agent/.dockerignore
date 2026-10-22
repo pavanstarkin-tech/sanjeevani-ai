@@ -1,0 +1,10 @@
+__pycache__
+*.pyc
+*.pyo
+.git
+.gitignore
+.env
+lk.exe
+lk.zip
+*.log
+node_token_server
