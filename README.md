@@ -20,6 +20,8 @@
 [![Mapbox](https://img.shields.io/badge/Mapbox-GL_Vector_GPS-000000?logo=mapbox&logoColor=white)](https://www.mapbox.com)
 [![Razorpay](https://img.shields.io/badge/Razorpay-Live_Payments-0C2340?logo=razorpay&logoColor=white)](https://razorpay.com)
 [![GitHub Pages](https://img.shields.io/badge/Live_Deployment-GitHub_Pages-22C55E?logo=github&logoColor=white)](https://pavanstarkin-tech.github.io/sanjeevani_ai/)
+[![Download APK](https://img.shields.io/badge/Download_APK-v1.0.0_(1.08_GB)-3DDC84?logo=android&logoColor=white)](https://github.com/pavanstarkin-tech/sanjeevani-ai/releases/download/v1.0.0/sanjeevani-release.apk)
+
 
 
 > **Sanjeevani.ai** is an end-to-end, edge-first healthcare super-application and hospital operational command center. It unifies **multilingual voice-first AI clinical intake (Telugu, Hindi, English)**, **embedded Agora HD video teleconsultations**, **15-minute hyperlocal dark-store emergency medicine delivery**, **on-device Llama-3.2-1B & clinical vector RAG (0 KBps offline capability)**, **5 km cached emergency health radar**, **home diagnostic lab test sample collections**, and **ABDM & Aarogyasri government health scheme integrations** into a single, synchronized platform.
@@ -140,12 +142,25 @@
 
 ## Live Production Portals
 
-| Super Admin Dashboard | Sanjeevani Release APK | Live Backend REST API |
+| Super Admin Dashboard | Sanjeevani Release APK (Full Offline SLM) | Live Backend REST API |
 | :---: | :---: | :---: |
-| <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fpavanstarkin-tech.github.io%2Fsanjeevani_ai%2Fadmin%2F" width="140" height="140" alt="Super Admin Dashboard QR" /><br/><br/>[![Open Admin Dashboard](https://img.shields.io/badge/Open_Admin_Dashboard-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://pavanstarkin-tech.github.io/sanjeevani_ai/admin/) | <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fgithub.com%2Fpavanstarkin-tech%2Fsanjeevani-ai%2Freleases%2Fdownload%2Fv1.0.0%2Fsanjeevani-release.apk" width="140" height="140" alt="Sanjeevani Release APK QR" /><br/><br/>[![Download Release APK](https://img.shields.io/badge/Download_Release_APK-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/pavanstarkin-tech/sanjeevani-ai/releases/download/v1.0.0/sanjeevani-release.apk) | <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fvedvaidyam.com%2Fhealthexpress%2Fapi%2Fhealth" width="140" height="140" alt="Live Hostinger API QR" /><br/><br/>[![Check API Health](https://img.shields.io/badge/Check_API_Health-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://vedvaidyam.com/healthexpress/api/health) |
-| **React 19 + Vite Admin Console**<br/>Hospital Beds & Dark Store Operations | **Android Production APK (ARM64)**<br/>[Direct Download (.apk)](https://github.com/pavanstarkin-tech/sanjeevani-ai/releases/download/v1.0.0/sanjeevani-release.apk) • [v1.0.0 Release](https://github.com/pavanstarkin-tech/sanjeevani-ai/releases/tag/v1.0.0) | **PHP 8.2+ REST API**<br/>Hostinger Cloud Production Gateway |
+| <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fpavanstarkin-tech.github.io%2Fsanjeevani_ai%2Fadmin%2F" width="140" height="140" alt="Super Admin Dashboard QR" /><br/><br/>[![Open Admin Dashboard](https://img.shields.io/badge/Open_Admin_Dashboard-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://pavanstarkin-tech.github.io/sanjeevani_ai/admin/) | <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fgithub.com%2Fpavanstarkin-tech%2Fsanjeevani-ai%2Freleases%2Fdownload%2Fv1.0.0%2Fsanjeevani-release.apk" width="140" height="140" alt="Sanjeevani Release APK QR" /><br/><br/>[![Download Release APK](https://img.shields.io/badge/Download_Release_APK-1.08_GB-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/pavanstarkin-tech/sanjeevani-ai/releases/download/v1.0.0/sanjeevani-release.apk) | <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fvedvaidyam.com%2Fhealthexpress%2Fapi%2Fhealth" width="140" height="140" alt="Live Hostinger API QR" /><br/><br/>[![Check API Health](https://img.shields.io/badge/Check_API_Health-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://vedvaidyam.com/healthexpress/api/health) |
+| **React 19 + Vite Admin Console**<br/>Hospital Beds & Dark Store Operations | **Android Production APK (ARM64)**<br/>📦 **Size:** `1,080.5 MB` (~1.08 GB)<br/>🤖 **Bundled:** `Llama-3.2-1B-Instruct` (807 MB)<br/>[Direct Download (.apk)](https://github.com/pavanstarkin-tech/sanjeevani-ai/releases/download/v1.0.0/sanjeevani-release.apk) • [v1.0.0 Release Notes](https://github.com/pavanstarkin-tech/sanjeevani-ai/releases/tag/v1.0.0) | **PHP 8.2+ REST API**<br/>Hostinger Cloud Production Gateway |
+
+### 📲 Production Android APK Download & Specifications
+
+> **Note on File Size**: Unlike typical cloud-dependent health apps, the Sanjeevani production APK is fully standalone. It bundles the **807.69 MB quantized Llama-3.2-1B-Instruct-Q4_K_M.gguf** model alongside native `llama.cpp` runtime binaries, allowing full offline clinical consultation and first-aid guidance at 0 KBps connectivity.
+
+* **File Name**: `sanjeevani-release.apk`
+* **Direct Download URL**: **[https://github.com/pavanstarkin-tech/sanjeevani-ai/releases/download/v1.0.0/sanjeevani-release.apk](https://github.com/pavanstarkin-tech/sanjeevani-ai/releases/download/v1.0.0/sanjeevani-release.apk)**
+* **Official GitHub Release**: **[v1.0.0 Release](https://github.com/pavanstarkin-tech/sanjeevani-ai/releases/tag/v1.0.0)**
+* **Exact File Size**: `1,080.50 MB` (`1,132,983,251 bytes` ~ **1.08 GB**)
+* **Bundled Model**: `assets/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf` (807 MB)
+* **Architecture**: Android `arm64-v8a` (Primary), `armeabi-v7a`, `x86_64`
+* **Minimum Android Version**: Android 8.0 (API Level 26)+
 
 ---
+
 
 ## Core Engineering Team
 
