@@ -46,6 +46,7 @@ class ChatSessionMeta {
   DateTime updatedAt;
   int messageCount;
   String lastSnippet;
+  String type; // 'online' or 'offline'
 
   ChatSessionMeta({
     required this.id,
@@ -54,6 +55,7 @@ class ChatSessionMeta {
     required this.updatedAt,
     this.messageCount = 0,
     this.lastSnippet = '',
+    this.type = 'online',
   });
 
   Map<String, dynamic> toJson() => {
@@ -63,6 +65,7 @@ class ChatSessionMeta {
     'updatedAt': updatedAt.toIso8601String(),
     'messageCount': messageCount,
     'lastSnippet': lastSnippet,
+    'type': type,
   };
 
   factory ChatSessionMeta.fromJson(Map<String, dynamic> json) => ChatSessionMeta(
@@ -72,6 +75,7 @@ class ChatSessionMeta {
     updatedAt: DateTime.tryParse(json['updatedAt'] as String? ?? '') ?? DateTime.now(),
     messageCount: (json['messageCount'] as int?) ?? 0,
     lastSnippet: (json['lastSnippet'] as String?) ?? '',
+    type: (json['type'] as String?) ?? (json['id']?.toString().contains('offline') == true ? 'offline' : 'online'),
   );
 }
 
@@ -477,6 +481,13 @@ class AiAssistantProvider extends ChangeNotifier {
         }
       }
 
+      final prefs = await SharedPreferences.getInstance();
+      final sessionsJson = prefs.getString('sanjeevani_chat_sessions_v2');
+      if (sessionsJson != null && sessionsJson.isNotEmpty) {
+        final List<dynamic> decoded = jsonDecode(sessionsJson);
+        _savedSessions = decoded.map((s) => ChatSessionMeta.fromJson(s as Map<String, dynamic>)).toList();
+      }
+
       final idx = _savedSessions.indexWhere((s) => s.id == _currentSessionId);
       final lastText = _messages.last.text.replaceAll('\n', ' ');
       final snippet = lastText.length > 40 ? '${lastText.substring(0, 40)}...' : lastText;
@@ -486,6 +497,7 @@ class AiAssistantProvider extends ChangeNotifier {
         _savedSessions[idx].updatedAt = DateTime.now();
         _savedSessions[idx].messageCount = _messages.length;
         _savedSessions[idx].lastSnippet = snippet;
+        _savedSessions[idx].type = 'online';
       } else {
         _savedSessions.insert(0, ChatSessionMeta(
           id: _currentSessionId,
@@ -494,6 +506,7 @@ class AiAssistantProvider extends ChangeNotifier {
           updatedAt: DateTime.now(),
           messageCount: _messages.length,
           lastSnippet: snippet,
+          type: 'online',
         ));
       }
 

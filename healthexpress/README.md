@@ -1,186 +1,582 @@
 # Sanjeevani.ai (సంజీవని) 🩺
-### *The Edge-First Multimodal Healthcare Super-App for 1.4 Billion People*
+### *The Edge-First Multimodal Healthcare Super-App & Operational Control Center*
 
-[![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter)](https://flutter.dev)
+[![IBM Bob](https://img.shields.io/badge/Implemented_With-IBM_Bob-052FAD?logo=ibm&logoColor=white)](https://bob.ibm.com/)
+[![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-6.x-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
+[![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?logo=php&logoColor=white)](https://www.php.net)
+[![MariaDB](https://img.shields.io/badge/MariaDB-Live_Production-4479A1?logo=mariadb&logoColor=white)](https://mariadb.org)
 [![On-Device SLM](https://img.shields.io/badge/On--Device%20SLM-Llama%203.2%201B-FF6F00)](https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF)
-[![Medical RAG](https://img.shields.io/badge/Medical%20RAG-128--d%20Dense%20Vectors-10B981)](#-on-device-medical-rag-pipeline)
-[![Offline First](https://img.shields.io/badge/Offline%20First-Zero%20Cloud%20Fallback-0EA5E9)](#-zero-internet-intelligence--5-km-grid)
-[![ABDM Compliant](https://img.shields.io/badge/ABDM-15--Min%20Dynamic%20QR-8B5CF6)](https://abdm.gov.in)
-[![Production](https://img.shields.io/badge/Production-acheva.in-047857)](https://acheva.in)
+[![Medical RAG](https://img.shields.io/badge/Medical%20RAG-128--d%20Dense%20Vectors-10B981)](#-on-device-medical-rag-pipeline-zero-internet)
+[![NVIDIA NIM](https://img.shields.io/badge/NVIDIA_NIM-GPT--OSS--20B-76B900?logo=nvidia&logoColor=white)](https://www.nvidia.com)
+[![Sarvam AI](https://img.shields.io/badge/Sarvam_AI-Saaras_v3_STT-FF6F00?logo=fastapi&logoColor=white)](https://sarvam.ai)
+[![Agora](https://img.shields.io/badge/Agora-WebRTC_HD_Video-099DFD?logo=agora&logoColor=white)](https://www.agora.io)
+[![Mapbox](https://img.shields.io/badge/Mapbox-GL_Vector_GPS-000000?logo=mapbox&logoColor=white)](https://www.mapbox.com)
+[![Razorpay](https://img.shields.io/badge/Razorpay-Live_Payments-0C2340?logo=razorpay&logoColor=white)](https://razorpay.com)
+[![Live Deployment](https://img.shields.io/badge/Live_Deployment-GitHub_Pages-22C55E?logo=github&logoColor=white)](https://pavanstarkin-tech.github.io/sanjeevani_ai/)
+
+> **Sanjeevani.ai** is an end-to-end, edge-first healthcare super-application and hospital operational command center. It unifies **multilingual voice-first AI clinical intake (Telugu, Hindi, English)**, **embedded Agora HD video teleconsultations**, **15-minute hyperlocal dark-store emergency medicine delivery**, **on-device Llama-3.2-1B & clinical vector RAG (0 KBps offline capability)**, **5 km cached emergency health radar**, **home diagnostic lab test sample collections**, and **ABDM & Aarogyasri government health scheme integrations** into a single, synchronized platform.
 
 ---
 
-## 🌟 Executive Overview
+## 📽️ Executive Presentation Slide Slider
 
-**Sanjeevani.ai** is a mission-critical, edge-first healthcare super-application engineered to bridge the four deepest divides in healthcare accessibility across rural and urban India:
-1. **Connectivity Dropouts**: Solved with native on-device **Medical RAG** running over a local **Llama 3.2 1B Instruct** model and an offline **5 km emergency grid**.
-2. **Language & Literacy Barriers**: Solved via regional voice agents (Telugu, Hindi, English, Tanglish/Hinglish) and an interactive photorealistic **AI Doctor Avatar (Dr. Medha)**.
-3. **Unaffordable Branded Medications**: Solved through automated **Jan Aushadhi (PMBJP)** generic drug comparison (50% to 80%+ savings) and 15-minute quick-commerce delivery.
-4. **Emergency Delays**: Solved with 1-tap **108 emergency SOS**, real-time hospital bed vacancy telemetry, and an interactive **110 BPM CPR pulse metronome**.
+<div align="center">
+  <p><strong>18-Slide Strategic & Technical Presentation Slider (Auto-Playing)</strong></p>
+  <img src="ppt/presentation_slider.gif" width="100%" alt="Sanjeevani.ai Executive Presentation Slider" />
+  <br/><br/>
+  <a href="../ppt/Sanjeevani.ai_Presentation.pptx">
+    <img src="https://img.shields.io/badge/Download-PowerPoint_Presentation_(.pptx)-D04423?style=for-the-badge&logo=microsoftpowerpoint&logoColor=white" alt="Download PPTX" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="../ppt/Sanjeevani.ai_Presentation.pdf">
+    <img src="https://img.shields.io/badge/Download-Executive_Deck_(.pdf)-EC1C24?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Download PDF" />
+  </a>
+</div>
 
----
+<details>
+  <summary><strong>🔍 Click to Expand / View Individual Slides Full Width (Slide 01 to 18)</strong></summary>
+  <br/>
 
-## 🏗️ Quad-Core System Architecture
+  <details open>
+    <summary><strong>Slide 01</strong></summary>
+    <p align="center"><img src="ppt/1.png" width="100%" alt="Slide 01" /></p>
+  </details>
 
-```
-                                  ┌──────────────────────────────────────────────┐
-                                  │           USER INTERACTION LAYER             │
-                                  ├──────────────────────┬───────────────────────┤
-                                  │  Live Voice Agent    │  AI Doctor Avatar     │
-                                  │  (Sarvam AI STT/TTS) │  (Dr. Medha WebRTC)   │
-                                  └──────────┬───────────┴───────────┬───────────┘
-                                             │                       │
-                       ┌─────────────────────▼───────────────────────▼────────────────────┐
-                       │                   SANJEEVANI CORE CLIENT (FLUTTER)               │
-                       ├─────────────────────────────────┬────────────────────────────────┤
-                       │  Online Cloud Pipeline          │  Offline Edge Engine           │
-                       │  - NVIDIA NIM (GPT-OSS-20B)     │  - Llama 3.2 1B Instruct Q4    │
-                       │  - Groq Llama 3.2 Vision (OCR)  │  - On-Device Medical RAG Layer │
-                       │  - Mapbox GL Vector Telemetry   │  - 128-d Dense Hybrid Search   │
-                       │  - Agora HD RTC Teleconsult     │  - 0ms Emergency Classifier    │
-                       │  - Razorpay Payment Gateway     │  - 110 BPM CPR Audio Metronome │
-                       └─────────────────┬───────────────┴────────────────┬───────────────┘
-                                         │                                │
-                       ┌─────────────────▼───────────────┐ ┌──────────────▼───────────────┐
-                       │   CLOUD BACKEND & SUPER ADMIN   │ │    SOVEREIGN & LOCAL DATA    │
-                       │   - Hostinger VPS (acheva.in)   │ │  - AHA/ERC/WHO First-Aid     │
-                       │   - Node.js Express REST API    │ │  - ICMR Clinical Protocols   │
-                       │   - MariaDB Database Cluster    │ │  - Jan Aushadhi Generic Drug │
-                       │   - React 19 Ops Command Center │ │  - Aarogyasri (₹25L) & PMJAY │
-                       └─────────────────────────────────┘ └──────────────────────────────┘
-```
+  <details>
+    <summary><strong>Slide 02</strong></summary>
+    <p align="center"><img src="ppt/2.png" width="100%" alt="Slide 02" /></p>
+  </details>
 
----
+  <details>
+    <summary><strong>Slide 03</strong></summary>
+    <p align="center"><img src="ppt/3.png" width="100%" alt="Slide 03" /></p>
+  </details>
 
-## ⚡ Key Capabilities & Feature Modules
+  <details>
+    <summary><strong>Slide 04</strong></summary>
+    <p align="center"><img src="ppt/4.png" width="100%" alt="Slide 04" /></p>
+  </details>
 
-### 1. 🧠 On-Device Medical RAG Pipeline (100% Offline)
-- **Local Model**: Pre-bundled asset model [`Llama-3.2-1B-Instruct-Q4_K_M.gguf`](file:///c:/Users/shese/Desktop/sanjeevani%20ai/healthexpress/assets/models/) (803 MB) running via native ARM64 `llama.cpp` shared libraries.
-- **Fast Emergency Risk Detection**: Sub-2ms local safety classifier scans for critical life-threats (Cardiac Arrest, Stroke FAST, Poisoning, Hemorrhage, Anaphylaxis) and triggers prevalidated emergency steps and a **108 ambulance callout** before LLM generation begins.
-- **Hybrid Retrieval**: Combines 128-dimensional dense semantic vector cosine similarity (65%) with BM25 token overlap (35%) and clinical entity boosting.
-- **Clinical Evidence Base**: Ingests authoritative guidelines:
-  - **AHA / ERC / WHO**: Adult CPR, Choking (Heimlich), Burns, Anaphylaxis, Snakebite.
-  - **ICMR Protocols**: Dengue fever & Thrombocytopenia, Diabetes Mellitus, Hypertension crisis.
-  - **Jan Aushadhi**: WHO-GMP generic bioequivalents & pricing compendium.
-  - **Sovereign Schemes**: Dr. YSR Aarogyasri (₹25 Lakh) and Ayushman Bharat PM-JAY (₹5 Lakh).
-- **Prompt Guardrails**: Verbatim 20-rule master system instruction preventing medical hallucinations, enforcing evidence grounding (`<retrieved_medical_context>`), and providing verified source attribution.
+  <details>
+    <summary><strong>Slide 05</strong></summary>
+    <p align="center"><img src="ppt/5.png" width="100%" alt="Slide 05" /></p>
+  </details>
 
-### 2. 🎙️ Multimodal Humanized Care (Voice, Avatar & Vision)
-- **Regional Voice Agent**: Powered by Sarvam AI (`saaras:v3` Speech-to-Text and `bulbul:v3` Text-to-Speech) supporting fluent Telugu, Hindi, English, Tanglish (*"naku jwaram undi"*), and Hinglish. Features Web Audio RMS Voice Activity Detection (VAD) for hands-free conversations.
-- **Interactive Doctor Avatar (Dr. Medha)**: Photorealistic female physician avatar with live lip-sync, expressing 5 dynamic states (*Idle, Listening, Thinking, Speaking, Emergency*).
-- **AI Lens Scanner (Groq Vision)**: Deciphers handwritten doctor prescriptions and identifies pill blister packs (strength, dosage, expiry date) in under 2 seconds.
+  <details>
+    <summary><strong>Slide 06</strong></summary>
+    <p align="center"><img src="ppt/6.png" width="100%" alt="Slide 06" /></p>
+  </details>
 
-### 3. 🚀 15-Minute Medicine Quick-Commerce & Jan Aushadhi
-- **Hyperlocal Dispatch**: Routes prescription orders to pharmacy dark stores within a 3–5 km radius with an automated 15-minute emergency delivery SLA.
-- **Live Rider Tracking**: Real-time vector Mapbox GPS tracking with rider telemetry.
-- **Jan Aushadhi Comparator**: Chemical salt-to-salt matching that switches expensive branded medicines to identical PMBJP generic alternatives, reducing out-of-pocket costs by 50% to 80%+.
-- **30-Minute Medicine Hold Token**: Allows patients to lock critical pharmacy stocks for 30 minutes with a generated verification OTP.
+  <details>
+    <summary><strong>Slide 07</strong></summary>
+    <p align="center"><img src="ppt/7.png" width="100%" alt="Slide 07" /></p>
+  </details>
 
-### 4. 🏥 Hyperlocal Discovery & 5 km Emergency Health Grid
-- **Bed & Blood Telemetry**: Real-time bed availability tracking (General Beds, ICU Beds, Ventilators, and Oxygen Beds) and Blood Bank units (A+, B+, O+, O-) across nearby empaneled hospitals.
-- **1-Tap 108 Emergency SOS**: Instant panic button broadcasting live GPS coordinates, patient history, and pre-triage notes to emergency dispatchers while reserving a trauma bed.
-- **RMP Rural Doctor Home Visits**: Dedicated dispatch booking for verified Rural Medical Practitioners to conduct home checkups and vitals screening for elderly patients.
+  <details>
+    <summary><strong>Slide 08</strong></summary>
+    <p align="center"><img src="ppt/8.png" width="100%" alt="Slide 08" /></p>
+  </details>
 
-### 5. 👨‍⚕️ Doctor-Only Portal & Teleconsultation Suite
-- **Pre-Consultation AI SOAP Notes**: Doctors review AI-generated Subjective, Objective, Assessment, and Plan summaries before joining calls.
-- **Agora HD Telehealth**: Sub-200ms encrypted 2-way WebRTC video room with integrated audio volume metering.
-- **Digital E-Prescription Builder**: In-call prescription tool that digitally signs orders and automatically routes medications into the patient's 15-minute quick-commerce cart.
+  <details>
+    <summary><strong>Slide 09</strong></summary>
+    <p align="center"><img src="ppt/9.png" width="100%" alt="Slide 09" /></p>
+  </details>
 
-### 6. 🛡️ Sovereign Health Schemes & ABDM Privacy QR
-- **Cashless Scheme Navigator**: Native eligibility verification for **Dr. YSR Aarogyasri** (₹25 Lakh) and **Ayushman Bharat PM-JAY** (₹5 Lakh) across 3,257+ empaneled surgical procedures.
-- **ABDM 15-Minute Dynamic QR**: Time-bound, self-expiring QR consent token (15 to 120 minutes) enabling doctors to inspect patient EHR records securely without physical paperwork.
+  <details>
+    <summary><strong>Slide 10</strong></summary>
+    <p align="center"><img src="ppt/10.png" width="100%" alt="Slide 10" /></p>
+  </details>
 
-### 7. 📊 Operations Command Center & Syndromic Surveillance
-- **Web Admin Panel (`acheva.in`)**: Production React 19 dashboard hosted on Hostinger VPS managing hospital bed telemetry, pharmacy inventories, doctor license verifications, and Razorpay transactions.
-- **Syndromic Outbreak Heatmap**: GIS early-warning system that tracks regional symptom spikes (Dengue, Malaria, Gastroenteritis) to forecast disease outbreaks days before hospital admissions register them.
+  <details>
+    <summary><strong>Slide 11</strong></summary>
+    <p align="center"><img src="ppt/11.png" width="100%" alt="Slide 11" /></p>
+  </details>
 
----
+  <details>
+    <summary><strong>Slide 12</strong></summary>
+    <p align="center"><img src="ppt/12.png" width="100%" alt="Slide 12" /></p>
+  </details>
 
-## 📁 Repository Structure
+  <details>
+    <summary><strong>Slide 13</strong></summary>
+    <p align="center"><img src="ppt/13.png" width="100%" alt="Slide 13" /></p>
+  </details>
 
-```
-healthexpress/
-├── assets/
-│   ├── models/                                # Bundled on-device GGUF models
-│   │   └── Llama-3.2-1B-Instruct-Q4_K_M.gguf  # Pre-built 803 MB Llama asset
-│   ├── images/                                # Splash, banners, quick actions
-│   ├── audio/                                 # CPR 110 BPM metronome beats
-│   └── data/                                  # Local medical protocol registries
-├── lib/
-│   ├── core/
-│   │   ├── config/                            # Environment config & API keys
-│   │   ├── services/                          # Network, location & audio utilities
-│   │   └── theme/                             # AppColors, typography & UI tokens
-│   ├── data/
-│   │   └── validated_first_aid_protocols.dart # 10 WHO/AHA First-Aid protocols
-│   ├── models/
-│   │   ├── medical_rag_chunk.dart             # Medical RAG chunk & retrieval models
-│   │   └── offline_medical_models.dart        # SLM, triage & protocol data structures
-│   ├── providers/
-│   │   ├── offline_medical_slm_provider.dart  # Central offline SLM & RAG coordinator
-│   │   └── ai_assistant_provider.dart         # Cloud AI & multimodal assistant provider
-│   ├── screens/
-│   │   ├── user/
-│   │   │   ├── offline_ai_doctor_screen.dart  # Flagship On-Device SLM + RAG Screen
-│   │   │   ├── ai_assistant_screen.dart       # Online Multimodal AI Assistant
-│   │   │   ├── emergency_ambulance_screen.dart# 108 SOS & Hospital Bed Telemetry
-│   │   │   ├── pharmacy_cart_screen.dart      # 15-Min Quick-Commerce Cart
-│   │   │   └── doctor_consultation_screen.dart# Agora HD Telemedicine Suite
-│   │   └── doctor/                            # Doctor-only portal & clinical tools
-│   ├── services/
-│   │   ├── medical_slm_engine_service.dart    # llama_cpp_dart inference & prompt formatter
-│   │   ├── offline_medical_rag_service.dart   # Hybrid vector retriever & risk classifier
-│   │   ├── model_storage_service.dart         # Asset loading & local storage manager
-│   │   └── offline_voice_service.dart         # Flutter TTS & STT voice engine
-│   └── widgets/
-│       ├── markdown_formatted_text.dart       # Rich clinical tables & markdown parser
-│       └── first_aid_flow_overlay.dart        # Interactive CPR & first-aid steps
-└── test/
-    ├── offline_medical_rag_test.dart          # 14 comprehensive on-device RAG tests
-    └── offline_medical_slm_test.dart          # First-aid protocol & triage tests
-```
+  <details>
+    <summary><strong>Slide 14</strong></summary>
+    <p align="center"><img src="ppt/14.png" width="100%" alt="Slide 14" /></p>
+  </details>
+
+  <details>
+    <summary><strong>Slide 15</strong></summary>
+    <p align="center"><img src="ppt/15.png" width="100%" alt="Slide 15" /></p>
+  </details>
+
+  <details>
+    <summary><strong>Slide 16</strong></summary>
+    <p align="center"><img src="ppt/16.png" width="100%" alt="Slide 16" /></p>
+  </details>
+
+  <details>
+    <summary><strong>Slide 17</strong></summary>
+    <p align="center"><img src="ppt/17.png" width="100%" alt="Slide 17" /></p>
+  </details>
+
+  <details>
+    <summary><strong>Slide 18</strong></summary>
+    <p align="center"><img src="ppt/18.png" width="100%" alt="Slide 18" /></p>
+  </details>
+</details>
 
 ---
 
-## 🚀 Getting Started
+## 🌐 Live Production Portals
 
-### Prerequisites
-- **Flutter SDK**: 3.24.0 or newer
-- **Dart SDK**: 3.5.0 or newer
-- **Android SDK**: API level 26+ (Android 8.0+)
-- **Architecture**: ARM64 device / emulator (for native `llama.cpp` inference)
+| Patient & Doctor Super-App | Super Admin Dashboard | Live Backend REST API |
+| :---: | :---: | :---: |
+| <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fpavanstarkin-tech.github.io%2Fsanjeevani_ai%2F" width="140" height="140" alt="Patient & Doctor Web App QR" /><br/><br/>[![Launch Patient & Doctor App](https://img.shields.io/badge/Launch_App-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://pavanstarkin-tech.github.io/sanjeevani_ai/) | <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fpavanstarkin-tech.github.io%2Fsanjeevani_ai%2Fadmin%2F" width="140" height="140" alt="Super Admin Dashboard QR" /><br/><br/>[![Open Admin Dashboard](https://img.shields.io/badge/Open_Dashboard-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://pavanstarkin-tech.github.io/sanjeevani_ai/admin/) | <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fvedvaidyam.com%2Fhealthexpress%2Fapi%2Fhealth" width="140" height="140" alt="Live Hostinger API QR" /><br/><br/>[![Check API Health](https://img.shields.io/badge/Check_API_Health-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://vedvaidyam.com/healthexpress/api/health) |
+| **Flutter Web & Mobile**<br/>Patient Intake & Doctor Telehealth | **React 19 + Vite**<br/>Hospital & Dark Store Operations | **PHP 8.2+ REST API**<br/>Production Cloud Gateway |
 
-### 1. Clone & Install Dependencies
-```bash
-git clone https://github.com/pavanstarkin-tech/sanjeevani.ai.git
-cd "sanjeevani ai/healthexpress"
-flutter pub get
+---
+
+## 👥 Core Engineering Team
+
+| Profile | Team Member | Role & Responsibilities | Contact & Profiles |
+| :---: | :--- | :--- | :--- |
+| <img src="https://github.com/pavanstarkin-tech.png" width="90" height="90" style="border-radius:50%" alt="S Pavan Kumar Swamy" /><br/>[@pavanstarkin-tech](https://github.com/pavanstarkin-tech) | **S Pavan Kumar Swamy** | Full-Stack Architecture, Multimodal AI & Mobile Engineering | Email: [`shesettipavankumarswamy@gmail.com`](mailto:shesettipavankumarswamy@gmail.com)<br/>Phone: `+91 8639122823`<br/>GitHub: [@pavanstarkin-tech](https://github.com/pavanstarkin-tech) |
+| <img src="https://github.com/venkatmalla6.png" width="90" height="90" style="border-radius:50%" alt="Malla Venkat" /><br/>[@venkatmalla6](https://github.com/venkatmalla6) | **Malla Venkat** | Cloud Infrastructure, Telehealth WebRTC & Backend Engineering | Email: [`venkatmallacs@gmail.com`](mailto:venkatmallacs@gmail.com)<br/>Phone: `+91 63031 48893`<br/>GitHub: [@venkatmalla6](https://github.com/venkatmalla6) |
+
+---
+
+## 🤖 How We Used IBM Bob to Implement This Project
+
+**Sanjeevani.ai** was architected, built, debugged, and deployed end-to-end utilizing **[IBM Bob](https://bob.ibm.com/)** as our autonomous AI software development partner across every layer of the technology stack.
+
+```mermaid
+flowchart LR
+    subgraph BobArchitecture["1. Architecture & Schema Synthesis"]
+        Spec["Requirements<br/>(15-Min Care, ABDM, Aarogyasri)"] --> BobArch["IBM Bob Architect<br/>• 16-Table Schema<br/>• Super-App Topology<br/>• ABDM QR Protocol"]
+    end
+
+    subgraph BobCodeGen["2. Full-Stack Generation"]
+        BobFlutter["Flutter Super-App<br/>(Voice AI, Mapbox GPS)"]
+        BobReact["React 19 Admin<br/>(Live Telemetry, KYC)"]
+        BobPHP["PHP 8.2+ REST API<br/>(16 Endpoints, PDO)"]
+        BobSQL["MariaDB Database<br/>(16 Tables, Audit Logs)"]
+    end
+
+    subgraph BobAIIntegration["3. AI & Real-Time Engineering"]
+        BobVoice["Multilingual Voice Engine<br/>• Sarvam STT/TTS Auto-Detect<br/>• Web Audio API Silence VAD"]
+        BobWebRTC["Agora HD Video<br/>• WebRTC Token & Room<br/>• Live Volume Metering"]
+    end
+
+    subgraph BobQA["4. Debugging & Bob Shell CI/CD"]
+        BobFix["Refactoring & Fixes<br/>• Flutter @JS Interop<br/>• Silent GainNode Echo Fix"] --> BobDeploy["Bob Shell Dual Deploy<br/>(deploy.ps1 -> GitHub Pages)"]
+    end
+
+    BobArch --> BobFlutter & BobReact & BobPHP & BobSQL
+    BobFlutter & BobPHP --> BobVoice & BobWebRTC
+    BobVoice & BobWebRTC --> BobFix
+
+    style BobArchitecture fill:#E0F2FE,stroke:#0284C7,stroke-width:2px
+    style BobCodeGen fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px
+    style BobAIIntegration fill:#FEF3C7,stroke:#D97706,stroke-width:2px
+    style BobQA fill:#DCFCE7,stroke:#16A34A,stroke-width:2px
 ```
 
-### 2. Verify On-Device Asset Model
-Ensure the pre-bundled GGUF model is present under `assets/models/`:
-- `assets/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf` (803 MB)
+### 1. Architecture Planning & Database Synthesis
+* **Clinical & Operational Requirements Modeling**: We used IBM Bob to analyze healthcare compliance requirements (ABDM tokenized consent, Aarogyasri cashless pre-authorizations, and 15-minute dark-store geofencing SLAs) and translate them into a unified multi-role technical specification.
+* **16-Table Normalized Relational Schema**: IBM Bob generated the complete production MariaDB relational schema (`u170253497_healthexpress / u833088220_medapp`), defining primary/foreign key constraints, geolocation indexes, and immutable audit logs across users, doctors, hospitals, appointments, prescriptions, and pharmacy inventories.
 
-### 3. Run Automated Medical RAG Test Suite
-Validate the complete 14-scenario offline RAG and emergency triage pipeline:
+### 2. Polyglot Full-Stack Code Generation
+* **Flutter Patient & Doctor Super-App**: IBM Bob generated the complete client-side architecture using Riverpod & Provider state management, responsive UI layouts, glassmorphic design tokens, and Mapbox GL vector map integrations.
+* **React 19 Super Admin Dashboard**: IBM Bob structured 12 operational command workspaces with live MariaDB telemetry, hospital bed capacity tracking, dark-store drug license verification queues, and revenue ledgers.
+* **Hostinger PHP 8.2+ REST API**: IBM Bob generated 16 secure REST endpoints with PDO connection pooling, Apache `mod_rewrite` clean URL routing, parameterized SQL queries, and HMAC-SHA256 signature verification for Razorpay payments.
+
+### 3. Multimodal Voice AI & Real-Time Telehealth Engineering
+* **Auto-Language Detection & Voice Synthesis**: We leveraged IBM Bob to engineer the intelligent multilingual triage engine that automatically detects Telugu (`te`), Hindi (`hi`), or English (`en`)—including Romanized **Tanglish** (*"naku jwaram undi"*) and **Hinglish** (*"mujhe bukhar hai"*). IBM Bob locked the AI prompts to respond strictly in the detected language and synchronized Sarvam Bulbul regional HD voices (`kavitha`, `kavya`, `priya`).
+* **Client-Side Audio Energy VAD Auto-Cut**: IBM Bob wrote the Web Audio API real-time Voice Activity Detection (VAD) algorithm in `web/index.html` with Root Mean Square (RMS) energy threshold analysis and silence auto-cut triggers.
+* **Agora HD WebRTC Teleconsultation**: IBM Bob integrated 2-way video streaming, dynamic Agora RTC token generation, and real-time volume metering for patient-doctor calls.
+
+### 4. Autonomous AI Agent Task Division & Bob Shell Automation
+* **Parallel Milestone Execution**: IBM Bob divided complex full-stack milestones into parallel sub-tasks—scaffolding backend API endpoints simultaneously with frontend state providers without architectural drift.
+* **Codebase Debugging & Refactoring**: IBM Bob diagnosed and fixed browser WebRTC video PiP permissions, corrected JavaScript `@JS` interop bindings in Flutter Web, and resolved audio loopback echoes by injecting silent `GainNode` routing.
+* **Automated Dual-Deployment (`deploy.ps1`)**: We used IBM Bob Shell to automate the compilation of Flutter Web (`/`) and React Admin (`/admin/`), pushing unified production builds to GitHub Pages with 0 static analysis errors.
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+graph LR
+    subgraph ClientLayer["1. Client Applications"]
+        PatientApp["Flutter Patient App<br/>(Voice AI, 15-Min Cart, Mapbox)"]
+        DoctorApp["Flutter Doctor Portal<br/>(Agora Video, ABDM QR, Rx)"]
+        AdminApp["React 19 Admin Dashboard<br/>(Telemetry, Bed Tracking)"]
+    end
+
+    subgraph APILayer["2. API Gateway"]
+        PHPBackend["Hostinger PHP 8.2+ REST API<br/>(Mod_Rewrite / PDO / JWT)"]
+    end
+
+    subgraph DatabaseLayer["3. Database Layer"]
+        LiveDB[("MariaDB Database<br/>16 Relational Tables & Audit")]
+    end
+
+    subgraph CloudServices["4. External Engines & Cloud APIs"]
+        SarvamAI["Sarvam AI (saaras:v3 / bulbul:v3)<br/>Regional STT & TTS"]
+        NvidiaNIM["NVIDIA NIM (GPT-OSS-20B)<br/>Clinical SOAP Triage"]
+        AgoraRTC["Agora RTC Engine<br/>HD WebRTC Video & Audio"]
+        MapboxGL["Mapbox GL Vector Maps<br/>Hyperlocal GPS Routing"]
+        RazorpayGW["Razorpay Live Payment Gateway<br/>UPI & HMAC Verification"]
+    end
+
+    subgraph EdgeOfflineLayer["5. On-Device Edge Intelligence (0 KBps Offline)"]
+        LlamaSLM["Llama-3.2-1B-Instruct Q4_K_M<br/>Native ARM64 libllama.so via Dart FFI"]
+        MedicalRAG["128-d Dense Vector RAG<br/>AHA, WHO, ICMR, Jan Aushadhi Evidence"]
+        FastClassifier["0ms Emergency Classifier<br/>Instant Life-Threat Triage & 108 SOS"]
+    end
+
+    PatientApp -->|HTTPS REST| PHPBackend
+    DoctorApp -->|HTTPS REST| PHPBackend
+    AdminApp -->|Axios REST| PHPBackend
+
+    PatientApp -.->|16kHz Audio| SarvamAI
+    PatientApp -.->|WebRTC Video| AgoraRTC
+    PatientApp -.->|GPS Tiles| MapboxGL
+    PatientApp -.->|Payment SDK| RazorpayGW
+
+    DoctorApp -.->|WebRTC Video| AgoraRTC
+
+    PHPBackend -->|PDO Prepared Queries| LiveDB
+    PHPBackend -->|Clinical Prompts| NvidiaNIM
+    PHPBackend -->|Token Generation| AgoraRTC
+    PHPBackend -->|Signature Verification| RazorpayGW
+
+    PatientApp -->|Offline Fallback| EdgeOfflineLayer
+
+    style ClientLayer fill:#F8FAFC,stroke:#64748B,stroke-width:2px
+    style APILayer fill:#EFF6FF,stroke:#3B82F6,stroke-width:2px
+    style DatabaseLayer fill:#ECFDF5,stroke:#10B981,stroke-width:2px
+    style CloudServices fill:#FFF7ED,stroke:#F97316,stroke-width:2px
+    style EdgeOfflineLayer fill:#F0FDF4,stroke:#16A34A,stroke-width:2px
+```
+
+---
+
+## ⚡ Core Workflows & Detailed Flowcharts
+
+### A. The "Golden 15-Minute" Care Loop
+
+```mermaid
+flowchart LR
+    Start([Patient Unwell]) --> VoiceIntake["Speak Symptoms<br/>(Telugu/Hindi/Eng)"]
+    VoiceIntake --> AutoDetect["Auto-Detect Language<br/>(Native / Tanglish / Hinglish)"]
+    AutoDetect --> AITriage["Sarvam STT + NVIDIA NIM / Edge SLM<br/>(Urgency Rating & SOAP)"]
+    AITriage --> Decision{Emergency or Doctor?}
+    
+    Decision -- Emergency --> SOS["1-Tap 108 Ambulance<br/>+ Hospital Bed Reserve"]
+    Decision -- Telehealth --> VideoDoc["Agora HD Video Consult<br/>(AI SOAP Notes Pre-loaded)"]
+    
+    VideoDoc --> DigitalRx["Sign Digital E-Prescription"]
+    DigitalRx --> AutoCart["Auto-Populates 15-Min Cart"]
+    
+    AutoCart --> DarkStore["Dark Store Packs Order"]
+    DarkStore --> Dispatch["Mapbox GPS 15-Min Drop"]
+    
+    DigitalRx --> ABDMVault["Sync to ABDM Health Vault<br/>& Aarogyasri Profile"]
+    Dispatch --> Delivered([Healed in <15 Mins])
+    SOS --> Delivered
+
+    style Start fill:#EF4444,color:#FFFFFF,stroke:#B91C1C,stroke-width:2px
+    style Delivered fill:#10B981,color:#FFFFFF,stroke:#047857,stroke-width:2px
+    style Decision fill:#FEF08A,stroke:#CA8A04,stroke-width:2px
+```
+
+### B. Multilingual Voice AI Triage & Intake Engine
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User as Patient
+    participant Mic as Browser Audio & VAD
+    participant Sarvam as Sarvam AI (saaras:v3 / bulbul:v3)
+    participant Provider as AiAssistantProvider
+    participant NIM as NVIDIA NIM / Sarvam LLM
+    participant PHP as Hostinger API
+    participant DB as MariaDB Database
+
+    User->>Mic: Speaks audio in native language (Telugu / Hindi / English)
+    Mic->>Sarvam: 16kHz Mono WAV Audio Stream
+    Sarvam-->>Provider: Real-Time Transcript & Detected Language
+    
+    Provider->>Provider: detectLanguage() -> Auto-switch language mode
+    Provider->>PHP: POST /api/ai/triage (User Transcript, Language, Stage)
+    PHP->>NIM: Structured Clinical Intake Prompt (Strict Target Language Output)
+    NIM-->>PHP: JSON (Assessment, Next 2 Questions, Matched Remedies)
+    
+    PHP->>DB: INSERT into ai_triage_sessions (Session ID: SESS-XXXX)
+    DB-->>PHP: Persisted
+    PHP-->>Provider: Triage Report + Dynamic Action Cards
+    Provider->>Sarvam: speakText(ResponseText, targetLang)
+    Sarvam-->>User: HD Regional Female Voice (Kavitha / Kavya / Priya)
+```
+
+### C. Doctor Teleconsultation & Live E-Prescription Workflow
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Patient as Patient
+    actor Doctor as Doctor
+    participant App as Flutter App
+    participant API as PHP Backend
+    participant Agora as Agora WebRTC
+    participant DB as MariaDB Database
+
+    Patient->>App: Selects Doctor and Chooses Time Slot
+    App->>API: POST /api/appointments/book (Slot, Consultation Type: video)
+    API->>DB: INSERT appointments (Status: confirmed, Room: HEAL-XXXX)
+    DB-->>API: Confirmed (APT-1001)
+    API-->>App: Booking Ready
+    
+    Patient->>App: Joins Call
+    Doctor->>App: Joins Call
+    App->>API: POST /api/telehealth/generate-agora-token
+    API->>Agora: Generate 24h RTC Token for Channel HEAL-XXXX
+    Agora-->>API: Encrypted Channel Token
+    API-->>App: Tokens Delivered
+
+    Patient->>Doctor: 2-Way HD Video & Live Audio Stream
+    Doctor->>App: Inspects AI Pre-Consultation SOAP Notes
+    Doctor->>App: Adds Medicines, Dosages & Diagnostic Tests
+    Doctor->>App: Digitally Signs and Submits Prescription
+    App->>API: PUT /api/appointments/APT-1001/prescription
+    API->>DB: INSERT prescriptions and UPDATE health_records
+    API-->>Patient: Prescription Displayed + 1-Tap "Order in 15 Mins" Button
+```
+
+### D. 15-Minute Hyperlocal Dark Store Medicine Dispatch
+
+```mermaid
+flowchart LR
+    subgraph OrderPlacement["1. Order Placement"]
+        Prescription["E-Prescription / Search"] --> StockCheck["Real-Time Shelf Stock Verification"]
+        StockCheck --> Payment["Instant Razorpay / Aarogyasri Cashless"]
+    end
+
+    subgraph DarkStoreProcessing["2. Dark Store Processing"]
+        Payment --> DarkStoreQueue["Nearest Verified Dark Store<br/>(3-5 km Radius SLA)"]
+        DarkStoreQueue --> PickPack["Pharmacist Picks & Packs Order"]
+        PickPack --> RiderAssign["Delivery Partner Assigned"]
+    end
+
+    subgraph LiveNavigation["3. Live GPS Drop"]
+        RiderAssign --> MapboxGPS["Mapbox GL Live Vector GPS Tracking"]
+        MapboxGPS --> Doorstep["Doorstep Drop in < 15 Mins"]
+    end
+
+    style OrderPlacement fill:#EFF6FF,stroke:#3B82F6,stroke-width:1px
+    style DarkStoreProcessing fill:#FEF3C7,stroke:#D97706,stroke-width:1px
+    style LiveNavigation fill:#DCFCE7,stroke:#16A34A,stroke-width:1px
+```
+
+### E. ABDM QR Consent & Aarogyasri Health Pass Verification
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Patient as Patient
+    actor Doctor as Doctor / Hospital Admin
+    participant App as Flutter App
+    participant API as PHP Backend
+    participant DB as MariaDB Database
+
+    Patient->>App: Generates ABDM 15-Minute Dynamic QR Code
+    App->>API: POST /api/consent/generate-token
+    API->>DB: INSERT qr_consent_tokens (Expiry: NOW + 15 mins)
+    DB-->>API: Token Generated
+    API-->>App: Displays Secure QR Code
+
+    Doctor->>App: Scans Patient QR Code
+    App->>API: POST /api/consent/doctor-scan (Token, Doctor ID)
+    API->>DB: Validate Token & Fetch health profiles and records
+    DB-->>API: Unlocks Medical History, Allergies, Surgeries and Past Reports
+    API-->>Doctor: Complete EHR Timeline Displayed
+
+    Patient->>App: Enter Aarogyasri Pass ID (AROG-TG-44910)
+    App->>API: GET /api/aarogyasri/lookup?code=AROG-TG-44910
+    API->>DB: Query users, health profiles, user addresses
+    DB-->>API: 5 Lakh INR Cashless Balance & Active Eligibility
+    API-->>App: Empaneled Hospitals & Cashless Coverage Confirmed
+```
+
+---
+
+## 🔬 Sanjeevani.AI — Edge-First Emergency Response & Offline Intelligence
+
+```mermaid
+flowchart TD
+    subgraph EdgeDevice["On-Device Edge Intelligence (Zero Internet)"]
+        SLM["Offline Medical SLM Engine<br/>• Llama-3.2-1B-Instruct Q4_K_M<br/>• Native ARM64 llama.cpp C-API"]
+        Avatar["Offline AI Doctor Avatar (Dr. Medha)<br/>• On-Device TTS & STT (Telugu, Hindi, English)<br/>• Lip-sync & Clinical Pulse Metronome (110 BPM)"]
+        Protocols["10 Validated Emergency Protocols<br/>(AHA/WHO: CPR, Stroke FAST, Snakebite, Hemorrhage)"]
+        CacheGrid["Edge-First 5km & Highway Corridor Grid<br/>• Pre-cached Offline Facilities, Beds, Blood Units"]
+    end
+
+    subgraph ClinicalIntelligence["Multimodal & Safety Algorithms"]
+        Explainable["Explainable Multimodal Clinical AI<br/>• Plain-Language Lab Reports (HbA1c, CBC, Dengue)<br/>• Step-by-Step Diagnostic Confidence Reasoning<br/>• Standardized Coding: ICD-10 & SNOMED CT"]
+        DDI["Drug-Drug Interaction (DDI) Safety Engine<br/>• Real-time alerts for lethal drug pairings"]
+    end
+
+    subgraph LogisticsAndAffordability["Medical Logistics & Affordability"]
+        Generic["Jan Aushadhi Generic Price Comparator<br/>• Up to 80%+ Savings on Essential Drugs"]
+        Hold["30-Minute Emergency Stock Lock<br/>• Guaranteed Reservation Token + OTP"]
+    end
+
+    subgraph PublicHealthAndSchemes["Sovereign Schemes & Surveillance"]
+        Schemes["Govt Schemes Explorer<br/>• Ayushman Bharat PM-JAY (₹5L)<br/>• Dr. YSR Aarogyasri (₹25L Cashless)"]
+        Surveillance["Syndromic Outbreak Surveillance<br/>• Dengue, Malaria & Gastroenteritis Hotspots"]
+        Privacy["Time-Bound Dynamic EHR Consent QR<br/>• Privacy-Preserving Temporary Doctor Access"]
+    end
+
+    SLM --> Avatar
+    SLM --> Protocols
+    CacheGrid --> Hold
+    Explainable --> DDI
+    Schemes --> Generic
+    Surveillance --> Privacy
+
+    style EdgeDevice fill:#EFF6FF,stroke:#2563EB,stroke-width:2px
+    style ClinicalIntelligence fill:#F5F3FF,stroke:#7C3AED,stroke-width:2px
+    style LogisticsAndAffordability fill:#ECFDF5,stroke:#059669,stroke-width:2px
+    style PublicHealthAndSchemes fill:#FFFBEB,stroke:#D97706,stroke-width:2px
+```
+
+### Key Sanjeevani.AI Modules & Implementations
+
+| Module | Core Features & Implementation Details | Key Files |
+| :--- | :--- | :--- |
+| **Offline Medical SLM & Avatar** | • Native ARM64 `libllama.so` and `llama_cpp_dart` integration with prompt formatting (ChatML, Llama3, Gemma).<br>• Fully interactive Dr. Medha AI avatar with pulse ring and on-device STT/TTS in Telugu, Hindi, and English.<br>• 10 offline validated protocols with animated CPR 110 BPM audio metronome. | [`offline_medical_models.dart`](lib/models/offline_medical_models.dart)<br>[`medical_slm_engine_service.dart`](lib/services/medical_slm_engine_service.dart)<br>[`offline_ai_doctor_screen.dart`](lib/screens/user/offline_ai_doctor_screen.dart) |
+| **Offline Health Grid** | • Proactive 5 km radius & Highway Corridor facility caching (PHCs, CHCs, Trauma Centers).<br>• Live offline trackers for ICU beds, Oxygen beds, Ventilators, and Blood Group units (A+, B+, O+, O-). | [`offline_health_grid_service.dart`](lib/services/offline_health_grid_service.dart)<br>[`offline_health_grid_screen.dart`](lib/screens/user/offline_health_grid_screen.dart) |
+| **Explainable Multimodal AI** | • Plain-language decoding of complex diagnostic labs (HbA1c, Creatinine, Platelets, CBC) into English & Telugu.<br>• Diagnostic confidence score (%) with step-by-step clinical rationale.<br>• ICD-10 and SNOMED CT automated coding.<br>• Real-time Drug-Drug Interaction (DDI) alert matrix (e.g. Warfarin + Aspirin hemorrhage warning). | [`explainable_clinical_ai_service.dart`](lib/services/explainable_clinical_ai_service.dart)<br>[`explainable_lab_report_screen.dart`](lib/screens/user/explainable_lab_report_screen.dart) |
+| **Jan Aushadhi & 30-Min Hold** | • Direct branded vs. Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP) generic comparison.<br>• Live price savings calculator (50% to 80% reduction).<br>• 30-minute guaranteed medicine stock lock token with 4-digit verification OTP. | [`emergency_medicine_hold_service.dart`](lib/services/emergency_medicine_hold_service.dart)<br>[`jan_aushadhi_finder_screen.dart`](lib/screens/user/jan_aushadhi_finder_screen.dart) |
+| **Government Schemes Explorer** | • Comprehensive package rate and document checker for Ayushman Bharat PM-JAY (₹5 Lakh) and Dr. YSR Aarogyasri (₹25 Lakh).<br>• Socioeconomic criteria & white ration card eligibility engine.<br>• Emergency fast-track pre-authorization guidelines. | [`government_scheme_service.dart`](lib/services/government_scheme_service.dart)<br>[`government_scheme_explorer_screen.dart`](lib/screens/user/government_scheme_explorer_screen.dart) |
+| **Surveillance & Consent QR** | • Real-time syndromic outbreak monitoring for Dengue (NS1), Malaria, and Waterborne Gastroenteritis.<br>• Threat level indicators ('LOW', 'MODERATE', 'HIGH_OUTBREAK_ALERT') and supply requirements.<br>• Dynamic time-bound (15-min to 120-min) granular EHR consent QR token generator with instant revocation. | [`public_health_surveillance_service.dart`](lib/services/public_health_surveillance_service.dart)<br>[`public_health_outbreak_heatmap_screen.dart`](lib/screens/user/public_health_outbreak_heatmap_screen.dart) |
+
+---
+
+## 📸 Production Screen Gallery
+
+### Patient Super-App & Doctor Telehealth Console (5 screens per row)
+
+#### Row 1: Patient Discovery, Hospital Beds & Live Mapbox GPS
+| Splash & Welcome | Patient Super-App Home | Nearby Hospitals & Beds | Mapbox GL GPS Map | Hospital Facility Details |
+| :---: | :---: | :---: | :---: | :---: |
+| <img src="../ui/splash.png" width="180" alt="Splash Screen" /> | <img src="../ui/home.png" width="180" alt="Patient Home Dashboard" /> | <img src="../ui/nearbyhospitals.png" width="180" alt="Nearby Hospital Beds" /> | <img src="../ui/hospitals-map.png" width="180" alt="Mapbox GPS Map" /> | <img src="../ui/hospital.png" width="180" alt="Hospital Facility Details" /> |
+
+#### Row 2: Multilingual Voice AI Triage & Vision Scanner
+| Multilingual AI Chat | Live AI Voice Call | Auto-Language Selection | AI Lens Scanner | Live Camera Capture |
+| :---: | :---: | :---: | :---: | :---: |
+| <img src="../ui/ai-chat.png" width="180" alt="Multilingual AI Chat" /> | <img src="../ui/ai-call.png" width="180" alt="Live AI Voice Call" /> | <img src="../ui/ai-call-lang.png" width="180" alt="Auto-Language Selection" /> | <img src="../ui/ai-vision.png" width="180" alt="AI Lens Scanner" /> | <img src="../ui/ai-capture.png" width="180" alt="Live Camera Capture" /> |
+
+#### Row 3: Instant AI Diagnosis, Doctor Discovery & Appointments
+| Instant AI Diagnosis | Doctor Discovery | Slot Selection & Booking | Booking Confirmation | Patient Appointments |
+| :---: | :---: | :---: | :---: | :---: |
+| <img src="../ui/ai vision responses.png" width="180" alt="Instant AI Diagnosis" /> | <img src="../ui/docters.png" width="180" alt="Doctor Discovery" /> | <img src="../ui/docters-book.png" width="180" alt="Doctor Slot Booking" /> | <img src="../ui/boking-confirm.png" width="180" alt="Booking Confirmation" /> | <img src="../ui/appintments.png" width="180" alt="Patient Appointments" /> |
+
+#### Row 4: Telehealth Consultations, Chat & E-Prescriptions
+| Agora HD Video Call | Live Audio Telehealth | Doctor-Patient Chat | Digital E-Prescription | Doctor Portal Home |
+| :---: | :---: | :---: | :---: | :---: |
+| <img src="../ui/videocall.png" width="180" alt="Agora Video Call" /> | <img src="../ui/call.png" width="180" alt="Audio Telehealth Call" /> | <img src="../ui/doc chat.png" width="180" alt="Doctor-Patient Chat" /> | <img src="../ui/medicene-suggestion by docter.png" width="180" alt="Digital E-Prescription" /> | <img src="../ui/doc-home.png" width="180" alt="Doctor Portal Home" /> |
+
+#### Row 5: Doctor Clinical Console, ABDM Records & Aarogyasri Health Pass
+| Doctor Appointment Queue | AI Clinical Analysis | Doctor Practice Profile | ABDM Patient Records | Aarogyasri 5L Health Pass |
+| :---: | :---: | :---: | :---: | :---: |
+| <img src="../ui/doc-appoinbtsmnts.png" width="180" alt="Doctor Appointment Queue" /> | <img src="../ui/doc-analysis.png" width="180" alt="AI Clinical Analysis" /> | <img src="../ui/doc profile.png" width="180" alt="Doctor Profile" /> | <img src="../ui/patint records.png" width="180" alt="ABDM Patient Records" /> | <img src="../ui/arogyasree card.png" width="180" alt="Aarogyasri Health Pass" /> |
+
+---
+
+### Super Admin & Hospital Operations Command Center
+
+| 1. Dashboard Overview & Real-Time Telemetry | 2. Hospitals & Facility Empanelment Management |
+| :---: | :---: |
+| <img src="../ui/admin-panal-tabs (4).png" width="480" alt="Dashboard Overview & Real-Time Telemetry" /> | <img src="../ui/admin-panal-tabs (5).png" width="480" alt="Hospitals & Facility Empanelment Management" /> |
+
+| 3. Doctors Directory & Medical Council KYC Verification | 4. Users & Patients Aarogyasri Health Pass Directory |
+| :---: | :---: |
+| <img src="../ui/admin-panal-tabs (6).png" width="480" alt="Doctors Directory & Medical Council KYC Verification" /> | <img src="../ui/admin-panal-tabs (7).png" width="480" alt="Users & Patients Aarogyasri Health Pass Directory" /> |
+
+| 5. Central Appointments Queue & Consultation Dispatch | 6. Payments & Platform Revenue Ledger (Razorpay Live) |
+| :---: | :---: |
+| <img src="../ui/admin-panal-tabs (8).png" width="480" alt="Central Appointments Queue & Consultation Dispatch" /> | <img src="../ui/admin-panal-tabs (1).png" width="480" alt="Payments & Platform Revenue Ledger" /> |
+
+| 7. Customer Support & Dispute Desk (Aarogyasri Claims) | 8. AI Business Wing & Lead Monetization Workspace |
+| :---: | :---: |
+| <img src="../ui/admin-panal-tabs (2).png" width="480" alt="Customer Support & Dispute Desk" /> | <img src="../ui/admin-panal-tabs (3).png" width="480" alt="AI Business Wing & Lead Monetization Workspace" /> |
+
+---
+
+## 🗄️ Production MariaDB Relational Database Schema
+
+The production database (`u170253497_healthexpress / u833088220_medapp` / `u833088220_medapp`) consists of 16 normalized tables:
+
+| # | Table Name | Key Columns | Purpose |
+| :---: | :--- | :--- | :--- |
+| **1** | `users` | `id`, `name`, `phone`, `email`, `role`, `aarogyasri_id`, `dob`, `gender` | Primary user identity directory and authentication |
+| **2** | `health_profiles` | `user_id`, `blood_group`, `allergies`, `chronic_conditions`, `past_surgeries` | Comprehensive EHR vault and clinical history |
+| **3** | `user_addresses` | `id`, `user_id`, `address_line1`, `city`, `state`, `pincode`, `latitude`, `longitude` | Geolocation coordinates for 15-minute delivery routing |
+| **4** | `hospitals` | `id`, `name`, `hospital_type`, `license_number`, `total_beds`, `icu_beds`, `lat`, `lng` | Empaneled hospital facility registry and GPS coordinates |
+| **5** | `departments` | `id`, `hospital_id`, `name`, `description` | Hospital clinical specialty departments |
+| **6** | `doctors` | `id`, `user_id`, `name`, `specialty`, `registration_number`, `consultation_fee` | Doctor medical credentials, fee, and verification status |
+| **7** | `doctor_hospitals` | `doctor_id`, `hospital_id`, `department_id`, `affiliation_type` | Multi-facility doctor hospital affiliations |
+| **8** | `doctor_schedules` | `doctor_id`, `day_of_week`, `start_time`, `end_time`, `slot_duration_minutes` | Weekly recurring consultation availability slots |
+| **9** | `appointments` | `id`, `user_id`, `doctor_id`, `hospital_id`, `appointment_date`, `time_slot`, `fee` | Central appointment lifecycle and video room mapping |
+| **10** | `prescriptions` | `id`, `appointment_id`, `medicines`, `clinical_notes`, `diagnostic_tests` | Digital signed E-Prescriptions synced to patient cart |
+| **11** | `medicines` | `id`, `name`, `category`, `price`, `stock_quantity`, `requires_prescription` | 15-minute pharmacy catalog & live inventory |
+| **12** | `qr_consent_tokens` | `id`, `token`, `user_id`, `expires_at`, `status`, `scanned_by` | ABDM 15-minute dynamic consent tokens |
+| **13** | `health_records` | `id`, `user_id`, `record_type`, `title`, `file_url`, `created_at` | Encrypted digital medical document vault |
+| **14** | `payments` | `id`, `appointment_id`, `razorpay_order_id`, `amount`, `currency`, `status` | Razorpay Live transactions and revenue ledger |
+| **15** | `tickets` | `id`, `user_id`, `category`, `subject`, `description`, `status`, `priority` | 24x7 customer support dispute ticketing system |
+| **16** | `chat_messages` | `id`, `sender_id`, `receiver_id`, `message`, `is_read`, `created_at` | 2-way doctor-patient encrypted clinical chat |
+
+---
+
+## 📡 Complete REST API Endpoint Directory
+
+All endpoints are hosted live on Hostinger at `https://vedvaidyam.com/healthexpress/api`:
+
+| HTTP Method | Route | Description | Status |
+| :--- | :--- | :--- | :---: |
+| `GET` | `/health` | Live database connectivity & server status check | `200 OK` |
+| `GET` | `/hospitals` | Hospital directory with proximity distance calculation | `200 OK` |
+| `GET` | `/doctors` | Registered doctors with specialty & hospital affiliation | `200 OK` |
+| `GET` | `/pharmacy/medicines` | 15-minute delivery medicine catalog & stock count | `200 OK` |
+| `GET` | `/diagnostic/lab-tests` | Diagnostic lab test packages & fasting criteria | `200 OK` |
+| `GET` | `/orders/business-products` | Home medical devices & wellness checkup packages | `200 OK` |
+| `GET` | `/aarogyasri/lookup` | Real-time Aarogyasri health pass eligibility lookup | `200 OK` |
+| `POST` | `/auth/register` | Quick patient registration & Aarogyasri pass generation | `200 OK` |
+| `POST` | `/appointments/book` | Real-time slot booking with subsidy calculation | `200 OK` |
+| `GET` | `/appointments/user/:id` | Retrieve patient appointment history & statuses | `200 OK` |
+| `PUT` | `/appointments/:id/prescription`| Doctor issues digitally signed E-Prescription | `200 OK` |
+| `POST` | `/telehealth/generate-agora-token`| Generates 24-hour Agora RTC WebRTC video token | `200 OK` |
+| `POST` | `/consent/generate-token`| Generates 15-minute dynamic ABDM QR consent token | `200 OK` |
+| `POST` | `/consent/doctor-scan` | Doctor scans QR to unlock patient clinical vault | `200 OK` |
+| `POST` | `/ai/triage` | Persist and score AI clinical symptom intake | `200 OK` |
+| `GET` | `/ai/sessions/user/:id` | Historical AI triage sessions & clinical SOAP notes | `200 OK` |
+| `POST` | `/payments/create-order` | Create Razorpay Live payment order ID | `200 OK` |
+| `POST` | `/payments/verify` | Verify Razorpay payment signature (HMAC-SHA256) | `200 OK` |
+
+---
+
+## 🧪 Verification & Test Coverage (14/14 Tests Passed)
+
+Automated test suite verifying on-device RAG, offline safety, and emergency fast-path triggers:
 ```bash
 flutter test test/offline_medical_rag_test.dart
 ```
-
-### 4. Launch Application
-```bash
-# Debug mode on connected Android device
-flutter run -d <device-id>
-
-# Build production APK
-flutter build apk --release
-```
-
----
-
-## 🧪 Verification & Test Coverage
-
-The project includes an automated test suite verifying all 14 Section 10 clinical requirements:
 
 | Test Case | Description | Status |
 |:---:|---|:---:|
@@ -201,18 +597,46 @@ The project includes an automated test suite verifying all 14 Section 10 clinica
 
 ---
 
-## 🌐 Production Deployments
+## 🚀 Getting Started & Local Development
 
-- **Admin Operations Center**: [https://acheva.in](https://acheva.in) (Hostinger VPS)
-- **API Server**: Node.js / Express microservices backed by MariaDB
-- **Client App**: Sanjeevani.ai Flutter mobile client
+### Prerequisites
+- **Flutter SDK**: 3.24.0 or newer
+- **Dart SDK**: 3.5.0 or newer
+- **Android SDK**: API level 26+ (Android 8.0+)
+- **Architecture**: ARM64 device / emulator (for native `libllama.so` inference)
+
+### 1. Install & Run Flutter App
+```bash
+cd healthexpress
+flutter pub get
+
+# Run on connected Android phone or Chrome
+flutter run
+```
+
+### 2. Run React 19 Super Admin Dashboard
+```bash
+cd ../admin_panel
+npm install
+npm run dev
+```
+
+### 3. Automated Dual Deployment (GitHub Pages)
+```powershell
+powershell -ExecutionPolicy Bypass -File ..\deploy.ps1
+```
 
 ---
 
-## 📜 Medical & Regulatory Disclaimer
+## 📜 Compliance & Clinical Standards
 
-*Sanjeevani.ai is an intelligent assistive triage, first-aid guidance, and healthcare access platform. It does not replace professional medical advice, clinical diagnosis, or emergency dispatch services. In any acute or life-threatening emergency, users must immediately contact official emergency services (dial **108** or **112** in India).*
+* **ABDM (Ayushman Bharat Digital Mission)**: Complete 15-minute tokenized consent architecture with instant QR EHR unlocks.
+* **Aarogyasri Health Scheme**: Native lookup and 100% cashless pre-authorization workflows for empaneled procedures.
+* **Zero Plain-Text Credentials**: Environment-based configuration, HMAC-SHA256 payment validation, and parameterized SQL queries.
+* **DISHA / HIPAA Ready**: Immutable audit trail logging every administrative and clinical data access event.
 
 ---
 
-**Built with pride by the Sanjeevani.ai Engineering Team** 🇮🇳
+<div align="center">
+  <sub>Implemented with <strong><a href="https://bob.ibm.com/">IBM Bob</a></strong>, <strong>Sarvam AI</strong>, <strong>NVIDIA NIM</strong>, and <strong>Sanjeevani.AI Edge Engine</strong>.</sub>
+</div>

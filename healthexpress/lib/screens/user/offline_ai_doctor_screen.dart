@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../core/theme/app_colors.dart';
-import '../../models/medical_rag_chunk.dart';
 import '../../models/offline_medical_models.dart';
 import '../../providers/offline_medical_slm_provider.dart';
 import '../../widgets/markdown_formatted_text.dart';
@@ -13,8 +12,13 @@ import 'ai_assistant_screen.dart';
 /// Operates 100% locally on-device with zero internet connectivity required.
 class OfflineAiDoctorScreen extends StatefulWidget {
   final FirstAidProtocol? initialProtocol;
+  final String? initialSessionId;
 
-  const OfflineAiDoctorScreen({super.key, this.initialProtocol});
+  const OfflineAiDoctorScreen({
+    super.key,
+    this.initialProtocol,
+    this.initialSessionId,
+  });
 
   @override
   State<OfflineAiDoctorScreen> createState() => _OfflineAiDoctorScreenState();
@@ -30,7 +34,9 @@ class _OfflineAiDoctorScreenState extends State<OfflineAiDoctorScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         final provider = context.read<OfflineMedicalSlmProvider>();
-        if (widget.initialProtocol != null) {
+        if (widget.initialSessionId != null) {
+          provider.loadSession(widget.initialSessionId!);
+        } else if (widget.initialProtocol != null) {
           provider.launchFirstAidProtocol(widget.initialProtocol!);
         }
       }
@@ -72,6 +78,15 @@ class _OfflineAiDoctorScreenState extends State<OfflineAiDoctorScreen> {
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri);
     }
+  }
+
+  void _showHistoryModal(BuildContext context, OfflineMedicalSlmProvider provider) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (_) => _OfflineHistoryBottomSheet(provider: provider),
+    );
   }
 
   @override
@@ -145,8 +160,35 @@ class _OfflineAiDoctorScreenState extends State<OfflineAiDoctorScreen> {
                   ),
                 ),
               ],
-            ),
-            actions: [
+            ),            actions: [
+              // New Chat Button
+              IconButton(
+                icon: const Icon(Icons.add_comment_rounded, color: AppColors.primary, size: 21),
+                tooltip: 'New Chat',
+                onPressed: () {
+                  provider.startNewChatSession();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: const Row(
+                        children: [
+                          Icon(Icons.check_circle_rounded, color: Colors.white, size: 18),
+                          SizedBox(width: 8),
+                          Text('Started a new offline consultation'),
+                        ],
+                      ),
+                      duration: const Duration(seconds: 2),
+                      behavior: SnackBarBehavior.floating,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    ),
+                  );
+                },
+              ),
+              // Chat History Button
+              IconButton(
+                icon: const Icon(Icons.history_rounded, color: AppColors.textPrimary, size: 22),
+                tooltip: 'Consultation History',
+                onPressed: () => _showHistoryModal(context, provider),
+              ),
               // Language Selector
               PopupMenuButton<String>(
                 icon: const Icon(Icons.translate_rounded, color: AppColors.textSecondary, size: 20),
@@ -164,34 +206,14 @@ class _OfflineAiDoctorScreenState extends State<OfflineAiDoctorScreen> {
                   PopupMenuItem(value: 'mr', child: Text('मराठी (Marathi)')),
                   PopupMenuItem(value: 'gu', child: Text('ગુજરાતી (Gujarati)')),
                   PopupMenuItem(value: 'pa', child: Text('ਪੰਜਾਬੀ (Punjabi)')),
-                  PopupMenuItem(value: 'or', child: Text('ଓଡ଼ିଆ (Odia)')),
+                  PopupMenuItem(value: 'or', child: Text('ଓଡ଼ిଆ (Odia)')),
                 ],
               ),
-              // Model & Medical RAG Status Indicator Chip
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF0284C7).withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: const Color(0xFF0284C7).withValues(alpha: 0.3)),
-                ),
-                child: const Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.menu_book_rounded, color: Color(0xFF0284C7), size: 13),
-                    SizedBox(width: 4),
-                    Text(
-                      'RAG + Llama 1B',
-                      style: TextStyle(
-                        fontSize: 10.5,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF0369A1),
-                      ),
-                    ),
-                  ],
-                ),
+              const SizedBox(width: 4),
+            ],��ିଆ (Odia)')),
+                ],
               ),
+              const SizedBox(width: 8),
             ],
           ),
           body: Column(
@@ -393,7 +415,6 @@ class _OfflineAiDoctorScreenState extends State<OfflineAiDoctorScreen> {
   ) {
     final isUser = msg.role == 'user';
     final isEmergency = msg.isEmergency;
-    final chunks = msg.retrievedChunks;
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 6),
@@ -463,31 +484,13 @@ class _OfflineAiDoctorScreenState extends State<OfflineAiDoctorScreen> {
                             Row(
                               children: [
                                 Text(
-                                  isEmergency ? '🚨 Emergency Clinical Protocol' : 'Dr. Channi',
+                                  isEmergency ? '🚨 Emergency Clinical Protocol' : 'Sanjeevani AI Doctor',
                                   style: TextStyle(
                                     color: isEmergency ? const Color(0xFFDC2626) : AppColors.primary,
                                     fontSize: 11.5,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                if (chunks.isNotEmpty) ...[
-                                  const SizedBox(width: 6),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFF0284C7).withValues(alpha: 0.12),
-                                      borderRadius: BorderRadius.circular(4),
-                                    ),
-                                    child: const Text(
-                                      'RAG Grounded',
-                                      style: TextStyle(
-                                        color: Color(0xFF0284C7),
-                                        fontSize: 9.5,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                ],
                               ],
                             ),
                             if (!msg.isStreaming && msg.text.isNotEmpty)
@@ -624,100 +627,10 @@ class _OfflineAiDoctorScreenState extends State<OfflineAiDoctorScreen> {
                           ),
                         ),
 
-                      // Insufficient Evidence Notice (when applicable)
-                      if (!isUser && !msg.isEvidenceSufficient && !isEmergency && !msg.isStreaming) ...[
-                        const SizedBox(height: 8),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFF1F5F9),
-                            borderRadius: BorderRadius.circular(6),
-                            border: Border.all(color: const Color(0xFFCBD5E1)),
-                          ),
-                          child: const Row(
-                            children: [
-                              Icon(Icons.info_outline_rounded, size: 13, color: Color(0xFF64748B)),
-                              SizedBox(width: 6),
-                              Expanded(
-                                child: Text(
-                                  'Offline evidence note: Local database lacks complete evidence for this specific query. General safety guidelines applied.',
-                                  style: TextStyle(
-                                    fontSize: 10.5,
-                                    color: Color(0xFF64748B),
-                                    fontStyle: FontStyle.italic,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
 
-                      // RAG Grounding Evidence Chips (Section 3 & 4 Deliverable)
-                      if (!isUser && chunks.isNotEmpty && !msg.isStreaming) ...[
-                        const SizedBox(height: 10),
-                        const Divider(height: 1, color: Color(0xFFE2E8F0)),
-                        const SizedBox(height: 6),
-                        Row(
-                          children: [
-                            const Icon(Icons.verified_user_rounded, size: 12, color: Color(0xFF0284C7)),
-                            const SizedBox(width: 4),
-                            Text(
-                              'Verified Sources (${chunks.length})',
-                              style: const TextStyle(
-                                fontSize: 10.5,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF0369A1),
-                              ),
-                            ),
-                            const Spacer(),
-                            GestureDetector(
-                              onTap: () => _showEvidenceModal(context, chunks),
-                              child: const Text(
-                                'View Sources',
-                                style: TextStyle(
-                                  fontSize: 10.5,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.primary,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 4),
-                        Wrap(
-                          spacing: 4,
-                          runSpacing: 4,
-                          children: chunks.take(3).map((chunk) {
-                            return InkWell(
-                              onTap: () => _showEvidenceModal(context, chunks),
-                              borderRadius: BorderRadius.circular(4),
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2.5),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFF8FAFC),
-                                  borderRadius: BorderRadius.circular(4),
-                                  border: Border.all(color: const Color(0xFFE2E8F0)),
-                                ),
-                                child: Text(
-                                  '${chunk.sourceTitle} • ${chunk.section}',
-                                  style: const TextStyle(
-                                    fontSize: 10,
-                                    color: Color(0xFF475569),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            );
-                          }).toList(),
-                        ),
-                      ],
 
-                      // Streaming indicator
-                      if (msg.isStreaming) ...[
+                      // Streaming indicator (only when actively streaming)
+                      if (msg.isStreaming && provider.engine.isGenerating) ...[
                         const SizedBox(height: 6),
                         const SizedBox(
                           width: 14,
@@ -759,147 +672,352 @@ class _OfflineAiDoctorScreenState extends State<OfflineAiDoctorScreen> {
       ),
     );
   }
+}
 
-  /// Displays structured modal with full RAG chunk metadata and evidence text
-  void _showEvidenceModal(BuildContext context, List<MedicalRagChunk> chunks) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (ctx) => DraggableScrollableSheet(
-        initialChildSize: 0.65,
-        minChildSize: 0.4,
-        maxChildSize: 0.9,
-        builder: (_, scrollController) => Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+class _OfflineHistoryBottomSheet extends StatefulWidget {
+  final OfflineMedicalSlmProvider provider;
+
+  const _OfflineHistoryBottomSheet({required this.provider});
+
+  @override
+  State<_OfflineHistoryBottomSheet> createState() => _OfflineHistoryBottomSheetState();
+}
+
+class _OfflineHistoryBottomSheetState extends State<_OfflineHistoryBottomSheet> {
+  String _filter = 'all'; // 'all', 'offline', 'online'
+
+  @override
+  Widget build(BuildContext context) {
+    final provider = widget.provider;
+    final allSessions = provider.savedSessions;
+    final offlineCount = allSessions.where((s) => s.type == 'offline').length;
+    final onlineCount = allSessions.where((s) => s.type != 'offline').length;
+
+    final filteredSessions = allSessions.where((s) {
+      if (_filter == 'offline') return s.type == 'offline';
+      if (_filter == 'online') return s.type != 'offline';
+      return true;
+    }).toList();
+
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.75,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      child: Column(
+        children: [
+          // Drag handle
+          Container(
+            margin: const EdgeInsets.only(top: 12, bottom: 8),
+            width: 40,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.grey.shade300,
+              borderRadius: BorderRadius.circular(2),
+            ),
           ),
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(top: 10, bottom: 6),
-                width: 40,
-                height: 4,
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
-                  borderRadius: BorderRadius.circular(2),
+
+          // Header
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: AppColors.primary.withValues(alpha: 0.12),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.history_rounded, color: AppColors.primary, size: 20),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                child: Row(
+                const SizedBox(width: 12),
+                const Text(
+                  'Consultation History',
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.textPrimary,
+                  ),
+                ),
+                const Spacer(),
+                IconButton(
+                  icon: const Icon(Icons.close_rounded, color: AppColors.textSecondary),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ],
+            ),
+          ),
+
+          // Filter chips
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            child: Row(
+              children: [
+                _buildFilterChip('all', 'All (${allSessions.length})'),
+                const SizedBox(width: 8),
+                _buildFilterChip('offline', 'Offline SLM ($offlineCount)'),
+                const SizedBox(width: 8),
+                _buildFilterChip('online', 'Online AI ($onlineCount)'),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 8),
+
+          // "+ Start New Consultation" Button
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+                provider.startNewChatSession();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: const Text('Started a new consultation session'),
+                    duration: const Duration(seconds: 2),
+                    behavior: SnackBarBehavior.floating,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  ),
+                );
+              },
+              borderRadius: BorderRadius.circular(12),
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                decoration: BoxDecoration(
+                  color: AppColors.primary.withValues(alpha: 0.08),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
+                ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.menu_book_rounded, color: AppColors.primary),
-                    const SizedBox(width: 8),
-                    const Text(
-                      'Retrieved Medical Evidence',
+                    Icon(Icons.add_rounded, size: 18, color: AppColors.primary),
+                    SizedBox(width: 6),
+                    Text(
+                      '+ Start New Consultation',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 13,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.textPrimary,
-                      ),
-                    ),
-                    const Spacer(),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF10B981).withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: const Text(
-                        '100% Offline',
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF047857),
-                        ),
+                        color: AppColors.primary,
                       ),
                     ),
                   ],
                 ),
               ),
-              const Divider(height: 1),
-              Expanded(
-                child: ListView.builder(
-                  controller: scrollController,
-                  padding: const EdgeInsets.all(16),
-                  itemCount: chunks.length,
-                  itemBuilder: (_, index) {
-                    final c = chunks[index];
-                    return Container(
-                      margin: const EdgeInsets.only(bottom: 12),
-                      padding: const EdgeInsets.all(14),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF8FAFC),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: const Color(0xFFE2E8F0)),
-                      ),
+            ),
+          ),
+
+          const Divider(height: 16),
+
+          // Session list
+          Expanded(
+            child: filteredSessions.isEmpty
+                ? Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(24.0),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          Row(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(4),
-                                decoration: BoxDecoration(
-                                  color: AppColors.primaryLight,
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                child: Text(
-                                  '#${index + 1}',
-                                  style: const TextStyle(
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
-                                    color: AppColors.primary,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              Expanded(
-                                child: Text(
-                                  c.sourceTitle,
-                                  style: const TextStyle(
-                                    fontSize: 13.5,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xFF0F172A),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Icon(Icons.chat_bubble_outline_rounded, size: 42, color: Colors.grey.shade400),
+                          const SizedBox(height: 10),
+                          const Text(
+                            'No consultations found',
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: AppColors.textPrimary),
                           ),
-                          const SizedBox(height: 6),
-                          Row(
-                            children: [
-                              const Icon(Icons.folder_outlined, size: 12, color: Color(0xFF64748B)),
-                              const SizedBox(width: 4),
-                              Expanded(
-                                child: Text(
-                                  'Section: ${c.section} • Ver: ${c.documentVersion} • Rev: ${c.reviewDate}',
-                                  style: const TextStyle(
-                                    fontSize: 11,
-                                    color: Color(0xFF64748B),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            c.text,
-                            style: const TextStyle(
-                              fontSize: 12.5,
-                              color: Color(0xFF334155),
-                              height: 1.4,
-                            ),
+                          const SizedBox(height: 4),
+                          const Text(
+                            'Both offline doctor chats and online clinical AI consultations will automatically appear here.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 11.5, color: AppColors.textSecondary),
                           ),
                         ],
                       ),
-                    );
-                  },
-                ),
-              ),
-            ],
+                    ),
+                  )
+                : ListView.separated(
+                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 20),
+                    itemCount: filteredSessions.length,
+                    separatorBuilder: (_, __) => const SizedBox(height: 10),
+                    itemBuilder: (context, index) {
+                      final session = filteredSessions[index];
+                      final isOffline = session.type == 'offline';
+                      final isActive = session.id == provider.currentSessionId;
+
+                      return InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                          if (isOffline) {
+                            if (!isActive) {
+                              provider.loadSession(session.id);
+                            }
+                          } else {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => AiAssistantScreen(initialSessionId: session.id),
+                              ),
+                            );
+                          }
+                        },
+                        borderRadius: BorderRadius.circular(14),
+                        child: Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: isActive ? AppColors.primary.withValues(alpha: 0.06) : Colors.white,
+                            borderRadius: BorderRadius.circular(14),
+                            border: Border.all(
+                              color: isActive ? AppColors.primary : const Color(0xFFE2E8F0),
+                              width: isActive ? 1.5 : 1,
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(9),
+                                decoration: BoxDecoration(
+                                  color: isOffline
+                                      ? const Color(0xFFFEF3C7)
+                                      : const Color(0xFFE0F2FE),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Icon(
+                                  isOffline ? Icons.wifi_off_rounded : Icons.cloud_done_rounded,
+                                  color: isOffline ? const Color(0xFFD97706) : const Color(0xFF0284C7),
+                                  size: 18,
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            session.title,
+                                            style: TextStyle(
+                                              fontSize: 13,
+                                              fontWeight: isActive ? FontWeight.bold : FontWeight.w600,
+                                              color: isActive ? AppColors.primary : AppColors.textPrimary,
+                                            ),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 6),
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                          decoration: BoxDecoration(
+                                            color: isOffline
+                                                ? const Color(0xFFFEF3C7)
+                                                : const Color(0xFFE0F2FE),
+                                            borderRadius: BorderRadius.circular(5),
+                                          ),
+                                          child: Text(
+                                            isOffline ? 'Offline SLM' : 'Online AI',
+                                            style: TextStyle(
+                                              fontSize: 9.5,
+                                              fontWeight: FontWeight.bold,
+                                              color: isOffline ? const Color(0xFFB45309) : const Color(0xFF0369A1),
+                                            ),
+                                          ),
+                                        ),
+                                        if (isActive) ...[
+                                          const SizedBox(width: 4),
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xFF10B981),
+                                              borderRadius: BorderRadius.circular(5),
+                                            ),
+                                            child: const Text(
+                                              'Active',
+                                              style: TextStyle(
+                                                fontSize: 9,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ],
+                                    ),
+                                    if (session.lastSnippet.isNotEmpty) ...[
+                                      const SizedBox(height: 3),
+                                      Text(
+                                        session.lastSnippet,
+                                        style: const TextStyle(fontSize: 11.5, color: AppColors.textSecondary),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ],
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      '${session.updatedAt.day}/${session.updatedAt.month}/${session.updatedAt.year} • ${session.messageCount} messages',
+                                      style: const TextStyle(fontSize: 10, color: AppColors.textMuted),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.delete_outline_rounded, size: 20, color: Colors.grey),
+                                onPressed: () async {
+                                  final confirm = await showDialog<bool>(
+                                    context: context,
+                                    builder: (ctx) => AlertDialog(
+                                      title: const Text('Delete Consultation?'),
+                                      content: Text('Are you sure you want to delete "${session.title}"?'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(ctx, false),
+                                          child: const Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(ctx, true),
+                                          style: TextButton.styleFrom(foregroundColor: Colors.red),
+                                          child: const Text('Delete'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                  if (confirm == true) {
+                                    await provider.deleteSession(session.id);
+                                    if (mounted) setState(() {});
+                                  }
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFilterChip(String key, String label) {
+    final isSelected = _filter == key;
+    return InkWell(
+      onTap: () => setState(() => _filter = key),
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        decoration: BoxDecoration(
+          color: isSelected ? AppColors.primary : const Color(0xFFF1F5F9),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            fontSize: 11.5,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+            color: isSelected ? Colors.white : AppColors.textPrimary,
           ),
         ),
       ),

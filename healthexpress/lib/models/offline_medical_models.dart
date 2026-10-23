@@ -317,5 +317,43 @@ class OfflineDoctorMessage {
       isEvidenceSufficient: isEvidenceSufficient ?? this.isEvidenceSufficient,
     );
   }
+
+  bool get isUser => role == 'user';
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'role': role,
+      'isUser': isUser,
+      'text': text,
+      'timestamp': timestamp.toIso8601String(),
+      'isStreaming': isStreaming,
+      'actionPrompts': actionPrompts,
+      'isEmergency': isEmergency,
+      'immediateAction': immediateAction,
+      'emergencyStatus': emergencyStatus,
+      'whenToSeekHelp': whenToSeekHelp,
+      'sourceAttribution': sourceAttribution,
+    };
+  }
+
+  factory OfflineDoctorMessage.fromJson(Map<String, dynamic> json) {
+    final roleStr = (json['role'] as String?) ?? ((json['isUser'] == true) ? 'user' : 'assistant');
+    return OfflineDoctorMessage(
+      id: (json['id'] as String?) ?? 'msg_${DateTime.now().millisecondsSinceEpoch}',
+      role: roleStr,
+      text: (json['text'] as String?) ?? '',
+      timestamp: json['timestamp'] != null
+          ? (DateTime.tryParse(json['timestamp'] as String) ?? DateTime.now())
+          : DateTime.now(),
+      isStreaming: json['isStreaming'] == true,
+      actionPrompts: (json['actionPrompts'] as List<dynamic>?)?.map((e) => e.toString()).toList(),
+      isEmergency: json['isEmergency'] == true,
+      immediateAction: json['immediateAction'] as String?,
+      emergencyStatus: json['emergencyStatus'] as String?,
+      whenToSeekHelp: json['whenToSeekHelp'] as String?,
+      sourceAttribution: json['sourceAttribution'] as String?,
+    );
+  }
 }
 

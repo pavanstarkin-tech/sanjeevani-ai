@@ -236,23 +236,75 @@ class _SplashScreenState extends State<SplashScreen> {
 
                           const SizedBox(height: 8),
 
-                          // Image: Reduced size and centered with generous padding to prevent any cropping
+                          // Image: Centered with an aesthetic layered background element behind illustration
                           Expanded(
                             child: Center(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 10),
-                                child: Image.asset(
-                                  item.image,
-                                  fit: BoxFit.contain,
-                                  alignment: Alignment.center,
-                                  errorBuilder: (_, __, ___) => const Center(
-                                    child: Icon(
-                                      Icons.local_hospital_rounded,
-                                      color: AppColors.primary,
-                                      size: 64,
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  // Soft ambient radial glow
+                                  Container(
+                                    width: 260,
+                                    height: 260,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      gradient: RadialGradient(
+                                        colors: [
+                                          AppColors.primary.withValues(alpha: 0.14),
+                                          AppColors.primaryLight.withValues(alpha: 0.06),
+                                          Colors.white.withValues(alpha: 0.0),
+                                        ],
+                                        stops: const [0.0, 0.6, 1.0],
+                                      ),
                                     ),
                                   ),
-                                ),
+
+                                  // Inner frosted circle backdrop with soft medical shadow
+                                  Container(
+                                    width: 200,
+                                    height: 200,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                        colors: [
+                                          const Color(0xFFF8FAFC),
+                                          AppColors.primaryLight.withValues(alpha: 0.45),
+                                        ],
+                                      ),
+                                      border: Border.all(
+                                        color: AppColors.primary.withValues(alpha: 0.12),
+                                        width: 1.5,
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: AppColors.primary.withValues(alpha: 0.08),
+                                          blurRadius: 32,
+                                          spreadRadius: 6,
+                                          offset: const Offset(0, 10),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                  // Foreground Illustration
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 10),
+                                    child: Image.asset(
+                                      item.image,
+                                      fit: BoxFit.contain,
+                                      alignment: Alignment.center,
+                                      errorBuilder: (_, __, ___) => const Center(
+                                        child: Icon(
+                                          Icons.local_hospital_rounded,
+                                          color: AppColors.primary,
+                                          size: 64,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -361,33 +413,6 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ),
               ],
-            ),
-
-            // Top Right: Floating Skip button
-            Positioned(
-              top: 8,
-              right: 16,
-              child: TextButton(
-                onPressed: _checkAuthAndNavigate,
-                style: TextButton.styleFrom(
-                  backgroundColor: AppColors.primaryLight,
-                  foregroundColor: AppColors.primary,
-                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
-                  minimumSize: Size.zero,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                ),
-                child: const Text(
-                  'Skip',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 12.5,
-                    letterSpacing: 0.2,
-                  ),
-                ),
-              ),
             ),
           ],
         ),

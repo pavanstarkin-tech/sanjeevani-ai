@@ -60,3 +60,4 @@ flutter:
     - assets/audio/
     - assets/.env
     - assets/data/
+    - assets/splash_intro.mp4

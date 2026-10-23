@@ -14,12 +14,8 @@ import 'services/emergency_medicine_hold_service.dart';
 import 'services/government_scheme_service.dart';
 import 'services/public_health_surveillance_service.dart';
 import 'providers/doctor_reels_provider.dart';
-import 'core/constants/app_constants.dart';
-import 'screens/common/splash_screen.dart';
-import 'screens/user/user_main_nav.dart';
+import 'screens/common/intro_video_splash_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'screens/doctor/doctor_main_nav.dart';
-import 'screens/store/store_main_nav.dart';
 
 import 'data/production_database.dart';
 import 'services/clinical_rag_service.dart';
@@ -65,13 +61,7 @@ class SanjeevaniApp extends StatelessWidget {
             title: 'Sanjeevani.AI',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
-            home: auth.isAuthenticated && auth.isOnboarded
-                ? (auth.currentRole == UserRole.doctor
-                    ? const DoctorMainNav()
-                    : (auth.currentRole == UserRole.store
-                        ? const StoreMainNav()
-                        : const UserMainNav()))
-                : const SplashScreen(),
+            home: const IntroVideoSplashScreen(),
           );
         },
       ),

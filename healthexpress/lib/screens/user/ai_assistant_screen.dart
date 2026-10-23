@@ -20,11 +20,12 @@ import 'lab_tests_screen.dart';
 import 'cart_checkout_screen.dart';
 import 'emergency_sos_screen.dart';
 import 'ai_voice_call_screen.dart';
-import 'offline_ai_doctor_screen.dart';
+import 'package:healthexpress/screens/user/offline_ai_doctor_screen.dart';
 import 'user_main_nav.dart';
 
 class AiAssistantScreen extends StatefulWidget {
-  const AiAssistantScreen({super.key});
+  final String? initialSessionId;
+  const AiAssistantScreen({super.key, this.initialSessionId});
 
   @override
   State<AiAssistantScreen> createState() => _AiAssistantScreenState();
@@ -52,7 +53,11 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> with TickerProvid
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         final auth = context.read<AuthProvider>();
-        context.read<AiAssistantProvider>().seedUserContext(auth.currentUser);
+        final aiProv = context.read<AiAssistantProvider>();
+        aiProv.seedUserContext(auth.currentUser);
+        if (widget.initialSessionId != null) {
+          aiProv.loadSession(widget.initialSessionId!);
+        }
       }
     });
 
@@ -499,8 +504,8 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> with TickerProvid
             ),
           ),
 
-          // RAG Layer Fetching Simulation Banner
-          if (_showRagSyncSimulation)
+          // RAG Layer Fetching Simulation Banner (Only shown in Online Cloud AI mode)
+          if (aiProv.isOnline && _showRagSyncSimulation)
             Container(
               margin: const EdgeInsets.fromLTRB(16, 8, 16, 8),
               padding: const EdgeInsets.all(12),
@@ -573,7 +578,7 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> with TickerProvid
                 ],
               ),
             )
-          else
+          else if (aiProv.isOnline)
             GestureDetector(
               onTap: () {
                 _initRealtimeRagSync();
@@ -857,6 +862,7 @@ class _AiAssistantDrawer extends StatefulWidget {
 
 class _AiAssistantDrawerState extends State<_AiAssistantDrawer> {
   int _selectedTab = 1; // 0 = Models Tab, 1 = History Tab (Default to History Tab per user request)
+  String _historyFilter = 'all'; // 'all', 'online', 'offline'
 
   @override
   Widget build(BuildContext context) {
@@ -1575,9 +1581,56 @@ class _AiAssistantDrawerState extends State<_AiAssistantDrawer> {
     );
   }
 
+  Widget _buildFilterChip(String key, String label) {
+    final isSelected = _historyFilter == key;
+    return InkWell(
+      onTap: () => setState(() => _historyFilter = key),
+      borderRadius: BorderRadius.circular(14),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        decoration: BoxDecoration(
+          color: isSelected ? AppColors.primary : const Color(0xFFF1F5F9),
+          borderRadius: BorderRadius.circular(14),
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            fontSize: 11,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+            color: isSelected ? Colors.white : AppColors.textPrimary,
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildHistoryContent(BuildContext context, AiAssistantProvider aiProv) {
+    final allSessions = aiProv.savedSessions;
+    final offlineCount = allSessions.where((s) => s.type == 'offline').length;
+    final onlineCount = allSessions.where((s) => s.type != 'offline').length;
+
+    final filteredSessions = allSessions.where((s) {
+      if (_historyFilter == 'offline') return s.type == 'offline';
+      if (_historyFilter == 'online') return s.type != 'offline';
+      return true;
+    }).toList();
+
     return Column(
       children: [
+        // Filter tabs: All, Online, Offline
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          child: Row(
+            children: [
+              _buildFilterChip('all', 'All (${allSessions.length})'),
+              const SizedBox(width: 6),
+              _buildFilterChip('online', 'Online ($onlineCount)'),
+              const SizedBox(width: 6),
+              _buildFilterChip('offline', 'Offline ($offlineCount)'),
+            ],
+          ),
+        ),
+
         // "+ New Consultation" Button
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
@@ -1612,7 +1665,7 @@ class _AiAssistantDrawerState extends State<_AiAssistantDrawer> {
 
         // Session list
         Expanded(
-          child: aiProv.savedSessions.isEmpty
+          child: filteredSessions.isEmpty
               ? const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24, vertical: 30),
                   child: Center(
@@ -1627,7 +1680,7 @@ class _AiAssistantDrawerState extends State<_AiAssistantDrawer> {
                         ),
                         SizedBox(height: 4),
                         Text(
-                          'Every clinical conversation with Sanjeevani AI is automatically preserved here.',
+                          'Every clinical conversation (online and offline) is automatically preserved here.',
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
                         ),
@@ -1637,17 +1690,27 @@ class _AiAssistantDrawerState extends State<_AiAssistantDrawer> {
                 )
               : ListView.separated(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                  itemCount: aiProv.savedSessions.length,
+                  itemCount: filteredSessions.length,
                   separatorBuilder: (_, __) => const SizedBox(height: 8),
                   itemBuilder: (context, index) {
-                    final session = aiProv.savedSessions[index];
+                    final session = filteredSessions[index];
+                    final isOffline = session.type == 'offline';
                     final isActive = session.id == aiProv.currentSessionId;
 
                     return InkWell(
                       onTap: () {
                         Navigator.pop(context);
-                        if (!isActive) {
-                          aiProv.loadSession(session.id);
+                        if (isOffline) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => OfflineAiDoctorScreen(initialSessionId: session.id),
+                            ),
+                          );
+                        } else {
+                          if (!isActive) {
+                            aiProv.loadSession(session.id);
+                          }
                         }
                       },
                       borderRadius: BorderRadius.circular(12),
@@ -1666,12 +1729,18 @@ class _AiAssistantDrawerState extends State<_AiAssistantDrawer> {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: isActive ? AppColors.primary.withValues(alpha: 0.15) : const Color(0xFFF1F5F9),
+                                color: isOffline
+                                    ? const Color(0xFFFEF3C7)
+                                    : (isActive ? AppColors.primary.withValues(alpha: 0.15) : const Color(0xFFF1F5F9)),
                                 shape: BoxShape.circle,
                               ),
                               child: Icon(
-                                isActive ? Icons.chat_bubble_rounded : Icons.chat_bubble_outline_rounded,
-                                color: isActive ? AppColors.primary : AppColors.textSecondary,
+                                isOffline
+                                    ? Icons.wifi_off_rounded
+                                    : (isActive ? Icons.chat_bubble_rounded : Icons.chat_bubble_outline_rounded),
+                                color: isOffline
+                                    ? const Color(0xFFD97706)
+                                    : (isActive ? AppColors.primary : AppColors.textSecondary),
                                 size: 16,
                               ),
                             ),
@@ -1694,7 +1763,26 @@ class _AiAssistantDrawerState extends State<_AiAssistantDrawer> {
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                       ),
-                                      if (isActive)
+                                      const SizedBox(width: 4),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
+                                        decoration: BoxDecoration(
+                                          color: isOffline
+                                              ? const Color(0xFFFEF3C7)
+                                              : const Color(0xFFE0F2FE),
+                                          borderRadius: BorderRadius.circular(5),
+                                        ),
+                                        child: Text(
+                                          isOffline ? 'Offline SLM' : 'Online AI',
+                                          style: TextStyle(
+                                            fontSize: 8.5,
+                                            fontWeight: FontWeight.bold,
+                                            color: isOffline ? const Color(0xFFB45309) : const Color(0xFF0369A1),
+                                          ),
+                                        ),
+                                      ),
+                                      if (isActive) ...[
+                                        const SizedBox(width: 4),
                                         Container(
                                           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
                                           decoration: BoxDecoration(
@@ -1706,6 +1794,7 @@ class _AiAssistantDrawerState extends State<_AiAssistantDrawer> {
                                             style: TextStyle(fontSize: 8.5, fontWeight: FontWeight.bold, color: Colors.white),
                                           ),
                                         ),
+                                      ],
                                     ],
                                   ),
                                   if (session.lastSnippet.isNotEmpty) ...[
