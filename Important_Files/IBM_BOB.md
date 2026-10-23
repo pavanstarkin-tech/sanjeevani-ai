@@ -1,6 +1,6 @@
 # How We Used IBM Bob to Implement Sanjeevani.ai (సంజీవని) 🩺
 
-**Sanjeevani.ai** (formerly HealthExpress AI) is an intelligent, edge-first healthcare super-platform, emergency response system, and hospital operational command center architected, synthesized, debugged, and deployed end-to-end with **IBM Bob** as our primary AI software engineering development partner.
+**Sanjeevani.ai** is an intelligent, edge-first healthcare super-platform, emergency response system, and hospital operational command center architected, synthesized, debugged, and deployed end-to-end with **IBM Bob** as our primary AI software engineering development partner.
 
 ---
 
@@ -57,7 +57,7 @@ flowchart TD
 
 ### A. Architectural Modeling, Clinical Protocols & Relational Database Synthesis
 * **Clinical & Operational Requirements Analysis**: IBM Bob analyzed Ayushman Bharat Digital Mission (ABDM) tokenized consent policies, Dr. YSR Aarogyasri cashless pre-authorizations, and 15-minute emergency dark-store logistics SLAs, synthesizing a cohesive multi-role blueprint.
-* **16-Table Relational MariaDB Schema**: Synthesized the production database schema (`u170253497_healthexpress / u833088220_medapp`) with foreign-key constraints, spatial geolocation indexes, and immutable audit logs across users, doctors, hospitals, appointments, prescriptions, and pharmacy inventories.
+* **16-Table Relational MariaDB Schema**: Synthesized the production database schema (`u170253497_sanjeevani / u833088220_medapp`) with foreign-key constraints, spatial geolocation indexes, and immutable audit logs across users, doctors, hospitals, appointments, prescriptions, and pharmacy inventories.
 * **Dynamic Time-Bound ABDM QR Protocol**: Implemented granular, time-bound (15-min to 120-min) digital EHR consent tokens with instantaneous patient-controlled revocation.
 
 ### B. On-Device Edge SLM & Offline Clinical Intelligence (Zero Internet / 0 KBps)
@@ -95,7 +95,7 @@ flowchart TD
 | **Medical Vector RAG** | 128-d Dense Vector Index | Embedded similarity search over AHA, WHO, ICMR guidelines & Jan Aushadhi generic catalog |
 | **Operations Dashboard** | React 19 + Vite | 12 admin workspaces, bed capacity, KYC review queues, financial ledgers |
 | **Cloud REST Backend** | PHP 8.2+ (Hostinger) | 16 modular endpoints, PDO connection pooling, JWT security, Apache rewrite |
-| **Relational Database** | MariaDB | 16 normalized tables, spatial indexes, audit logs (`u170253497_healthexpress`) |
+| **Relational Database** | MariaDB | 16 normalized tables, spatial indexes, audit logs (`u170253497_sanjeevani`) |
 | **Multimodal Voice AI** | Sarvam AI + NVIDIA NIM | `saaras:v3` STT, `bulbul:v3` TTS, `GPT-OSS-20B` SOAP triage, multi-language detection |
 | **Realtime Voice Agent** | LiveKit RTC + Python Agent | Low-latency voice pipelines with WebRTC data channels |
 | **Video Telehealth** | Agora RTC Engine | Sub-200ms WebRTC video, dynamic token authentication |
