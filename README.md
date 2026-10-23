@@ -262,17 +262,61 @@ flowchart LR
 
 ## 1. User Interface & Mobile Onboarding Experience Gallery
 
-Sanjeevani.ai features an intuitive, highly responsive mobile and edge-first interface built with Flutter. Below is the official onboarding and feature showcase walkthrough highlighting our offline-first emergency protocols, 15-minute pharmacy delivery, multilingual regional voice AI, government scheme integration, and explainable AI diagnostic report analysis.
+Sanjeevani.ai features an intuitive, highly responsive mobile and edge-first interface built with Flutter. Below is the complete gallery of production application interfaces organized across patient intake, on-device SLM triaging, diagnostic computer vision, Agora HD telehealth, 15-minute emergency dispatch, and ABDM sovereign scheme workflows:
 
-### 📱 Sanjeevani.ai Core Feature Walkthrough (3 screens per row)
+### A. Patient Home, Multilingual Voice AI & On-Device SLM Doctor (3 screens per row)
 
-| 1. Emergency Care, Even Offline | 2. Essential Medicines, Within Reach | 3. Healthcare That Speaks Your Language |
+| Patient Home & Emergency Actions | Online AI Clinical Consultation | 0 KBps Offline AI Doctor (Llama 3.2 1B) |
 | :---: | :---: | :---: |
-| <img src="splashimages/splash (6).jpeg" width="280" alt="Emergency Care, Even Offline" /><br/><br/>**Offline Emergency Care**<br/>• Instant First Aid Guidance<br/>• CPR Audio Metronome (110 BPM)<br/>• 0 KBps Offline Health Radar<br/>• Instant 108 SOS Dispatch | <img src="splashimages/splash (5).jpeg" width="280" alt="Essential Medicines, Within Reach" /><br/><br/>**Hyperlocal Pharmacy**<br/>• 15-Minute Dark-Store Dispatch<br/>• Jan Aushadhi Generic Finder<br/>• 50–80% Price Savings<br/>• 30-Minute Guaranteed Stock Hold | <img src="splashimages/splash (4).jpeg" width="280" alt="Healthcare That Speaks Your Language" /><br/><br/>**Multilingual Voice AI**<br/>• Telugu, Hindi, Tamil, English<br/>• Tanglish & Hinglish Auto-Detect<br/>• Voice-First Clinical Triage<br/>• Sarvam Bulbul HD Regional Voices |
+| <img src="UI/HOME.jpeg" width="260" alt="Patient Home Screen" /><br/><br/>**Patient Home Command Screen**<br/>• SOS Emergency 108 Quick Trigger<br/>• Hyperlocal Dark-Store Medicines<br/>• Voice-First Intake Bar<br/>• Nearby Verified Doctors | <img src="UI/ONLINE-CHAT.jpeg" width="260" alt="Online AI Consultation" /><br/><br/>**Online Cloud AI Clinical Intake**<br/>• Multilingual Regional Triage<br/>• Tanglish & Hinglish Auto-Detect<br/>• Real-Time Medical Guidance<br/>• Dynamic Doctor Escalation | <img src="UI/OFFLINE-CHAT.jpeg" width="260" alt="Offline AI Doctor" /><br/><br/>**Zero-Internet Offline SLM Doctor**<br/>• On-Device Llama-3.2-1B-Instruct<br/>• 0 KBps Connectivity Capable<br/>• 10 AHA/WHO Validated Protocols<br/>• Dr. Medha Interactive Avatar |
 
-| 4. Healthcare Benefits, Made Simpler | 5. Understand Your Health Reports | 6. Healthier Lives, A Safer Tomorrow |
+| Voice AI Call Assistant | Dual Intelligence Mode Switcher | On-Device SLM Engine Manager |
 | :---: | :---: | :---: |
-| <img src="splashimages/splash (2).jpeg" width="280" alt="Healthcare Benefits, Made Simpler" /><br/><br/>**Government Health Schemes**<br/>• Ayushman Bharat PM-JAY (₹5L)<br/>• Dr. YSR Aarogyasri (₹25L)<br/>• Cashless Pre-Auth Eligibility<br/>• Empaneled Hospital Directory | <img src="splashimages/splash (3).jpeg" width="280" alt="Understand Your Health Reports" /><br/><br/>**AI Health Report Analysis**<br/>• Diagnostic Lab Report OCR<br/>• Explainable Clinical Rationale<br/>• ICD-10 & SNOMED CT Coding<br/>• Drug-Drug Interaction Matrix | <img src="splashimages/splash (1).jpeg" width="280" alt="Healthier Lives, A Safer Tomorrow" /><br/><br/>**Preventive Care & Wellness**<br/>• Daily Clinical Wellness Tips<br/>• Disease Prevention Intelligence<br/>• Family Health Record Vault<br/>• Offline Preventive Guidance |
+| <img src="UI/AI-CALL-ASSISTENT.jpeg" width="260" alt="Voice AI Call Assistant" /><br/><br/>**Real-Time Voice AI Intake**<br/>• Sarvam Bulbul Regional HD TTS<br/>• Web Audio Energy VAD Auto-Cut<br/>• Conversational Symptom Intake<br/>• Telugu, Hindi, Tamil, English | <img src="UI/AI-MODES.jpeg" width="260" alt="AI Modes Switcher" /><br/><br/>**Dual Clinical Engine Modes**<br/>• Cloud GPT-OSS-20B Precision<br/>• Edge SLM Instant Offline Fallback<br/>• Latency & Safety Monitoring<br/>• Autonomous Connection Switch | <img src="UI/MODELMANAGER-MODE-SWITCHER.jpeg" width="260" alt="Model Manager" /><br/><br/>**On-Device Model Architecture**<br/>• 807 MB Q4_K_M GGUF Weights<br/>• Native ARM64 llama.cpp C-API<br/>• Active RAM & Memory Guards<br/>• 128-d Vector RAG Pipeline |
+
+| Encrypted Consultation History | Explainable Lab Biomarker OCR | Clinical Risk & Disease Detection |
+| :---: | :---: | :---: |
+| <img src="UI/CHAT-HISTORY.jpeg" width="260" alt="Chat History" /><br/><br/>**Encrypted Clinical History**<br/>• On-Device SQLite Session Storage<br/>• Searchable Symptom Timelines<br/>• Exportable Medical Summaries<br/>• Privacy-First Patient Data | <img src="UI/VISON-RESULTS-AFTER-SCAN.jpeg" width="260" alt="Vision Lab Results" /><br/><br/>**AI Lab Report Parameter OCR**<br/>• Instant Biomarker Extraction<br/>• Plain-Language Plain Telugu/Hindi<br/>• Normal/Abnormal Range Alerts<br/>• ICD-10 & SNOMED CT Mapping | <img src="UI/DESESE-DETECTER.jpeg" width="260" alt="Disease Detector" /><br/><br/>**Explainable Risk Analysis**<br/>• Multi-Factor Clinical Diagnostic Rationale<br/>• Confidence Metric Reasoning<br/>• Drug-Drug Interaction Warnings<br/>• Emergency Severity Categorization |
+
+---
+
+### B. Teleconsultation, Doctor Discovery & Agora HD WebRTC Video Calls
+
+| Nearby Verified Specialists | Doctor Clinical Credentials | Consultation Slot Selection |
+| :---: | :---: | :---: |
+| <img src="UI/NEARBY-DOCTORE.jpeg" width="260" alt="Nearby Doctors" /><br/><br/>**Verified Doctor Discovery**<br/>• Geolocation Distance & Specialty<br/>• Real-Time Availability Badges<br/>• Patient Ratings & Reviews<br/>• In-Clinic & Video Consult Filter | <img src="UI/DOC-PROFILE.jpeg" width="260" alt="Doctor Profile" /><br/><br/>**Doctor Clinical Profile**<br/>• Verified Medical Registration ID<br/>• Hospital Affiliations & Experience<br/>• Specialization & Languages Spoken<br/>• Transparent Consultation Pricing | <img src="UI/DOCETR-APPOINTMENT.jpeg" width="260" alt="Doctor Appointment" /><br/><br/>**Consultation Slot Booking**<br/>• Date & Morning/Evening Slots<br/>• Telehealth Video or Physical Visit<br/>• Symptoms Pre-Attachment<br/>• Instant Slot Locking |
+
+| Patient Vitals & Booking Summary | Confirmed Booking & Digital Token | Agora WebRTC HD Video Teleconsult |
+| :---: | :---: | :---: |
+| <img src="UI/BOOKING-DETAILS.jpeg" width="260" alt="Booking Details" /><br/><br/>**Pre-Consultation Intake**<br/>• Patient Vitals & Chief Complaints<br/>• AI Pre-Triage Briefing for Doctor<br/>• Secure Razorpay / Aarogyasri Payment<br/>• Instant Confirmation Receipt | <img src="UI/BOOKING-CONFORM.jpeg" width="260" alt="Booking Confirmed" /><br/><br/>**Confirmed Digital Pass**<br/>• Unique Consultation Token ID<br/>• In-App Calendar Synchronization<br/>• Video Room Join Link<br/>• Automated SMS & WhatsApp Alerts | <img src="UI/DIGITAL-DOCTER-VIDEO-CALL.jpeg" width="260" alt="Video Call" /><br/><br/>**Agora HD 2-Way Video Call**<br/>• Low-Latency Real-Time WebRTC<br/>• In-Call Digital Prescription (Rx)<br/>• Microphone & Camera Controls<br/>• End-to-End Encrypted Session |
+
+| Patient Appointment Schedule | Multi-Specialty Doctor Directory | Camera Scanner for Reports |
+| :---: | :---: | :---: |
+| <img src="UI/APPOINTMENTS.jpeg" width="260" alt="Appointments" /><br/><br/>**My Appointments Hub**<br/>• Upcoming, Completed & Cancelled<br/>• Download Digital Prescription PDF<br/>• 1-Click Order Prescribed Meds<br/>• Follow-Up Consultation Reminders | <img src="UI/DOCKTER-APPOINTEMENTS.jpeg" width="260" alt="Doctor Directory" /><br/><br/>**Comprehensive Doctor Roster**<br/>• General Medicine, Cardiology, Pediatrics<br/>• Aarogyasri Empaneled Doctors<br/>• Filter by Availability Today<br/>• Verified Credentials | <img src="UI/DOCTER-SCAN.jpeg" width="260" alt="Doctor Scanner" /><br/><br/>**Clinical Scanner & Document Intake**<br/>• Multi-Page Physical Report Scan<br/>• Auto-Crop & Perspective Correction<br/>• OCR Edge Pre-Processing<br/>• Secure Attachment to Profile |
+
+---
+
+### C. 15-Minute Emergency Response, Hospital Grid & Dark Store Pharmacy
+
+| Instant 108 Ambulance SOS | Live GPS Ambulance Dispatch Radar | 5 km Offline Emergency Hospital Map |
+| :---: | :---: | :---: |
+| <img src="UI/AMBULENSE.jpeg" width="260" alt="Ambulance SOS" /><br/><br/>**108 Emergency Ambulance Trigger**<br/>• 1-Tap SOS Golden-Hour Dispatch<br/>• Live Geolocation Transmission<br/>• Emergency Contact Broadcasting<br/>• Paramedic Pre-Arrival Guidance | <img src="UI/NEARBY-AMBULNESE.jpeg" width="260" alt="Nearby Ambulance" /><br/><br/>**Live GPS Ambulance Radar**<br/>• Real-Time Distance & Route ETA<br/>• Direct Driver Voice Dispatch<br/>• Advanced Life Support (ALS) Filter<br/>• Traffic Route Optimization | <img src="UI/HOSPITAL-MAP.jpeg" width="260" alt="Hospital Map" /><br/><br/>**5 km Offline Health Radar**<br/>• Cached Hospital Coordinates<br/>• Works Without Cellular Data<br/>• Turn-by-Turn GPS Directions<br/>• Trauma Center & PHC Identification |
+
+| Empaneled Hospital Directory | Live ICU, Bed & Blood Telemetry | In-App Pharmacy & Jan Aushadhi |
+| :---: | :---: | :---: |
+| <img src="UI/HOSPITAL.jpeg" width="260" alt="Hospitals" /><br/><br/>**Hospital Network & Facilities**<br/>• Government & Private Hospitals<br/>• 24x7 Emergency Room Availability<br/>• Aarogyasri / PM-JAY Empanelment<br/>• Doctor on Duty Roster | <img src="UI/NERERBY-HOSPITAL-CARD.jpeg" width="260" alt="Hospital Bed Telemetry" /><br/><br/>**Hospital Bed & Blood Bank Telemetry**<br/>• Live ICU Beds & Oxygen Bed Count<br/>• Blood Bank Units (A+, B+, O+, AB-)<br/>• Ventilator Availability Status<br/>• Direct ER Casualty Contact | <img src="UI/MEDICAL-STORE-INAPP.jpeg" width="260" alt="In-App Pharmacy" /><br/><br/>**Hyperlocal Pharmacy Store**<br/>• Jan Aushadhi Generic Comparator<br/>• 50–80% Genuine Drug Savings<br/>• Prescription Auto-Cart Loading<br/>• 30-Minute Emergency Stock Lock |
+
+| 15-Minute Medicine Route Tracking | Doctor Clinical Dashboard & Queue | Doctor Telehealth Analytics |
+| :---: | :---: | :---: |
+| <img src="UI/TRACK-ORDER.jpeg" width="260" alt="Track Order" /><br/><br/>**15-Minute Dark-Store Dispatch**<br/>• Real-Time Rider GPS Telemetry<br/>• Dark Store Barcode Verification<br/>• Live Delivery Timeline<br/>• Secure OTP Delivery Handshake | <img src="UI/DOCTER-DASH.jpeg" width="260" alt="Doctor Dashboard" /><br/><br/>**Doctor Clinical Workstation**<br/>• Active Patient Consultation Queue<br/>• Pre-Triage AI Symptom Brief<br/>• 1-Click Video Call Launch<br/>• Digital Rx Generator | <img src="UI/DOCTER-ANALYTICS.jpeg" width="260" alt="Doctor Analytics" /><br/><br/>**Clinical Practice Analytics**<br/>• Daily Consultation Volume Trends<br/>• Patient Recovery Rates<br/>• Telehealth Revenue & Payouts<br/>• Demographic Health Insights |
+
+| ABHA Health Records Vault | ABDM Dynamic Consent QR Scanner | Sovereign Government Scheme Pre-Auth |
+| :---: | :---: | :---: |
+| <img src="UI/PATENT-RECORDES.jpeg" width="260" alt="Patient Records" /><br/><br/>**ABHA Patient Health Records**<br/>• Unified Longitudinal Health Record<br/>• Past Diagnostic Reports & Labs<br/>• Digital Prescriptions Vault<br/>• FHIR R4 Compliant Format | <img src="UI/DOCTER-QR.jpeg" width="260" alt="Doctor QR Scanner" /><br/><br/>**ABDM Time-Bound Consent QR**<br/>• 15-Minute Temporary EHR Access<br/>• Zero Permanent Credential Sharing<br/>• Instant Patient Consent Revocation<br/>• Audit-Logged Record Retrieval | <img src="UI/SCHEME-CLIME.jpeg" width="260" alt="Scheme Claims" /><br/><br/>**Sovereign Schemes Pre-Auth**<br/>• Ayushman Bharat PM-JAY (₹5L)<br/>• Dr. YSR Aarogyasri (₹25L Cashless)<br/>• Instant Eligibility Verification<br/>• Automated Pre-Auth Claim Submission |
+
+| Preventive Health Shorts & Reels | Doctor Clinical Profile Overview |
+| :---: | :---: |
+| <img src="UI/DOCTER-REELS.jpeg" width="260" alt="Doctor Reels" /><br/><br/>**Preventive Clinical Shorts & Reels**<br/>• Bite-Sized Doctor Health Education<br/>• Chronic Disease Prevention Tips<br/>• Regional Telugu & Hindi Audio<br/>• Verified Medical Advice | <img src="UI/DOCTER-PROFILE.jpeg" width="260" alt="Doctor Profile Detail" /><br/><br/>**Doctor Verification & Ratings**<br/>• Clinical Specializations<br/>• Consultation Fees & Timings<br/>• Patient Reviews & Endorsements<br/>• Official Medical License Verification |
 
 ---
 
