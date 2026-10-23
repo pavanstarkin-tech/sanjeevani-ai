@@ -137,10 +137,10 @@ flowchart LR
     BobFlutter & BobPHP --> BobVoice & BobWebRTC
     BobVoice & BobWebRTC --> BobFix
 
-    style BobArchitecture fill:#E0F2FE,stroke:#0284C7,stroke-width:2px
-    style BobCodeGen fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px
-    style BobAIIntegration fill:#FEF3C7,stroke:#D97706,stroke-width:2px
-    style BobQA fill:#DCFCE7,stroke:#16A34A,stroke-width:2px
+    style BobArchitecture fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style BobCodeGen fill:#991B1B,color:#FFFFFF,stroke:#F87171,stroke-width:2px
+    style BobAIIntegration fill:#B91C1C,color:#FFFFFF,stroke:#FCA5A5,stroke-width:2px
+    style BobQA fill:#881337,color:#FFFFFF,stroke:#FB7185,stroke-width:2px
 ```
 
 ### 1. Architecture Planning & Database Synthesis
@@ -283,10 +283,10 @@ graph LR
     PHPBackend -->|Token Generation| AgoraRTC
     PHPBackend -->|Signature Verification| RazorpayGW
 
-    style ClientLayer fill:#F8FAFC,stroke:#64748B,stroke-width:2px
-    style APILayer fill:#EFF6FF,stroke:#3B82F6,stroke-width:2px
-    style DatabaseLayer fill:#ECFDF5,stroke:#10B981,stroke-width:2px
-    style CloudServices fill:#FFF7ED,stroke:#F97316,stroke-width:2px
+    style ClientLayer fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style APILayer fill:#991B1B,color:#FFFFFF,stroke:#F87171,stroke-width:2px
+    style DatabaseLayer fill:#881337,color:#FFFFFF,stroke:#FB7185,stroke-width:2px
+    style CloudServices fill:#9A3412,color:#FFFFFF,stroke:#F97316,stroke-width:2px
 ```
 
 ---
@@ -314,8 +314,8 @@ flowchart LR
     C --> Core
     D --> Core
 
-    style HealthExpressSuperApp fill:#F0FDF4,stroke:#16A34A,stroke-width:2px
-    style Core fill:#1E60F6,color:#FFFFFF,stroke:#0B42BA,stroke-width:3px
+    style HealthExpressSuperApp fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style Core fill:#B91C1C,color:#FFFFFF,stroke:#F87171,stroke-width:3px
 ```
 
 ---
@@ -344,9 +344,9 @@ flowchart LR
     Dispatch --> Delivered([Healed in <15 Mins])
     SOS --> Delivered
 
-    style Start fill:#EF4444,color:#FFFFFF,stroke:#B91C1C,stroke-width:2px
-    style Delivered fill:#10B981,color:#FFFFFF,stroke:#047857,stroke-width:2px
-    style Decision fill:#FEF08A,stroke:#CA8A04,stroke-width:2px
+    style Start fill:#DC2626,color:#FFFFFF,stroke:#991B1B,stroke-width:2px
+    style Delivered fill:#991B1B,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style Decision fill:#B91C1C,color:#FFFFFF,stroke:#F87171,stroke-width:2px
 ```
 
 ---
@@ -438,9 +438,9 @@ flowchart LR
         MapboxGPS --> Doorstep["Doorstep Drop in < 15 Mins"]
     end
 
-    style OrderPlacement fill:#EFF6FF,stroke:#3B82F6,stroke-width:1px
-    style DarkStoreProcessing fill:#FEF3C7,stroke:#D97706,stroke-width:1px
-    style LiveNavigation fill:#DCFCE7,stroke:#16A34A,stroke-width:1px
+    style OrderPlacement fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style DarkStoreProcessing fill:#991B1B,color:#FFFFFF,stroke:#F87171,stroke-width:2px
+    style LiveNavigation fill:#B91C1C,color:#FFFFFF,stroke:#FCA5A5,stroke-width:2px
 ```
 
 ---
@@ -851,10 +851,10 @@ flowchart TD
     Schemes --> Generic
     Surveillance --> Privacy
 
-    style EdgeDevice fill:#EFF6FF,stroke:#2563EB,stroke-width:2px
-    style ClinicalIntelligence fill:#F5F3FF,stroke:#7C3AED,stroke-width:2px
-    style LogisticsAndAffordability fill:#ECFDF5,stroke:#059669,stroke-width:2px
-    style PublicHealthAndSchemes fill:#FFFBEB,stroke:#D97706,stroke-width:2px
+    style EdgeDevice fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style ClinicalIntelligence fill:#991B1B,color:#FFFFFF,stroke:#F87171,stroke-width:2px
+    style LogisticsAndAffordability fill:#B91C1C,color:#FFFFFF,stroke:#FCA5A5,stroke-width:2px
+    style PublicHealthAndSchemes fill:#881337,color:#FFFFFF,stroke:#FB7185,stroke-width:2px
 ```
 
 ### Key Sanjeevani.AI Modules & Implementations

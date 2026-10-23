@@ -44,11 +44,11 @@ flowchart TD
     BobEdgeAI --> BobAIIntegration
     BobAIIntegration --> BobFix
 
-    style BobArchitecture fill:#E0F2FE,stroke:#0284C7,stroke-width:2px
-    style BobEdgeAI fill:#FEF3C7,stroke:#D97706,stroke-width:2px
-    style BobCodeGen fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px
-    style BobAIIntegration fill:#DCFCE7,stroke:#16A34A,stroke-width:2px
-    style BobQA fill:#FEE2E2,stroke:#DC2626,stroke-width:2px
+    style BobArchitecture fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style BobEdgeAI fill:#991B1B,color:#FFFFFF,stroke:#F87171,stroke-width:2px
+    style BobCodeGen fill:#B91C1C,color:#FFFFFF,stroke:#FCA5A5,stroke-width:2px
+    style BobAIIntegration fill:#881337,color:#FFFFFF,stroke:#FB7185,stroke-width:2px
+    style BobQA fill:#9A3412,color:#FFFFFF,stroke:#F97316,stroke-width:2px
 ```
 
 ---

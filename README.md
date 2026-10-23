@@ -186,10 +186,10 @@ flowchart LR
     BobFlutter & BobPHP --> BobVoice & BobWebRTC
     BobVoice & BobWebRTC --> BobFix
 
-    style BobArchitecture fill:#E0F2FE,stroke:#0284C7,stroke-width:2px
-    style BobCodeGen fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px
-    style BobAIIntegration fill:#FEF3C7,stroke:#D97706,stroke-width:2px
-    style BobQA fill:#DCFCE7,stroke:#16A34A,stroke-width:2px
+    style BobArchitecture fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style BobCodeGen fill:#991B1B,color:#FFFFFF,stroke:#F87171,stroke-width:2px
+    style BobAIIntegration fill:#B91C1C,color:#FFFFFF,stroke:#FCA5A5,stroke-width:2px
+    style BobQA fill:#881337,color:#FFFFFF,stroke:#FB7185,stroke-width:2px
 ```
 
 ### 1. Architecture Planning & Database Synthesis
@@ -307,13 +307,13 @@ graph LR
     PHPBackend -->|Token Generation| AgoraRTC
     PHPBackend -->|Signature Verification| RazorpayGW
 
-    PatientApp -->|Offline Fallback (0 KBps)| EdgeOfflineLayer
+    PatientApp -->|"Offline Fallback [0 KBps]"| EdgeOfflineLayer
 
-    style ClientLayer fill:#F8FAFC,stroke:#64748B,stroke-width:2px
-    style APILayer fill:#EFF6FF,stroke:#3B82F6,stroke-width:2px
-    style DatabaseLayer fill:#ECFDF5,stroke:#10B981,stroke-width:2px
-    style CloudServices fill:#FFF7ED,stroke:#F97316,stroke-width:2px
-    style EdgeOfflineLayer fill:#F0FDF4,stroke:#16A34A,stroke-width:2px
+    style ClientLayer fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style APILayer fill:#991B1B,color:#FFFFFF,stroke:#F87171,stroke-width:2px
+    style DatabaseLayer fill:#881337,color:#FFFFFF,stroke:#FB7185,stroke-width:2px
+    style CloudServices fill:#9A3412,color:#FFFFFF,stroke:#F97316,stroke-width:2px
+    style EdgeOfflineLayer fill:#B91C1C,color:#FFFFFF,stroke:#F87171,stroke-width:2px
 ```
 
 ---
@@ -344,8 +344,8 @@ flowchart LR
     D --> Core
     E --> Core
 
-    style Sanjeevani.aiSuperApp fill:#F0FDF4,stroke:#16A34A,stroke-width:2px
-    style Core fill:#1E60F6,color:#FFFFFF,stroke:#0B42BA,stroke-width:3px
+    style Sanjeevani.aiSuperApp fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style Core fill:#B91C1C,color:#FFFFFF,stroke:#F87171,stroke-width:3px
 ```
 
 ---
@@ -381,10 +381,10 @@ flowchart LR
     Dispatch --> Delivered([Healed in <15 Mins])
     SOS --> Delivered
 
-    style Start fill:#EF4444,color:#FFFFFF,stroke:#B91C1C,stroke-width:2px
-    style Delivered fill:#10B981,color:#FFFFFF,stroke:#047857,stroke-width:2px
-    style Decision fill:#FEF08A,stroke:#CA8A04,stroke-width:2px
-    style PingCheck fill:#E0E7FF,stroke:#4338CA,stroke-width:2px
+    style Start fill:#DC2626,color:#FFFFFF,stroke:#991B1B,stroke-width:2px
+    style Delivered fill:#991B1B,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style Decision fill:#B91C1C,color:#FFFFFF,stroke:#F87171,stroke-width:2px
+    style PingCheck fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
 ```
 
 ---
@@ -487,9 +487,9 @@ flowchart LR
         MapboxGPS --> Doorstep["Doorstep Drop in < 15 Mins"]
     end
 
-    style OrderPlacement fill:#EFF6FF,stroke:#3B82F6,stroke-width:1px
-    style DarkStoreProcessing fill:#FEF3C7,stroke:#D97706,stroke-width:1px
-    style LiveNavigation fill:#DCFCE7,stroke:#16A34A,stroke-width:1px
+    style OrderPlacement fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style DarkStoreProcessing fill:#991B1B,color:#FFFFFF,stroke:#F87171,stroke-width:2px
+    style LiveNavigation fill:#B91C1C,color:#FFFFFF,stroke:#FCA5A5,stroke-width:2px
 ```
 
 ---
@@ -548,11 +548,11 @@ flowchart TD
     
     NativeCPP --> StreamOutput["Streaming Token Generator<br/>Parsed into Rich Clinical Markdown & Source Citations"]
 
-    style FastSafety fill:#FEE2E2,stroke:#DC2626,stroke-width:2px
-    style FastAction fill:#EF4444,color:#FFFFFF,stroke:#B91C1C,stroke-width:2px
-    style HybridSearch fill:#FEF3C7,stroke:#D97706,stroke-width:2px
-    style NativeCPP fill:#DCFCE7,stroke:#16A34A,stroke-width:2px
-    style StreamOutput fill:#EFF6FF,stroke:#2563EB,stroke-width:2px
+    style FastSafety fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style FastAction fill:#B91C1C,color:#FFFFFF,stroke:#F87171,stroke-width:2px
+    style HybridSearch fill:#991B1B,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style NativeCPP fill:#881337,color:#FFFFFF,stroke:#F43F5E,stroke-width:2px
+    style StreamOutput fill:#7C2D12,color:#FFFFFF,stroke:#EA580C,stroke-width:2px
 ```
 
 ---
@@ -579,10 +579,10 @@ flowchart TD
     Actions --> Call["1-Tap Emergency Phone Dispatch"]
     Actions --> QueueSync["Pending Emergency Queue<br/>(Flushes to Hostinger API upon Network Reconnect)"]
 
-    style LocInit fill:#E0E7FF,stroke:#4338CA,stroke-width:2px
-    style OfflineCache fill:#FEF3C7,stroke:#D97706,stroke-width:2px
-    style UI fill:#DCFCE7,stroke:#16A34A,stroke-width:2px
-    style QueueSync fill:#F3E8FF,stroke:#7E22CE,stroke-width:2px
+    style LocInit fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style OfflineCache fill:#991B1B,color:#FFFFFF,stroke:#F87171,stroke-width:2px
+    style UI fill:#B91C1C,color:#FFFFFF,stroke:#FCA5A5,stroke-width:2px
+    style QueueSync fill:#881337,color:#FFFFFF,stroke:#FB7185,stroke-width:2px
 ```
 
 ---
@@ -693,7 +693,8 @@ stateDiagram-v2
     
     state Vector_Embedding {
         direction LR
-        Project_128d --> Cosine_BM25_Hybrid --> Score_Chunks
+        Project_128d --> Cosine_BM25_Hybrid
+        Cosine_BM25_Hybrid --> Score_Chunks
     }
     
     Vector_Embedding --> Context_Injection: Top Chunks Selected
@@ -701,7 +702,8 @@ stateDiagram-v2
     
     state Isolate_Inference {
         direction LR
-        Decode_Prompt --> Sample_Tokens --> Emit_Stream
+        Decode_Prompt --> Sample_Tokens
+        Sample_Tokens --> Emit_Stream
     }
     
     Isolate_Inference --> Markdown_Rendering: Stream Completed
@@ -727,14 +729,16 @@ stateDiagram-v2
     
     state Spatial_Query {
         direction LR
-        Query_SQLite_Tables --> Compute_Haversine_Distances --> Filter_Under_5km
+        Query_SQLite_Tables --> Compute_Haversine_Distances
+        Compute_Haversine_Distances --> Filter_Under_5km
     }
     
     Spatial_Query --> Radar_Render: Facilities & Staff Filtered
     
     state Radar_Render {
         direction LR
-        Display_Bed_Counts --> Display_Doctors_Nurses --> Display_Blood_Units
+        Display_Bed_Counts --> Display_Doctors_Nurses
+        Display_Doctors_Nurses --> Display_Blood_Units
     }
     
     Radar_Render --> Emergency_Navigation: Tap Facility / 1-Tap SOS
@@ -1044,10 +1048,10 @@ flowchart TD
     Schemes --> Generic
     Surveillance --> Privacy
 
-    style EdgeDevice fill:#EFF6FF,stroke:#2563EB,stroke-width:2px
-    style ClinicalIntelligence fill:#F5F3FF,stroke:#7C3AED,stroke-width:2px
-    style LogisticsAndAffordability fill:#ECFDF5,stroke:#059669,stroke-width:2px
-    style PublicHealthAndSchemes fill:#FFFBEB,stroke:#D97706,stroke-width:2px
+    style EdgeDevice fill:#7F1D1D,color:#FFFFFF,stroke:#EF4444,stroke-width:2px
+    style ClinicalIntelligence fill:#991B1B,color:#FFFFFF,stroke:#F87171,stroke-width:2px
+    style LogisticsAndAffordability fill:#B91C1C,color:#FFFFFF,stroke:#FCA5A5,stroke-width:2px
+    style PublicHealthAndSchemes fill:#881337,color:#FFFFFF,stroke:#FB7185,stroke-width:2px
 ```
 
 ### Key Sanjeevani.AI Modules & Implementations
